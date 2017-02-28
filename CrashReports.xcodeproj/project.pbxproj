@@ -12,6 +12,8 @@
 		05C34B511E660EF1000A7026 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C34B4E1E660EE4000A7026 /* MainMenu.xib */; };
 		05C34B561E6612A8000A7026 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B551E6612A8000A7026 /* MainWindowController.m */; };
 		05C34B591E6612BA000A7026 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C34B571E6612BA000A7026 /* MainWindowController.xib */; };
+		05C34B5C1E6613BF000A7026 /* CrashReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B5B1E6613BF000A7026 /* CrashReport.m */; };
+		05C34B621E6617FE000A7026 /* CrashReportGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B611E6617FE000A7026 /* CrashReportGroup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,10 @@
 		05C34B541E6612A8000A7026 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		05C34B551E6612A8000A7026 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		05C34B581E6612BA000A7026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainWindowController.xib; sourceTree = "<group>"; };
+		05C34B5A1E6613BF000A7026 /* CrashReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrashReport.h; sourceTree = "<group>"; };
+		05C34B5B1E6613BF000A7026 /* CrashReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrashReport.m; sourceTree = "<group>"; };
+		05C34B601E6617FE000A7026 /* CrashReportGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrashReportGroup.h; sourceTree = "<group>"; };
+		05C34B611E6617FE000A7026 /* CrashReportGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrashReportGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,10 @@
 				05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */,
 				05C34B541E6612A8000A7026 /* MainWindowController.h */,
 				05C34B551E6612A8000A7026 /* MainWindowController.m */,
+				05C34B5A1E6613BF000A7026 /* CrashReport.h */,
+				05C34B5B1E6613BF000A7026 /* CrashReport.m */,
+				05C34B601E6617FE000A7026 /* CrashReportGroup.h */,
+				05C34B611E6617FE000A7026 /* CrashReportGroup.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -165,7 +175,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				05C34B561E6612A8000A7026 /* MainWindowController.m in Sources */,
+				05C34B5C1E6613BF000A7026 /* CrashReport.m in Sources */,
 				05C34B3E1E660EA8000A7026 /* main.m in Sources */,
+				05C34B621E6617FE000A7026 /* CrashReportGroup.m in Sources */,
 				05C34B501E660EEB000A7026 /* ApplicationDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,33 +22,21 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-#import "MainWindowController.h"
-#import "CrashReportGroup.h"
-#import "CrashReport.h"
+@import Foundation;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MainWindowController()
+@interface CrashReport: NSObject
 
-@property( atomic, readwrite, strong ) NSArray< CrashReportGroup * > * groups;
-@property( atomic, readwrite, strong ) IBOutlet NSArrayController    * groupController;
+@property( atomic, readonly ) NSString * path;
+@property( atomic, readonly ) NSString * contents;
+@property( atomic, readonly ) NSString * process;
+@property( atomic, readonly ) NSUInteger pid;
+@property( atomic, readonly ) NSString * version;
+@property( atomic, readonly ) NSDate   * date;
+
++ ( NSArray< CrashReport * > * )crashReports;
 
 @end
 
 NS_ASSUME_NONNULL_END
-
-@implementation MainWindowController
-
-- ( instancetype )init
-{
-    return [ self initWithWindowNibName: NSStringFromClass( self.class ) ];
-}
-
-- ( void )windowDidLoad
-{
-    [ super windowDidLoad ];
-    
-    NSLog( @"%@", [ CrashReport crashReports ] );
-}
-
-@end

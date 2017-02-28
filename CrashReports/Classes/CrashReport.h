@@ -22,18 +22,21 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-@import Foundation;
+@import Cocoa;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CrashReport: NSObject
 
 @property( atomic, readonly ) NSString * path;
+@property( atomic, readonly ) NSData   * data;
 @property( atomic, readonly ) NSString * contents;
 @property( atomic, readonly ) NSString * process;
 @property( atomic, readonly ) NSUInteger pid;
 @property( atomic, readonly ) NSString * version;
 @property( atomic, readonly ) NSDate   * date;
+@property( atomic, readonly ) NSString * processPath;
+@property( atomic, readonly ) NSImage  * icon;
 
 + ( NSArray< CrashReport * > * )availableReports;
 

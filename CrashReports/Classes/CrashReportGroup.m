@@ -23,6 +23,7 @@
  ******************************************************************************/
 
 #import "CrashReportGroup.h"
+#import "CrashReport.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,6 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property( atomic, readwrite, strong ) NSString                        * name;
 @property( atomic, readwrite, strong ) NSArray< CrashReport * >        * reports;
 @property( atomic, readwrite, strong ) NSMutableArray< CrashReport * > * mutableReports;
+@property( atomic, readwrite, strong ) NSImage                         * icon;
+@property( atomic, readwrite, strong ) NSString                        * index;
 
 @end
 
@@ -62,9 +65,23 @@ NS_ASSUME_NONNULL_END
 
 - ( void )addCrashReport: ( CrashReport * )report
 {
+    if( self.icon == nil )
+    {
+        self.icon = report.icon;
+    }
+    
     [ self.mutableReports addObject: report ];
     
     self.reports = [ NSArray arrayWithArray: self.mutableReports ];
+    
+    if( self.index == nil )
+    {
+        self.index = report.contents;
+    }
+    else
+    {
+        self.index = [ self.index stringByAppendingString: report.contents ];
+    }
 }
 
 @end

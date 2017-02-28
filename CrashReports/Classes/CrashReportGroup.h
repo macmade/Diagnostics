@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-@import Foundation;
+@import Cocoa;
 
 @class CrashReport;
 
@@ -30,8 +30,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CrashReportGroup: NSObject
 
-@property( atomic, readonly ) NSString                 * name;
-@property( atomic, readonly ) NSArray< CrashReport * > * reports;
+@property( atomic, readonly           ) NSString                 * name;
+@property( atomic, readonly           ) NSArray< CrashReport * > * reports;
+@property( atomic, readonly, nullable ) NSImage                  * icon;
+@property( atomic, readonly, nullable ) NSString                 * index;
 
 - ( instancetype )initWithName: ( NSString * )name NS_DESIGNATED_INITIALIZER;
 - ( void )addCrashReport: ( CrashReport * )report;

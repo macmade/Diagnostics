@@ -29,11 +29,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CrashReport()
 
 @property( atomic, readwrite, strong ) NSString * path;
+@property( atomic, readwrite, strong ) NSData   * data;
 @property( atomic, readwrite, strong ) NSString * contents;
 @property( atomic, readwrite, strong ) NSString * process;
 @property( atomic, readwrite, assign ) NSUInteger pid;
 @property( atomic, readwrite, strong ) NSString * version;
 @property( atomic, readwrite, strong ) NSDate   * date;
+@property( atomic, readwrite, strong ) NSString * processPath;
+@property( atomic, readwrite, strong ) NSImage  * icon;
 
 - ( nullable instancetype )initWithPath: ( NSString * )path;
 - ( BOOL )parseContents;
@@ -113,6 +116,7 @@ NS_ASSUME_NONNULL_END
     if( ( self = [ self init ] ) )
     {
         self.path     = path;
+        self.data     = data;
         self.contents = [ [ NSString alloc ] initWithData: data encoding: NSUTF8StringEncoding ];
         
         if( self.contents == nil || self.contents.length == 0 )
@@ -123,6 +127,39 @@ NS_ASSUME_NONNULL_END
         if( [ self parseContents ] == NO )
         {
             return nil;
+        }
+        
+        if( self.processPath.length > 0 )
+        {
+            if( [ self.processPath rangeOfString: @".app/Contents/MacOS" ].location != NSNotFound )
+            {
+                @try
+                {
+                    {
+                        NSString * app;
+                        
+                        app = [ self.processPath substringWithRange: NSMakeRange( 0, [ self.processPath rangeOfString: @".app/Contents/MacOS" ].location + 4 ) ];
+                        
+                        if( app.length > 0 )
+                        {
+                            self.icon = [ [ NSWorkspace sharedWorkspace ] iconForFile: app ];
+                        }
+                    }
+                }
+                @catch( NSException * e )
+                {
+                    ( void )e;
+                }
+            }
+            
+            if( self.icon == nil )
+            {
+                self.icon = [ [ NSWorkspace sharedWorkspace ] iconForFile: self.processPath ];
+            }
+        }
+        else
+        {
+            self.icon = [ [ NSWorkspace sharedWorkspace ] iconForFile: @"/bin/ls" ];
         }
     }
     
@@ -190,6 +227,16 @@ NS_ASSUME_NONNULL_END
                     {
                         return NO;
                     }
+                }
+            }
+            else if( [ line hasPrefix: @"Path:" ] )
+            {
+                matches          = [ self matchesInString: line withExpression: @"Path:\\s+(.*)" numberOfCaptures: 1 ];
+                self.processPath = [ [ matches objectAtIndex: 0 ] stringByTrimmingCharactersInSet: [ NSCharacterSet whitespaceCharacterSet ] ];
+                
+                if( self.processPath == nil || self.processPath.length == 0 )
+                {
+                    return NO;
                 }
             }
         }

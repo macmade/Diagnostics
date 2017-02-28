@@ -24,13 +24,9 @@
 
 @import Cocoa;
 
-@class MainWindowController;
-
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ApplicationDelegate: NSObject< NSApplicationDelegate >
-
-@property( atomic, readonly ) MainWindowController * mainWindowController;
+@interface MainWindowController: NSWindowController
 
 @end
 

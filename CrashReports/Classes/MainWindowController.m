@@ -22,16 +22,26 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-@import Cocoa;
-
-@class MainWindowController;
+#import "MainWindowController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ApplicationDelegate: NSObject< NSApplicationDelegate >
-
-@property( atomic, readonly ) MainWindowController * mainWindowController;
+@interface MainWindowController()
 
 @end
 
 NS_ASSUME_NONNULL_END
+
+@implementation MainWindowController
+
+- ( instancetype )init
+{
+    return [ self initWithWindowNibName: NSStringFromClass( self.class ) ];
+}
+
+- ( void )windowDidLoad
+{
+    [ super windowDidLoad ];
+}
+
+@end

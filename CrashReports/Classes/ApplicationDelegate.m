@@ -23,10 +23,13 @@
  ******************************************************************************/
 
 #import "ApplicationDelegate.h"
+#import "MainWindowController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ApplicationDelegate()
+
+@property( atomic, readwrite, strong ) MainWindowController * mainWindowController;
 
 @end
 
@@ -37,6 +40,11 @@ NS_ASSUME_NONNULL_END
 - ( void )applicationDidFinishLaunching: ( NSNotification * )notification
 {
     ( void )notification;
+    
+    self.mainWindowController = [ MainWindowController new ];
+    
+    [ self.mainWindowController.window center ];
+    [ self.mainWindowController.window makeKeyAndOrderFront: nil ];
 }
 
 - ( void) applicationWillTerminate: ( NSNotification * )notification

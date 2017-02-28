@@ -33,9 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property( atomic, readwrite, strong ) NSString * contents;
 @property( atomic, readwrite, strong ) NSString * process;
 @property( atomic, readwrite, assign ) NSUInteger pid;
+@property( atomic, readwrite, assign ) NSUInteger uid;
 @property( atomic, readwrite, strong ) NSString * version;
 @property( atomic, readwrite, strong ) NSDate   * date;
 @property( atomic, readwrite, strong ) NSString * processPath;
+@property( atomic, readwrite, strong ) NSString * osVersion;
+@property( atomic, readwrite, strong ) NSString * codeType;
+@property( atomic, readwrite, strong ) NSString * exceptionType;
 @property( atomic, readwrite, strong ) NSImage  * icon;
 
 - ( nullable instancetype )initWithPath: ( NSString * )path;
@@ -200,6 +204,46 @@ NS_ASSUME_NONNULL_END
                 self.version = [ [ matches objectAtIndex: 0 ] stringByTrimmingCharactersInSet: [ NSCharacterSet whitespaceCharacterSet ] ];
                 
                 if( self.version == nil || self.version.length == 0 )
+                {
+                    return NO;
+                }
+            }
+            else if( [ line hasPrefix: @"OS Version:" ] )
+            {
+                matches        = [ self matchesInString: line withExpression: @"OS Version:\\s+(.*)" numberOfCaptures: 1 ];
+                self.osVersion = [ [ matches objectAtIndex: 0 ] stringByTrimmingCharactersInSet: [ NSCharacterSet whitespaceCharacterSet ] ];
+                
+                if( self.osVersion == nil || self.osVersion.length == 0 )
+                {
+                    return NO;
+                }
+            }
+            else if( [ line hasPrefix: @"Code Type:" ] )
+            {
+                matches       = [ self matchesInString: line withExpression: @"Code Type:\\s+(.*)" numberOfCaptures: 1 ];
+                self.codeType = [ [ matches objectAtIndex: 0 ] stringByTrimmingCharactersInSet: [ NSCharacterSet whitespaceCharacterSet ] ];
+                
+                if( self.codeType == nil || self.codeType.length == 0 )
+                {
+                    return NO;
+                }
+            }
+            else if( [ line hasPrefix: @"Exception Type:" ] )
+            {
+                matches            = [ self matchesInString: line withExpression: @"Exception Type:\\s+(.*)" numberOfCaptures: 1 ];
+                self.exceptionType = [ [ matches objectAtIndex: 0 ] stringByTrimmingCharactersInSet: [ NSCharacterSet whitespaceCharacterSet ] ];
+                
+                if( self.exceptionType == nil || self.exceptionType.length == 0 )
+                {
+                    return NO;
+                }
+            }
+            else if( [ line hasPrefix: @"User ID:" ] )
+            {
+                matches  = [ self matchesInString: line withExpression: @"User ID:\\s+([0-9]+)" numberOfCaptures: 1 ];
+                self.uid = ( NSUInteger )[ [ matches objectAtIndex: 0 ] integerValue ];
+                
+                if( self.uid == 0 )
                 {
                     return NO;
                 }

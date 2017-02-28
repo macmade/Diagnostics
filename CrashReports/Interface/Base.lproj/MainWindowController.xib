@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController">
             <connections>
+                <outlet property="groupController" destination="zmL-8U-v1s" id="BfY-Og-HDu"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="jDL-dC-QIL"/>
             </connections>
         </customObject>
@@ -22,5 +23,10 @@
                 <autoresizingMask key="autoresizingMask"/>
             </view>
         </window>
+        <arrayController objectClassName="CrashReportGroup" automaticallyPreparesContent="YES" selectsInsertedObjects="NO" avoidsEmptySelection="NO" automaticallyRearrangesObjects="YES" id="zmL-8U-v1s">
+            <connections>
+                <binding destination="-2" name="contentArray" keyPath="groups" id="7cN-LJ-aLo"/>
+            </connections>
+        </arrayController>
     </objects>
 </document>

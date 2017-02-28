@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property( atomic, readonly ) NSString * version;
 @property( atomic, readonly ) NSDate   * date;
 
-+ ( NSArray< CrashReport * > * )crashReports;
++ ( NSArray< CrashReport * > * )availableReports;
 
 @end
 

@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_END
 
 @implementation CrashReport
 
-+ ( NSArray< CrashReport * > * )crashReports
++ ( NSArray< CrashReport * > * )availableReports
 {
     NSString                        * dir;
     NSString                        * path;

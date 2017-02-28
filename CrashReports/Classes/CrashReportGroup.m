@@ -55,6 +55,11 @@ NS_ASSUME_NONNULL_END
     return self;
 }
 
+- ( NSString * )description
+{
+    return [ NSString stringWithFormat: @"%@ %@ (%llu reports)", [ super description ], self.name, ( unsigned long long )( self.reports.count ) ];
+}
+
 - ( void )addCrashReport: ( CrashReport * )report
 {
     [ self.mutableReports addObject: report ];

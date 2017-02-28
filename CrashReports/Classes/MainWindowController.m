@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property( atomic, readwrite, strong ) NSArray< CrashReportGroup * > * groups;
 @property( atomic, readwrite, strong ) IBOutlet NSArrayController    * groupController;
 
-- ( void )load;
+- ( void )reload;
 
 @end
 
@@ -52,67 +52,72 @@ NS_ASSUME_NONNULL_END
     
     [ super windowDidLoad ];
     
+    self.window.titlebarAppearsTransparent = YES;
+    self.window.titleVisibility            = NSWindowTitleHidden;
+    
+    self.groupController.sortDescriptors = @[ [ NSSortDescriptor sortDescriptorWithKey: @"name" ascending: YES selector: @selector( localizedCaseInsensitiveCompare: ) ] ];
+    
+    [ self reload ];
+}
+
+- ( void )reload
+{
     dispatch_async
     (
         dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0 ),
         ^( void )
         {
-            [ self load ];
-        }
-    );
-}
-
-- ( void )load
-{
-    NSMutableDictionary< NSString *, NSMutableArray< CrashReport * > * > * groups;
-    CrashReport                                                          * report;
-    NSMutableArray< CrashReport * >                                      * reports;
-    NSString                                                             * key;
-    CrashReportGroup                                                     * group;
-    
-    dispatch_sync
-    (
-        dispatch_get_main_queue(),
-        ^( void )
-        {
-            [ self.groupController removeObjects: self.groups ];
-        }
-    );
-    
-    groups = [ NSMutableDictionary new ];
-    
-    for( report in [ CrashReport availableReports ] )
-    {
-        reports = groups[ report.process ];
-        
-        if( reports == nil )
-        {
-            reports = [ NSMutableArray new ];
+            NSMutableDictionary< NSString *, NSMutableArray< CrashReport * > * > * groups;
+            CrashReport                                                          * report;
+            NSMutableArray< CrashReport * >                                      * reports;
+            NSString                                                             * key;
+            CrashReportGroup                                                     * group;
             
-            [ groups setObject: reports forKey: report.process ];
-        }
-        
-        [ reports addObject: report ];
-    }
-    
-    for( key in groups )
-    {
-        group = [ [ CrashReportGroup alloc ] initWithName: key ];
-        
-        for( report in groups[ key ] )
-        {
-            [ group addCrashReport: report ];
-        }
-        
-        dispatch_sync
-        (
-            dispatch_get_main_queue(),
-            ^( void )
+            dispatch_sync
+            (
+                dispatch_get_main_queue(),
+                ^( void )
+                {
+                    [ self.groupController removeObjects: self.groups ];
+                }
+            );
+            
+            groups = [ NSMutableDictionary new ];
+            
+            for( report in [ CrashReport availableReports ] )
             {
-                [ self.groupController addObject: group ];
+                reports = groups[ report.process ];
+                
+                if( reports == nil )
+                {
+                    reports = [ NSMutableArray new ];
+                    
+                    [ groups setObject: reports forKey: report.process ];
+                }
+                
+                [ reports addObject: report ];
             }
-        );
-    }
+            
+            for( key in groups )
+            {
+                group = [ [ CrashReportGroup alloc ] initWithName: key ];
+                
+                for( report in groups[ key ] )
+                {
+                    [ group addCrashReport: report ];
+                }
+                
+                dispatch_sync
+                (
+                    dispatch_get_main_queue(),
+                    ^( void )
+                    {
+                        [ self.groupController addObject: group ];
+                    }
+                );
+            }
+        }
+    );
 }
 
 @end

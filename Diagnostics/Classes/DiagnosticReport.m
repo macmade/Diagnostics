@@ -28,19 +28,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DiagnosticReport()
 
-@property( atomic, readwrite, strong ) NSString * path;
-@property( atomic, readwrite, strong ) NSData   * data;
-@property( atomic, readwrite, strong ) NSString * contents;
-@property( atomic, readwrite, strong ) NSString * process;
-@property( atomic, readwrite, assign ) NSUInteger pid;
-@property( atomic, readwrite, assign ) NSUInteger uid;
-@property( atomic, readwrite, strong ) NSString * version;
-@property( atomic, readwrite, strong ) NSDate   * date;
-@property( atomic, readwrite, strong ) NSString * processPath;
-@property( atomic, readwrite, strong ) NSString * osVersion;
-@property( atomic, readwrite, strong ) NSString * codeType;
-@property( atomic, readwrite, strong ) NSString * exceptionType;
-@property( atomic, readwrite, strong ) NSImage  * icon;
+@property( atomic, readwrite, assign           ) DiagnosticReportType type;
+@property( atomic, readwrite, strong           ) NSString           * path;
+@property( atomic, readwrite, strong           ) NSData             * data;
+@property( atomic, readwrite, strong           ) NSString           * contents;
+@property( atomic, readwrite, strong, nullable ) NSString           * process;
+@property( atomic, readwrite, strong, nullable ) NSString           * pid;
+@property( atomic, readwrite, strong, nullable ) NSString           * uid;
+@property( atomic, readwrite, strong, nullable ) NSString           * version;
+@property( atomic, readwrite, strong, nullable ) NSDate             * date;
+@property( atomic, readwrite, strong, nullable ) NSString           * processPath;
+@property( atomic, readwrite, strong, nullable ) NSString           * osVersion;
+@property( atomic, readwrite, strong, nullable ) NSString           * codeType;
+@property( atomic, readwrite, strong, nullable ) NSString           * exceptionType;
+@property( atomic, readwrite, strong, nullable ) NSImage            * icon;
 
 + ( NSArray< DiagnosticReport * > * )availableReportsInDirectory: ( NSString * )dir;
 
@@ -112,17 +113,6 @@ NS_ASSUME_NONNULL_END
     {
         [ enumerator skipDescendants ];
         
-        if
-        (
-               [ path.pathExtension isEqualToString: @"crash" ] == NO
-            && [ path.pathExtension isEqualToString: @"spin"  ] == NO
-            && [ path.pathExtension isEqualToString: @"diag"  ] == NO
-            && [ path.pathExtension isEqualToString: @"hang"  ] == NO
-        )
-        {
-            continue;
-        }
-        
         path   = [ dir stringByAppendingPathComponent: path ];
         report = [ [ DiagnosticReport alloc ] initWithPath: path ];
         
@@ -137,10 +127,32 @@ NS_ASSUME_NONNULL_END
 
 - ( nullable instancetype )initWithPath: ( NSString * )path
 {
-    BOOL     isDir;
-    NSData * data;
+    BOOL                 isDir;
+    NSData             * data;
+    DiagnosticReportType type;
     
     if( [ [ NSFileManager defaultManager ] fileExistsAtPath: path isDirectory: &isDir ] == NO || isDir == YES )
+    {
+        return nil;
+    }
+    
+    if( [ path.pathExtension isEqualToString: @"crash" ] )
+    {
+        type = DiagnosticReportTypeCrash;
+    }
+    else if( [ path.pathExtension isEqualToString: @"spin" ] )
+    {
+        type = DiagnosticReportTypeSpin;
+    }
+    else if( [ path.pathExtension isEqualToString: @"diag" ] )
+    {
+        type = DiagnosticReportTypeHang;
+    }
+    else if( [ path.pathExtension isEqualToString: @"hang" ] )
+    {
+        type = DiagnosticReportTypeDiag;
+    }
+    else
     {
         return nil;
     }
@@ -154,6 +166,7 @@ NS_ASSUME_NONNULL_END
     
     if( ( self = [ self init ] ) )
     {
+        self.type     = type;
         self.path     = path;
         self.data     = data;
         self.contents = [ [ NSString alloc ] initWithData: data encoding: NSUTF8StringEncoding ];
@@ -166,6 +179,36 @@ NS_ASSUME_NONNULL_END
         if( [ self parseContents ] == NO || self.process == nil )
         {
             return nil;
+        }
+        
+        if( self.pid.length == 0 )
+        {
+            self.pid = @"--";
+        }
+        
+        if( self.uid.length == 0 )
+        {
+            self.uid = @"--";
+        }
+        
+        if( self.version.length == 0 )
+        {
+            self.version = @"--";
+        }
+        
+        if( self.osVersion.length == 0 )
+        {
+            self.osVersion = @"--";
+        }
+        
+        if( self.codeType.length == 0 )
+        {
+            self.codeType = @"--";
+        }
+        
+        if( self.exceptionType.length == 0 )
+        {
+            self.exceptionType = @"--";
         }
         
         if( self.processPath.length > 0 )
@@ -207,7 +250,19 @@ NS_ASSUME_NONNULL_END
 
 - ( NSString * )description
 {
-    return [ NSString stringWithFormat: @"%@ %@ [%llu] %@", [ super description ], self.process, ( unsigned long long )( self.pid ), self.date ];
+    return [ NSString stringWithFormat: @"%@ %@ %@ %@", [ super description ], self.process, self.typeString, self.date ];
+}
+
+- ( NSString * )typeString
+{
+    switch( self.type )
+    {
+        case DiagnosticReportTypeUnknown: return @"Unknown";
+        case DiagnosticReportTypeCrash:   return @"Crash";
+        case DiagnosticReportTypeSpin:    return @"Spin";
+        case DiagnosticReportTypeHang:    return @"Hang";
+        case DiagnosticReportTypeDiag:    return @"Diagnostic";
+    }
 }
 
 - ( BOOL )parseContents
@@ -226,9 +281,9 @@ NS_ASSUME_NONNULL_END
             {
                 matches      = [ self matchesInString: line withExpression: @"Process:\\s+([^\\[]+)\\[([0-9]+)\\]" numberOfCaptures: 2 ];
                 self.process = [ [ matches objectAtIndex: 0 ] stringByTrimmingCharactersInSet: [ NSCharacterSet whitespaceCharacterSet ] ];
-                self.pid     = ( NSUInteger )[ [ matches objectAtIndex: 1 ] integerValue ];
+                self.pid     = [ matches objectAtIndex: 1 ];
                 
-                if( self.process == nil || self.process.length == 0 || self.pid == 0 )
+                if( self.process == nil || self.process.length == 0 || self.pid == nil || self.pid.length == 0 )
                 {
                     return NO;
                 }
@@ -286,9 +341,9 @@ NS_ASSUME_NONNULL_END
             else if( [ line hasPrefix: @"User ID:" ] )
             {
                 matches  = [ self matchesInString: line withExpression: @"User ID:\\s+([0-9]+)" numberOfCaptures: 1 ];
-                self.uid = ( NSUInteger )[ [ matches objectAtIndex: 0 ] integerValue ];
+                self.uid = [ matches objectAtIndex: 0 ];
                 
-                if( self.uid == 0 )
+                if( self.uid == nil || self.uid.length == 0 )
                 {
                     return NO;
                 }

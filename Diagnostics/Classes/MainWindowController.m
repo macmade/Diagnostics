@@ -33,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property( atomic, readwrite, strong )          NSArray< DiagnosticReportGroup * > * groups;
 @property( atomic, readwrite, assign )          BOOL                                 editable;
+@property( atomic, readwrite, assign )          BOOL                                 loading;
 @property( atomic, readwrite, strong ) IBOutlet NSArrayController                  * groupController;
 @property( atomic, readwrite, strong ) IBOutlet NSArrayController                  * reportsController;
 @property( atomic, readwrite, strong ) IBOutlet NSTextView                         * textView;
@@ -53,7 +54,8 @@ NS_ASSUME_NONNULL_END
 
 - ( void )windowDidLoad
 {
-    self.groups = @[];
+    self.loading = YES;
+    self.groups  = @[];
     
     [ super windowDidLoad ];
     
@@ -99,16 +101,16 @@ NS_ASSUME_NONNULL_END
         ^( void )
         {
             NSMutableDictionary< NSString *, NSMutableArray< DiagnosticReport * > * > * groups;
-            DiagnosticReport                                                          * report;
+            __block DiagnosticReport                                                  * report;
             NSMutableArray< DiagnosticReport * >                                      * reports;
-            NSString                                                                  * key;
-            DiagnosticReportGroup                                                     * group;
             
             dispatch_sync
             (
                 dispatch_get_main_queue(),
                 ^( void )
                 {
+                    self.loading = YES;
+                    
                     [ self.groupController removeObjects: self.groups ];
                 }
             );
@@ -129,24 +131,29 @@ NS_ASSUME_NONNULL_END
                 [ reports addObject: report ];
             }
             
-            for( key in groups )
-            {
-                group = [ [ DiagnosticReportGroup alloc ] initWithName: key ];
-                
-                for( report in groups[ key ] )
+            dispatch_sync
+            (
+                dispatch_get_main_queue(),
+                ^( void )
                 {
-                    [ group addReport: report ];
-                }
-                
-                dispatch_sync
-                (
-                    dispatch_get_main_queue(),
-                    ^( void )
+                    NSString              * key;
+                    DiagnosticReportGroup * group;
+                    
+                    for( key in groups )
                     {
+                        group = [ [ DiagnosticReportGroup alloc ] initWithName: key ];
+                        
+                        for( report in groups[ key ] )
+                        {
+                            [ group addReport: report ];
+                        }
+                        
                         [ self.groupController addObject: group ];
                     }
-                );
-            }
+                    
+                    self.loading = NO;
+                }
+            );
         }
     );
 }

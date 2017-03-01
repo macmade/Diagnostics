@@ -26,21 +26,32 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM( NSInteger, DiagnosticReportType )
+{
+    DiagnosticReportTypeUnknown = 0x00,
+    DiagnosticReportTypeCrash   = 0x01,
+    DiagnosticReportTypeSpin    = 0x02,
+    DiagnosticReportTypeHang    = 0x03,
+    DiagnosticReportTypeDiag    = 0x04
+};
+
 @interface DiagnosticReport: NSObject
 
-@property( atomic, readonly           ) NSString * path;
-@property( atomic, readonly           ) NSData   * data;
-@property( atomic, readonly           ) NSString * contents;
-@property( atomic, readonly, nullable ) NSString * process;
-@property( atomic, readonly           ) NSUInteger pid;
-@property( atomic, readonly           ) NSUInteger uid;
-@property( atomic, readonly, nullable ) NSString * version;
-@property( atomic, readonly, nullable ) NSDate   * date;
-@property( atomic, readonly, nullable ) NSString * processPath;
-@property( atomic, readonly, nullable ) NSString * osVersion;
-@property( atomic, readonly, nullable ) NSString * codeType;
-@property( atomic, readonly, nullable ) NSString * exceptionType;
-@property( atomic, readonly, nullable ) NSImage  * icon;
+@property( atomic, readonly           ) DiagnosticReportType type;
+@property( atomic, readonly           ) NSString           * typeString;
+@property( atomic, readonly           ) NSString           * path;
+@property( atomic, readonly           ) NSData             * data;
+@property( atomic, readonly           ) NSString           * contents;
+@property( atomic, readonly, nullable ) NSString           * process;
+@property( atomic, readonly, nullable ) NSString           * pid;
+@property( atomic, readonly, nullable ) NSString           * uid;
+@property( atomic, readonly, nullable ) NSString           * version;
+@property( atomic, readonly, nullable ) NSDate             * date;
+@property( atomic, readonly, nullable ) NSString           * processPath;
+@property( atomic, readonly, nullable ) NSString           * osVersion;
+@property( atomic, readonly, nullable ) NSString           * codeType;
+@property( atomic, readonly, nullable ) NSString           * exceptionType;
+@property( atomic, readonly, nullable ) NSImage            * icon;
 
 + ( NSArray< DiagnosticReport * > * )availableReports;
 

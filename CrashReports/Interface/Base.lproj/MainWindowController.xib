@@ -10,6 +10,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController">
             <connections>
                 <outlet property="groupController" destination="zmL-8U-v1s" id="BfY-Og-HDu"/>
+                <outlet property="reportsController" destination="oyC-n7-yxo" id="wU5-os-AR8"/>
                 <outlet property="textView" destination="066-mu-uyw" id="9Ay-ng-Mc0"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="jDL-dC-QIL"/>
             </connections>
@@ -43,7 +44,7 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnSelection="YES" autosaveColumns="NO" rowHeight="30" rowSizeStyle="automatic" viewBased="YES" id="lT2-Kz-DQX">
-                                                            <rect key="frame" x="0.0" y="0.0" width="265" height="519"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="264" height="519"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <size key="intercellSpacing" width="3" height="2"/>
                                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -130,11 +131,11 @@
                                                     <nil key="backgroundColor"/>
                                                 </clipView>
                                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="oaq-3W-Ki3">
-                                                    <rect key="frame" x="0.0" y="503" width="228" height="16"/>
+                                                    <rect key="frame" x="0.0" y="503" width="230" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="L53-1f-V5N">
-                                                    <rect key="frame" x="231" y="17" width="15" height="102"/>
+                                                    <rect key="frame" x="233" y="17" width="15" height="102"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
@@ -214,8 +215,8 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="727" height="160"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="lL9-ih-Bjs" viewBased="YES" id="qTw-SL-r9e">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="727" height="137"/>
+                                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" emptySelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="lL9-ih-Bjs" viewBased="YES" id="qTw-SL-r9e">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="1208" height="137"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -494,7 +495,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </scroller>
                                                         <tableHeaderView key="headerView" id="lL9-ih-Bjs">
-                                                            <rect key="frame" x="0.0" y="0.0" width="727" height="23"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="1208" height="23"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableHeaderView>
                                                     </scrollView>
@@ -524,6 +525,7 @@
                                                                     <size key="maxSize" width="727" height="10000000"/>
                                                                     <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <connections>
+                                                                        <binding destination="-2" name="editable" keyPath="editable" id="jVV-da-B6o"/>
                                                                         <binding destination="oyC-n7-yxo" name="value" keyPath="selection.contents" id="Bxd-Mv-MgK"/>
                                                                     </connections>
                                                                 </textView>
@@ -539,6 +541,15 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </scroller>
                                                         <connections>
+                                                            <binding destination="oyC-n7-yxo" name="hidden2" keyPath="selectedObjects" previousBinding="Bw2-tE-Siw" id="0W4-b6-Z35">
+                                                                <dictionary key="options">
+                                                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                                                    <string key="NSValueTransformerName">ArrayCountIsGreaterThanOneValueTransformer</string>
+                                                                </dictionary>
+                                                            </binding>
                                                             <binding destination="oyC-n7-yxo" name="hidden" keyPath="selectedObjects" id="Bw2-tE-Siw">
                                                                 <dictionary key="options">
                                                                     <string key="NSValueTransformerName">ArrayIsEmptyValueTransformer</string>
@@ -546,10 +557,38 @@
                                                             </binding>
                                                         </connections>
                                                     </scrollView>
+                                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="lDO-89-43o">
+                                                        <rect key="frame" x="0.0" y="0.0" width="727" height="430"/>
+                                                        <subviews>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX3-d2-VI8">
+                                                                <rect key="frame" x="285" y="203" width="157" height="24"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Multiple Selection" id="G0H-6d-5xR">
+                                                                    <font key="font" metaFont="systemThin" size="20"/>
+                                                                    <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="sX3-d2-VI8" firstAttribute="centerX" secondItem="lDO-89-43o" secondAttribute="centerX" id="FlY-KT-btz"/>
+                                                            <constraint firstItem="sX3-d2-VI8" firstAttribute="centerY" secondItem="lDO-89-43o" secondAttribute="centerY" id="q9v-LN-l5C"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <binding destination="oyC-n7-yxo" name="hidden" keyPath="selectedObjects" id="c3u-AX-UqW">
+                                                                <dictionary key="options">
+                                                                    <string key="NSValueTransformerName">ArrayCountIsOneValueTransformer</string>
+                                                                </dictionary>
+                                                            </binding>
+                                                        </connections>
+                                                    </customView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="xq2-Ka-e4b" firstAttribute="centerY" secondItem="Cn2-md-KK9" secondAttribute="centerY" id="3uo-Ti-wAV"/>
+                                                    <constraint firstItem="lDO-89-43o" firstAttribute="centerX" secondItem="Cn2-md-KK9" secondAttribute="centerX" id="Vep-2u-DnL"/>
                                                     <constraint firstItem="xq2-Ka-e4b" firstAttribute="height" secondItem="Cn2-md-KK9" secondAttribute="height" id="XM6-aS-mKn"/>
+                                                    <constraint firstItem="lDO-89-43o" firstAttribute="width" secondItem="Cn2-md-KK9" secondAttribute="width" id="aBc-xo-Sk7"/>
+                                                    <constraint firstItem="lDO-89-43o" firstAttribute="height" secondItem="Cn2-md-KK9" secondAttribute="height" id="f7w-th-plS"/>
+                                                    <constraint firstItem="lDO-89-43o" firstAttribute="centerY" secondItem="Cn2-md-KK9" secondAttribute="centerY" id="gW3-JS-mXT"/>
                                                     <constraint firstItem="xq2-Ka-e4b" firstAttribute="width" secondItem="Cn2-md-KK9" secondAttribute="width" id="gqR-OM-Yyp"/>
                                                     <constraint firstItem="xq2-Ka-e4b" firstAttribute="centerX" secondItem="Cn2-md-KK9" secondAttribute="centerX" id="mb4-Gy-EbY"/>
                                                 </constraints>

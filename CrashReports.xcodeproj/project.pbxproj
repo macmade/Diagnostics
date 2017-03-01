@@ -20,6 +20,8 @@
 		05C45DFB1E66D801003C83B1 /* ArrayCountStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45DFA1E66D801003C83B1 /* ArrayCountStringValueTransformer.m */; };
 		05C45ED61E674F7A003C83B1 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45ED51E674F7A003C83B1 /* Preferences.m */; };
 		05C45ED81E6750F9003C83B1 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05C45ED71E6750F9003C83B1 /* Defaults.plist */; };
+		05C45EDB1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45EDA1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m */; };
+		05C45EDE1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45EDD1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,10 @@
 		05C45ED41E674F7A003C83B1 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
 		05C45ED51E674F7A003C83B1 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
 		05C45ED71E6750F9003C83B1 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
+		05C45ED91E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayCountIsOneValueTransformer.h; sourceTree = "<group>"; };
+		05C45EDA1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayCountIsOneValueTransformer.m; sourceTree = "<group>"; };
+		05C45EDC1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayCountIsGreaterThanOneValueTransformer.h; sourceTree = "<group>"; };
+		05C45EDD1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayCountIsGreaterThanOneValueTransformer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,10 @@
 			children = (
 				05C34B4B1E660EE4000A7026 /* ApplicationDelegate.h */,
 				05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */,
+				05C45EDC1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.h */,
+				05C45EDD1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m */,
+				05C45ED91E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.h */,
+				05C45EDA1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m */,
 				05C45DF91E66D801003C83B1 /* ArrayCountStringValueTransformer.h */,
 				05C45DFA1E66D801003C83B1 /* ArrayCountStringValueTransformer.m */,
 				05C45DF61E66D600003C83B1 /* ArrayCountValueTransformer.h */,
@@ -205,7 +215,9 @@
 			files = (
 				05C34B561E6612A8000A7026 /* MainWindowController.m in Sources */,
 				05C34B5C1E6613BF000A7026 /* CrashReport.m in Sources */,
+				05C45EDE1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m in Sources */,
 				05C45DFB1E66D801003C83B1 /* ArrayCountStringValueTransformer.m in Sources */,
+				05C45EDB1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m in Sources */,
 				05C45DF81E66D600003C83B1 /* ArrayCountValueTransformer.m in Sources */,
 				05C45DF51E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m in Sources */,
 				05C34B3E1E660EA8000A7026 /* main.m in Sources */,

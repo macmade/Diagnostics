@@ -42,6 +42,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property( atomic, readwrite, strong ) NSString * exceptionType;
 @property( atomic, readwrite, strong ) NSImage  * icon;
 
++ ( NSArray< CrashReport * > * )availableReportsInDirectory: ( NSString * )dir;
+
 - ( nullable instancetype )initWithPath: ( NSString * )path;
 - ( BOOL )parseContents;
 - ( nullable NSArray< NSString * > * )matchesInString: ( NSString * )str withExpression: ( NSString * )expr numberOfCaptures: ( NSUInteger )n;
@@ -55,21 +57,48 @@ NS_ASSUME_NONNULL_END
 + ( NSArray< CrashReport * > * )availableReports
 {
     NSString                        * dir;
+    NSMutableArray< CrashReport * > * reports;
+    
+    reports = [ NSMutableArray new ];
+    
+    {
+        dir = NSSearchPathForDirectoriesInDomains( NSLibraryDirectory, NSUserDomainMask, YES ).firstObject;
+        
+        if( dir == nil || dir.length == 0 )
+        {
+            return @[];
+        }
+        
+        dir = [ dir stringByAppendingPathComponent: @"Logs" ];
+        dir = [ dir stringByAppendingPathComponent: @"DiagnosticReports" ];
+        
+        [ reports addObjectsFromArray: [ self availableReportsInDirectory: dir ] ];
+    }
+    
+    {
+        dir = NSSearchPathForDirectoriesInDomains( NSLibraryDirectory, NSLocalDomainMask, YES ).firstObject;
+        
+        if( dir == nil || dir.length == 0 )
+        {
+            return @[];
+        }
+        
+        dir = [ dir stringByAppendingPathComponent: @"Logs" ];
+        dir = [ dir stringByAppendingPathComponent: @"DiagnosticReports" ];
+        
+        [ reports addObjectsFromArray: [ self availableReportsInDirectory: dir ] ];
+    }
+    
+    return [ NSArray arrayWithArray: reports ];
+}
+
++ ( NSArray< CrashReport * > * )availableReportsInDirectory: ( NSString * )dir
+{
     NSString                        * path;
     BOOL                              isDir;
     NSMutableArray< CrashReport * > * reports;
     NSDirectoryEnumerator           * enumerator;
     CrashReport                     * report;
-    
-    dir = NSSearchPathForDirectoriesInDomains( NSLibraryDirectory, NSUserDomainMask, YES ).firstObject;
-    
-    if( dir == nil || dir.length == 0 )
-    {
-        return @[];
-    }
-    
-    dir = [ dir stringByAppendingPathComponent: @"Logs" ];
-    dir = [ dir stringByAppendingPathComponent: @"DiagnosticReports" ];
     
     if( [ [ NSFileManager defaultManager ] fileExistsAtPath: dir isDirectory: &isDir ] == NO || isDir == NO )
     {
@@ -83,7 +112,13 @@ NS_ASSUME_NONNULL_END
     {
         [ enumerator skipDescendants ];
         
-        if( [ path.pathExtension isEqualToString: @"crash" ] == NO )
+        if
+        (
+               [ path.pathExtension isEqualToString: @"crash" ] == NO
+            && [ path.pathExtension isEqualToString: @"spin"  ] == NO
+            && [ path.pathExtension isEqualToString: @"diag"  ] == NO
+            && [ path.pathExtension isEqualToString: @"hang"  ] == NO
+        )
         {
             continue;
         }
@@ -128,7 +163,7 @@ NS_ASSUME_NONNULL_END
             return nil;
         }
         
-        if( [ self parseContents ] == NO )
+        if( [ self parseContents ] == NO || self.process == nil )
         {
             return nil;
         }
@@ -194,6 +229,16 @@ NS_ASSUME_NONNULL_END
                 self.pid     = ( NSUInteger )[ [ matches objectAtIndex: 1 ] integerValue ];
                 
                 if( self.process == nil || self.process.length == 0 || self.pid == 0 )
+                {
+                    return NO;
+                }
+            }
+            else if( [ line hasPrefix: @"Command:" ] )
+            {
+                matches      = [ self matchesInString: line withExpression: @"Command:\\s+(.*)" numberOfCaptures: 1 ];
+                self.process = [ [ matches objectAtIndex: 0 ] stringByTrimmingCharactersInSet: [ NSCharacterSet whitespaceCharacterSet ] ];
+                
+                if( self.process == nil || self.process.length == 0 )
                 {
                     return NO;
                 }
@@ -269,7 +314,13 @@ NS_ASSUME_NONNULL_END
                     
                     if( self.date == nil )
                     {
-                        return NO;
+                        fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss ZZZ";
+                        self.date      = [ fmt dateFromString: str ];
+                        
+                        if( self.date == nil )
+                        {
+                            return NO;
+                        }
                     }
                 }
             }

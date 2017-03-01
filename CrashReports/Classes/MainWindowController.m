@@ -31,9 +31,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MainWindowController()
 
-@property( atomic, readwrite, strong ) NSArray< CrashReportGroup * > * groups;
-@property( atomic, readwrite, strong ) IBOutlet NSArrayController    * groupController;
-@property( atomic, readwrite, strong ) IBOutlet NSTextView           * textView;
+@property( atomic, readwrite, strong )          NSArray< CrashReportGroup * > * groups;
+@property( atomic, readwrite, assign )          BOOL                            editable;
+@property( atomic, readwrite, strong ) IBOutlet NSArrayController             * groupController;
+@property( atomic, readwrite, strong ) IBOutlet NSArrayController             * reportsController;
+@property( atomic, readwrite, strong ) IBOutlet NSTextView                    * textView;
 
 - ( IBAction )performFindPanelAction: ( id )sender;
 - ( void )reload;
@@ -55,10 +57,10 @@ NS_ASSUME_NONNULL_END
     
     [ super windowDidLoad ];
     
-    self.window.titlebarAppearsTransparent = YES;
-    self.window.titleVisibility            = NSWindowTitleHidden;
-    
-    self.groupController.sortDescriptors = @[ [ NSSortDescriptor sortDescriptorWithKey: @"name" ascending: YES selector: @selector( localizedCaseInsensitiveCompare: ) ] ];
+    self.window.titlebarAppearsTransparent  = YES;
+    self.window.titleVisibility             = NSWindowTitleHidden;
+    self.groupController.sortDescriptors    = @[ [ NSSortDescriptor sortDescriptorWithKey: @"name" ascending: YES selector: @selector( localizedCaseInsensitiveCompare: ) ] ];
+    self.reportsController.sortDescriptors  = @[ [ NSSortDescriptor sortDescriptorWithKey: @"date" ascending: NO ] ];
     
     {
         NSFont * font;

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:CrashReports.xcodeproj">
+      location = "self:/Users/macmade/Documents/Macmade/GitHub/CrashReports/Diagnostics.xcodeproj">
    </FileRef>
 </Workspace>

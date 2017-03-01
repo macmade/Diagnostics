@@ -1,9 +1,9 @@
-CrashReports
-============
+Diagnostics
+===========
 
-[![Build Status](https://img.shields.io/travis/macmade/CrashReports.svg?branch=master&style=flat)](https://travis-ci.org/macmade/CrashReports)
-[![Coverage Status](https://img.shields.io/coveralls/macmade/CrashReports.svg?branch=master&style=flat)](https://coveralls.io/r/macmade/CrashReports?branch=master)
-[![Issues](http://img.shields.io/github/issues/macmade/CrashReports.svg?style=flat)](https://github.com/macmade/CrashReports/issues)
+[![Build Status](https://img.shields.io/travis/macmade/Diagnostics.svg?branch=master&style=flat)](https://travis-ci.org/macmade/Diagnostics)
+[![Coverage Status](https://img.shields.io/coveralls/macmade/Diagnostics.svg?branch=master&style=flat)](https://coveralls.io/r/macmade/Diagnostics?branch=master)
+[![Issues](http://img.shields.io/github/issues/macmade/Diagnostics.svg?style=flat)](https://github.com/macmade/Diagnostics/issues)
 ![Status](https://img.shields.io/badge/status-active-brightgreen.svg?style=flat)
 ![License](https://img.shields.io/badge/license-mit-brightgreen.svg?style=flat)
 [![Contact](https://img.shields.io/badge/contact-@macmade-blue.svg?style=flat)](https://twitter.com/macmade)  
@@ -14,12 +14,12 @@ CrashReports
 About
 -----
 
-CrashReports is an application displaying the crash reports from applications on macOS.
+Diagnostics is an application displaying the diagnostic reports from applications on macOS.
 
 License
 -------
 
-CrashReports is released under the terms of the MIT License.
+Diagnostics is released under the terms of the MIT License.
 
 Repository Infos
 ----------------

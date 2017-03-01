@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05C34B361E660EA8000A7026 /* CrashReports.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrashReports.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05C34B361E660EA8000A7026 /* Diagnostics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diagnostics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C34B3D1E660EA8000A7026 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05C34B441E660EA8000A7026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05C34B4B1E660EE4000A7026 /* ApplicationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationDelegate.h; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				05C34B531E661166000A7026 /* README.md */,
-				05C34B381E660EA8000A7026 /* CrashReports */,
+				05C34B381E660EA8000A7026 /* Diagnostics */,
 				05C34B371E660EA8000A7026 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,19 +79,19 @@
 		05C34B371E660EA8000A7026 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				05C34B361E660EA8000A7026 /* CrashReports.app */,
+				05C34B361E660EA8000A7026 /* Diagnostics.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		05C34B381E660EA8000A7026 /* CrashReports */ = {
+		05C34B381E660EA8000A7026 /* Diagnostics */ = {
 			isa = PBXGroup;
 			children = (
 				05C34B4A1E660EE4000A7026 /* Classes */,
 				05C34B4D1E660EE4000A7026 /* Interface */,
 				05C34B3C1E660EA8000A7026 /* Supporting Files */,
 			);
-			path = CrashReports;
+			path = Diagnostics;
 			sourceTree = "<group>";
 		};
 		05C34B3C1E660EA8000A7026 /* Supporting Files */ = {
@@ -145,9 +145,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		05C34B351E660EA8000A7026 /* CrashReports */ = {
+		05C34B351E660EA8000A7026 /* Diagnostics */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 05C34B471E660EA8000A7026 /* Build configuration list for PBXNativeTarget "CrashReports" */;
+			buildConfigurationList = 05C34B471E660EA8000A7026 /* Build configuration list for PBXNativeTarget "Diagnostics" */;
 			buildPhases = (
 				05C34B321E660EA8000A7026 /* Sources */,
 				05C34B331E660EA8000A7026 /* Frameworks */,
@@ -157,9 +157,9 @@
 			);
 			dependencies = (
 			);
-			name = CrashReports;
+			name = Diagnostics;
 			productName = CrashReports;
-			productReference = 05C34B361E660EA8000A7026 /* CrashReports.app */;
+			productReference = 05C34B361E660EA8000A7026 /* Diagnostics.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -177,7 +177,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 05C34B311E660EA8000A7026 /* Build configuration list for PBXProject "CrashReports" */;
+			buildConfigurationList = 05C34B311E660EA8000A7026 /* Build configuration list for PBXProject "Diagnostics" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -190,7 +190,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				05C34B351E660EA8000A7026 /* CrashReports */,
+				05C34B351E660EA8000A7026 /* Diagnostics */,
 			);
 		};
 /* End PBXProject section */
@@ -476,7 +476,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = CrashReports/Info.plist;
+				INFOPLIST_FILE = Diagnostics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CrashReports";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -487,7 +487,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = CrashReports/Info.plist;
+				INFOPLIST_FILE = Diagnostics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.CrashReports";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -497,7 +497,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		05C34B311E660EA8000A7026 /* Build configuration list for PBXProject "CrashReports" */ = {
+		05C34B311E660EA8000A7026 /* Build configuration list for PBXProject "Diagnostics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				05C34B451E660EA8000A7026 /* Debug */,
@@ -506,7 +506,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		05C34B471E660EA8000A7026 /* Build configuration list for PBXNativeTarget "CrashReports" */ = {
+		05C34B471E660EA8000A7026 /* Build configuration list for PBXNativeTarget "Diagnostics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				05C34B481E660EA8000A7026 /* Debug */,

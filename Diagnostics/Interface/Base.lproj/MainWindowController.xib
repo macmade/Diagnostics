@@ -41,7 +41,7 @@
                                                 <rect key="frame" x="0.0" y="51" width="264" height="519"/>
                                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="FcE-ZO-5UG">
                                                     <rect key="frame" x="0.0" y="0.0" width="264" height="519"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnSelection="YES" autosaveColumns="NO" rowHeight="30" rowSizeStyle="automatic" viewBased="YES" id="lT2-Kz-DQX">
                                                             <rect key="frame" x="0.0" y="0.0" width="264" height="519"/>
@@ -131,11 +131,11 @@
                                                     <nil key="backgroundColor"/>
                                                 </clipView>
                                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="oaq-3W-Ki3">
-                                                    <rect key="frame" x="0.0" y="503" width="230" height="16"/>
+                                                    <rect key="frame" x="0.0" y="503" width="231" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="L53-1f-V5N">
-                                                    <rect key="frame" x="233" y="17" width="15" height="102"/>
+                                                    <rect key="frame" x="234" y="17" width="15" height="102"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
@@ -213,10 +213,10 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="727" height="160"/>
                                                         <clipView key="contentView" id="fub-ME-J5i">
                                                             <rect key="frame" x="0.0" y="0.0" width="727" height="160"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" emptySelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="lL9-ih-Bjs" viewBased="YES" id="qTw-SL-r9e">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="1208" height="137"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="1208" height="115"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -490,7 +490,7 @@
                                                             <rect key="frame" x="0.0" y="144" width="727" height="16"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </scroller>
-                                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="9Ml-th-xrr">
+                                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="9Ml-th-xrr">
                                                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </scroller>
@@ -515,7 +515,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="727" height="430"/>
                                                         <clipView key="contentView" id="Gde-ph-kfU">
                                                             <rect key="frame" x="0.0" y="0.0" width="727" height="430"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="bar" incrementalSearchingEnabled="YES" allowsCharacterPickerTouchBarItem="NO" allowsNonContiguousLayout="YES" textCompletion="NO" id="066-mu-uyw">
                                                                     <rect key="frame" x="0.0" y="0.0" width="727" height="430"/>
@@ -634,12 +634,12 @@
             </view>
             <point key="canvasLocation" x="-45" y="-303"/>
         </window>
-        <arrayController objectClassName="CrashReportGroup" automaticallyPreparesContent="YES" selectsInsertedObjects="NO" avoidsEmptySelection="NO" automaticallyRearrangesObjects="YES" id="zmL-8U-v1s">
+        <arrayController objectClassName="DiagnosticReportGroup" automaticallyPreparesContent="YES" selectsInsertedObjects="NO" avoidsEmptySelection="NO" automaticallyRearrangesObjects="YES" id="zmL-8U-v1s">
             <connections>
                 <binding destination="-2" name="contentArray" keyPath="groups" id="7cN-LJ-aLo"/>
             </connections>
         </arrayController>
-        <arrayController objectClassName="CrashReport" automaticallyPreparesContent="YES" selectsInsertedObjects="NO" automaticallyRearrangesObjects="YES" id="oyC-n7-yxo">
+        <arrayController objectClassName="DiagnosticReport" automaticallyPreparesContent="YES" selectsInsertedObjects="NO" automaticallyRearrangesObjects="YES" id="oyC-n7-yxo">
             <connections>
                 <binding destination="zmL-8U-v1s" name="contentArray" keyPath="selectedObjects.@unionOfArrays.reports" id="kWd-7D-Fcb"/>
             </connections>

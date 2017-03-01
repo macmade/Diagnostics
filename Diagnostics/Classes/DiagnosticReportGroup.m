@@ -22,24 +22,24 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-#import "CrashReportGroup.h"
-#import "CrashReport.h"
+#import "DiagnosticReportGroup.h"
+#import "DiagnosticReport.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CrashReportGroup()
+@interface DiagnosticReportGroup()
 
-@property( atomic, readwrite, strong ) NSString                        * name;
-@property( atomic, readwrite, strong ) NSArray< CrashReport * >        * reports;
-@property( atomic, readwrite, strong ) NSMutableArray< CrashReport * > * mutableReports;
-@property( atomic, readwrite, strong ) NSImage                         * icon;
-@property( atomic, readwrite, strong ) NSString                        * index;
+@property( atomic, readwrite, strong ) NSString                             * name;
+@property( atomic, readwrite, strong ) NSArray< DiagnosticReport * >        * reports;
+@property( atomic, readwrite, strong ) NSMutableArray< DiagnosticReport * > * mutableReports;
+@property( atomic, readwrite, strong ) NSImage                              * icon;
+@property( atomic, readwrite, strong ) NSString                             * index;
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-@implementation CrashReportGroup
+@implementation DiagnosticReportGroup
 
 - ( instancetype )init
 {
@@ -63,7 +63,7 @@ NS_ASSUME_NONNULL_END
     return [ NSString stringWithFormat: @"%@ %@ (%llu reports)", [ super description ], self.name, ( unsigned long long )( self.reports.count ) ];
 }
 
-- ( void )addCrashReport: ( CrashReport * )report
+- ( void )addReport: ( DiagnosticReport * )report
 {
     if( self.icon == nil )
     {

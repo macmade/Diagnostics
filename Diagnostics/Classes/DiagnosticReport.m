@@ -22,11 +22,11 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-#import "CrashReport.h"
+#import "DiagnosticReport.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CrashReport()
+@interface DiagnosticReport()
 
 @property( atomic, readwrite, strong ) NSString * path;
 @property( atomic, readwrite, strong ) NSData   * data;
@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property( atomic, readwrite, strong ) NSString * exceptionType;
 @property( atomic, readwrite, strong ) NSImage  * icon;
 
-+ ( NSArray< CrashReport * > * )availableReportsInDirectory: ( NSString * )dir;
++ ( NSArray< DiagnosticReport * > * )availableReportsInDirectory: ( NSString * )dir;
 
 - ( nullable instancetype )initWithPath: ( NSString * )path;
 - ( BOOL )parseContents;
@@ -52,12 +52,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-@implementation CrashReport
+@implementation DiagnosticReport
 
-+ ( NSArray< CrashReport * > * )availableReports
++ ( NSArray< DiagnosticReport * > * )availableReports
 {
-    NSString                        * dir;
-    NSMutableArray< CrashReport * > * reports;
+    NSString                             * dir;
+    NSMutableArray< DiagnosticReport * > * reports;
     
     reports = [ NSMutableArray new ];
     
@@ -92,13 +92,13 @@ NS_ASSUME_NONNULL_END
     return [ NSArray arrayWithArray: reports ];
 }
 
-+ ( NSArray< CrashReport * > * )availableReportsInDirectory: ( NSString * )dir
++ ( NSArray< DiagnosticReport * > * )availableReportsInDirectory: ( NSString * )dir
 {
-    NSString                        * path;
-    BOOL                              isDir;
-    NSMutableArray< CrashReport * > * reports;
-    NSDirectoryEnumerator           * enumerator;
-    CrashReport                     * report;
+    NSString                             * path;
+    BOOL                                   isDir;
+    NSMutableArray< DiagnosticReport * > * reports;
+    NSDirectoryEnumerator                * enumerator;
+    DiagnosticReport                     * report;
     
     if( [ [ NSFileManager defaultManager ] fileExistsAtPath: dir isDirectory: &isDir ] == NO || isDir == NO )
     {
@@ -124,7 +124,7 @@ NS_ASSUME_NONNULL_END
         }
         
         path   = [ dir stringByAppendingPathComponent: path ];
-        report = [ [ CrashReport alloc ] initWithPath: path ];
+        report = [ [ DiagnosticReport alloc ] initWithPath: path ];
         
         if( report != nil )
         {

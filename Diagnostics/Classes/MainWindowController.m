@@ -23,19 +23,19 @@
  ******************************************************************************/
 
 #import "MainWindowController.h"
-#import "CrashReportGroup.h"
-#import "CrashReport.h"
+#import "DiagnosticReportGroup.h"
+#import "DiagnosticReport.h"
 #import "Preferences.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MainWindowController()
 
-@property( atomic, readwrite, strong )          NSArray< CrashReportGroup * > * groups;
-@property( atomic, readwrite, assign )          BOOL                            editable;
-@property( atomic, readwrite, strong ) IBOutlet NSArrayController             * groupController;
-@property( atomic, readwrite, strong ) IBOutlet NSArrayController             * reportsController;
-@property( atomic, readwrite, strong ) IBOutlet NSTextView                    * textView;
+@property( atomic, readwrite, strong )          NSArray< DiagnosticReportGroup * > * groups;
+@property( atomic, readwrite, assign )          BOOL                                 editable;
+@property( atomic, readwrite, strong ) IBOutlet NSArrayController                  * groupController;
+@property( atomic, readwrite, strong ) IBOutlet NSArrayController                  * reportsController;
+@property( atomic, readwrite, strong ) IBOutlet NSTextView                         * textView;
 
 - ( IBAction )performFindPanelAction: ( id )sender;
 - ( void )reload;
@@ -98,11 +98,11 @@ NS_ASSUME_NONNULL_END
         dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0 ),
         ^( void )
         {
-            NSMutableDictionary< NSString *, NSMutableArray< CrashReport * > * > * groups;
-            CrashReport                                                          * report;
-            NSMutableArray< CrashReport * >                                      * reports;
-            NSString                                                             * key;
-            CrashReportGroup                                                     * group;
+            NSMutableDictionary< NSString *, NSMutableArray< DiagnosticReport * > * > * groups;
+            DiagnosticReport                                                          * report;
+            NSMutableArray< DiagnosticReport * >                                      * reports;
+            NSString                                                                  * key;
+            DiagnosticReportGroup                                                     * group;
             
             dispatch_sync
             (
@@ -115,7 +115,7 @@ NS_ASSUME_NONNULL_END
             
             groups = [ NSMutableDictionary new ];
             
-            for( report in [ CrashReport availableReports ] )
+            for( report in [ DiagnosticReport availableReports ] )
             {
                 reports = groups[ report.process ];
                 
@@ -131,11 +131,11 @@ NS_ASSUME_NONNULL_END
             
             for( key in groups )
             {
-                group = [ [ CrashReportGroup alloc ] initWithName: key ];
+                group = [ [ DiagnosticReportGroup alloc ] initWithName: key ];
                 
                 for( report in groups[ key ] )
                 {
-                    [ group addCrashReport: report ];
+                    [ group addReport: report ];
                 }
                 
                 dispatch_sync

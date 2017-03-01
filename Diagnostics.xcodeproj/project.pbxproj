@@ -12,8 +12,8 @@
 		05C34B511E660EF1000A7026 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C34B4E1E660EE4000A7026 /* MainMenu.xib */; };
 		05C34B561E6612A8000A7026 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B551E6612A8000A7026 /* MainWindowController.m */; };
 		05C34B591E6612BA000A7026 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C34B571E6612BA000A7026 /* MainWindowController.xib */; };
-		05C34B5C1E6613BF000A7026 /* CrashReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B5B1E6613BF000A7026 /* CrashReport.m */; };
-		05C34B621E6617FE000A7026 /* CrashReportGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B611E6617FE000A7026 /* CrashReportGroup.m */; };
+		05C34B5C1E6613BF000A7026 /* DiagnosticReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B5B1E6613BF000A7026 /* DiagnosticReport.m */; };
+		05C34B621E6617FE000A7026 /* DiagnosticReportGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B611E6617FE000A7026 /* DiagnosticReportGroup.m */; };
 		05C45DF21E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45DF11E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m */; };
 		05C45DF51E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45DF41E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m */; };
 		05C45DF81E66D600003C83B1 /* ArrayCountValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45DF71E66D600003C83B1 /* ArrayCountValueTransformer.m */; };
@@ -35,10 +35,10 @@
 		05C34B541E6612A8000A7026 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		05C34B551E6612A8000A7026 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		05C34B581E6612BA000A7026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainWindowController.xib; sourceTree = "<group>"; };
-		05C34B5A1E6613BF000A7026 /* CrashReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrashReport.h; sourceTree = "<group>"; };
-		05C34B5B1E6613BF000A7026 /* CrashReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrashReport.m; sourceTree = "<group>"; };
-		05C34B601E6617FE000A7026 /* CrashReportGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrashReportGroup.h; sourceTree = "<group>"; };
-		05C34B611E6617FE000A7026 /* CrashReportGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrashReportGroup.m; sourceTree = "<group>"; };
+		05C34B5A1E6613BF000A7026 /* DiagnosticReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiagnosticReport.h; sourceTree = "<group>"; };
+		05C34B5B1E6613BF000A7026 /* DiagnosticReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiagnosticReport.m; sourceTree = "<group>"; };
+		05C34B601E6617FE000A7026 /* DiagnosticReportGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiagnosticReportGroup.h; sourceTree = "<group>"; };
+		05C34B611E6617FE000A7026 /* DiagnosticReportGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiagnosticReportGroup.m; sourceTree = "<group>"; };
 		05C45DF01E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayIsEmptyValueTransformer.h; sourceTree = "<group>"; };
 		05C45DF11E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayIsEmptyValueTransformer.m; sourceTree = "<group>"; };
 		05C45DF31E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayIsNotEmptyValueTransformer.h; sourceTree = "<group>"; };
@@ -121,10 +121,10 @@
 				05C45DF11E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m */,
 				05C45DF31E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.h */,
 				05C45DF41E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m */,
-				05C34B5A1E6613BF000A7026 /* CrashReport.h */,
-				05C34B5B1E6613BF000A7026 /* CrashReport.m */,
-				05C34B601E6617FE000A7026 /* CrashReportGroup.h */,
-				05C34B611E6617FE000A7026 /* CrashReportGroup.m */,
+				05C34B5A1E6613BF000A7026 /* DiagnosticReport.h */,
+				05C34B5B1E6613BF000A7026 /* DiagnosticReport.m */,
+				05C34B601E6617FE000A7026 /* DiagnosticReportGroup.h */,
+				05C34B611E6617FE000A7026 /* DiagnosticReportGroup.m */,
 				05C34B541E6612A8000A7026 /* MainWindowController.h */,
 				05C34B551E6612A8000A7026 /* MainWindowController.m */,
 				05C45ED41E674F7A003C83B1 /* Preferences.h */,
@@ -214,14 +214,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				05C34B561E6612A8000A7026 /* MainWindowController.m in Sources */,
-				05C34B5C1E6613BF000A7026 /* CrashReport.m in Sources */,
+				05C34B5C1E6613BF000A7026 /* DiagnosticReport.m in Sources */,
 				05C45EDE1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m in Sources */,
 				05C45DFB1E66D801003C83B1 /* ArrayCountStringValueTransformer.m in Sources */,
 				05C45EDB1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m in Sources */,
 				05C45DF81E66D600003C83B1 /* ArrayCountValueTransformer.m in Sources */,
 				05C45DF51E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m in Sources */,
 				05C34B3E1E660EA8000A7026 /* main.m in Sources */,
-				05C34B621E6617FE000A7026 /* CrashReportGroup.m in Sources */,
+				05C34B621E6617FE000A7026 /* DiagnosticReportGroup.m in Sources */,
 				05C34B501E660EEB000A7026 /* ApplicationDelegate.m in Sources */,
 				05C45DF21E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m in Sources */,
 				05C45ED61E674F7A003C83B1 /* Preferences.m in Sources */,

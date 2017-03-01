@@ -22,41 +22,12 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-#import "ApplicationDelegate.h"
-#import "MainWindowController.h"
-#import "Preferences.h"
+@import Cocoa;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ApplicationDelegate()
-
-@property( atomic, readwrite, strong ) MainWindowController * mainWindowController;
+@interface ArrayIsNotEmptyValueTransformer: NSValueTransformer
 
 @end
 
 NS_ASSUME_NONNULL_END
-
-@implementation ApplicationDelegate
-
-- ( void )applicationDidFinishLaunching: ( NSNotification * )notification
-{
-    ( void )notification;
-    
-    self.mainWindowController = [ MainWindowController new ];
-    
-    if( [ Preferences sharedInstance ].lastStart == nil )
-    {
-        [ self.mainWindowController.window center ];
-    }
-    
-    [ Preferences sharedInstance ].lastStart = [ NSDate date ];
-    
-    [ self.mainWindowController.window makeKeyAndOrderFront: nil ];
-}
-
-- ( void) applicationWillTerminate: ( NSNotification * )notification
-{
-    ( void )notification;
-}
-
-@end

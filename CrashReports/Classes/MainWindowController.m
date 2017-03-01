@@ -25,6 +25,7 @@
 #import "MainWindowController.h"
 #import "CrashReportGroup.h"
 #import "CrashReport.h"
+#import "Preferences.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,7 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property( atomic, readwrite, strong ) NSArray< CrashReportGroup * > * groups;
 @property( atomic, readwrite, strong ) IBOutlet NSArrayController    * groupController;
+@property( atomic, readwrite, strong ) IBOutlet NSTextView           * textView;
 
+- ( IBAction )performFindPanelAction: ( id )sender;
 - ( void )reload;
 
 @end
@@ -57,7 +60,33 @@ NS_ASSUME_NONNULL_END
     
     self.groupController.sortDescriptors = @[ [ NSSortDescriptor sortDescriptorWithKey: @"name" ascending: YES selector: @selector( localizedCaseInsensitiveCompare: ) ] ];
     
+    {
+        NSFont * font;
+        
+        font = [ NSFont fontWithName: @"Consolas" size: 10 ];
+        
+        if( font == nil )
+        {
+            font = [ NSFont fontWithName: @"Menlo" size: 10 ];
+        }
+        
+        if( font == nil )
+        {
+            font = [ NSFont fontWithName: @"Monaco" size: 10 ];
+        }
+        
+        if( font )
+        {
+            self.textView.font = font;
+        }
+    }
+    
     [ self reload ];
+}
+
+- ( IBAction )performFindPanelAction: ( id )sender
+{
+    [ self.textView performTextFinderAction: sender ];
 }
 
 - ( void )reload

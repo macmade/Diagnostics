@@ -14,6 +14,12 @@
 		05C34B591E6612BA000A7026 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C34B571E6612BA000A7026 /* MainWindowController.xib */; };
 		05C34B5C1E6613BF000A7026 /* CrashReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B5B1E6613BF000A7026 /* CrashReport.m */; };
 		05C34B621E6617FE000A7026 /* CrashReportGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B611E6617FE000A7026 /* CrashReportGroup.m */; };
+		05C45DF21E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45DF11E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m */; };
+		05C45DF51E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45DF41E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m */; };
+		05C45DF81E66D600003C83B1 /* ArrayCountValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45DF71E66D600003C83B1 /* ArrayCountValueTransformer.m */; };
+		05C45DFB1E66D801003C83B1 /* ArrayCountStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45DFA1E66D801003C83B1 /* ArrayCountStringValueTransformer.m */; };
+		05C45ED61E674F7A003C83B1 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45ED51E674F7A003C83B1 /* Preferences.m */; };
+		05C45ED81E6750F9003C83B1 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05C45ED71E6750F9003C83B1 /* Defaults.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +37,17 @@
 		05C34B5B1E6613BF000A7026 /* CrashReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrashReport.m; sourceTree = "<group>"; };
 		05C34B601E6617FE000A7026 /* CrashReportGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrashReportGroup.h; sourceTree = "<group>"; };
 		05C34B611E6617FE000A7026 /* CrashReportGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrashReportGroup.m; sourceTree = "<group>"; };
+		05C45DF01E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayIsEmptyValueTransformer.h; sourceTree = "<group>"; };
+		05C45DF11E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayIsEmptyValueTransformer.m; sourceTree = "<group>"; };
+		05C45DF31E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayIsNotEmptyValueTransformer.h; sourceTree = "<group>"; };
+		05C45DF41E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayIsNotEmptyValueTransformer.m; sourceTree = "<group>"; };
+		05C45DF61E66D600003C83B1 /* ArrayCountValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayCountValueTransformer.h; sourceTree = "<group>"; };
+		05C45DF71E66D600003C83B1 /* ArrayCountValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayCountValueTransformer.m; sourceTree = "<group>"; };
+		05C45DF91E66D801003C83B1 /* ArrayCountStringValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayCountStringValueTransformer.h; sourceTree = "<group>"; };
+		05C45DFA1E66D801003C83B1 /* ArrayCountStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayCountStringValueTransformer.m; sourceTree = "<group>"; };
+		05C45ED41E674F7A003C83B1 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
+		05C45ED51E674F7A003C83B1 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
+		05C45ED71E6750F9003C83B1 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +93,7 @@
 			children = (
 				05C34B441E660EA8000A7026 /* Info.plist */,
 				05C34B3D1E660EA8000A7026 /* main.m */,
+				05C45ED71E6750F9003C83B1 /* Defaults.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -85,12 +103,22 @@
 			children = (
 				05C34B4B1E660EE4000A7026 /* ApplicationDelegate.h */,
 				05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */,
-				05C34B541E6612A8000A7026 /* MainWindowController.h */,
-				05C34B551E6612A8000A7026 /* MainWindowController.m */,
+				05C45DF91E66D801003C83B1 /* ArrayCountStringValueTransformer.h */,
+				05C45DFA1E66D801003C83B1 /* ArrayCountStringValueTransformer.m */,
+				05C45DF61E66D600003C83B1 /* ArrayCountValueTransformer.h */,
+				05C45DF71E66D600003C83B1 /* ArrayCountValueTransformer.m */,
+				05C45DF01E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.h */,
+				05C45DF11E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m */,
+				05C45DF31E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.h */,
+				05C45DF41E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m */,
 				05C34B5A1E6613BF000A7026 /* CrashReport.h */,
 				05C34B5B1E6613BF000A7026 /* CrashReport.m */,
 				05C34B601E6617FE000A7026 /* CrashReportGroup.h */,
 				05C34B611E6617FE000A7026 /* CrashReportGroup.m */,
+				05C34B541E6612A8000A7026 /* MainWindowController.h */,
+				05C34B551E6612A8000A7026 /* MainWindowController.m */,
+				05C45ED41E674F7A003C83B1 /* Preferences.h */,
+				05C45ED51E674F7A003C83B1 /* Preferences.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -164,6 +192,7 @@
 			files = (
 				05C34B591E6612BA000A7026 /* MainWindowController.xib in Resources */,
 				05C34B511E660EF1000A7026 /* MainMenu.xib in Resources */,
+				05C45ED81E6750F9003C83B1 /* Defaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,9 +205,14 @@
 			files = (
 				05C34B561E6612A8000A7026 /* MainWindowController.m in Sources */,
 				05C34B5C1E6613BF000A7026 /* CrashReport.m in Sources */,
+				05C45DFB1E66D801003C83B1 /* ArrayCountStringValueTransformer.m in Sources */,
+				05C45DF81E66D600003C83B1 /* ArrayCountValueTransformer.m in Sources */,
+				05C45DF51E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m in Sources */,
 				05C34B3E1E660EA8000A7026 /* main.m in Sources */,
 				05C34B621E6617FE000A7026 /* CrashReportGroup.m in Sources */,
 				05C34B501E660EEB000A7026 /* ApplicationDelegate.m in Sources */,
+				05C45DF21E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m in Sources */,
+				05C45ED61E674F7A003C83B1 /* Preferences.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +344,7 @@
 				IBC_FLATTEN_NIBS = YES;
 				IBC_NOTICES = YES;
 				IBC_WARNINGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -419,7 +453,7 @@
 				IBC_FLATTEN_NIBS = YES;
 				IBC_NOTICES = YES;
 				IBC_WARNINGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;

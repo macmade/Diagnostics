@@ -22,41 +22,36 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-#import "ApplicationDelegate.h"
-#import "MainWindowController.h"
-#import "Preferences.h"
+#import "ArrayIsNotEmptyValueTransformer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ApplicationDelegate()
-
-@property( atomic, readwrite, strong ) MainWindowController * mainWindowController;
+@interface ArrayIsNotEmptyValueTransformer()
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-@implementation ApplicationDelegate
+@implementation ArrayIsNotEmptyValueTransformer
 
-- ( void )applicationDidFinishLaunching: ( NSNotification * )notification
++ ( BOOL )allowsReverseTransformation
 {
-    ( void )notification;
-    
-    self.mainWindowController = [ MainWindowController new ];
-    
-    if( [ Preferences sharedInstance ].lastStart == nil )
-    {
-        [ self.mainWindowController.window center ];
-    }
-    
-    [ Preferences sharedInstance ].lastStart = [ NSDate date ];
-    
-    [ self.mainWindowController.window makeKeyAndOrderFront: nil ];
+    return NO;
 }
 
-- ( void) applicationWillTerminate: ( NSNotification * )notification
++ ( Class )transformedValueClass
 {
-    ( void )notification;
+    return [ NSNumber class ];
+}
+
+- ( nullable id )transformedValue: ( id )value
+{
+    if( value == nil || [ value isKindOfClass: [ NSArray class ] ] == NO )
+    {
+        return @0;
+    }
+    
+    return ( ( ( NSArray * )value ).count > 0 ) ? @1 : @0;
 }
 
 @end

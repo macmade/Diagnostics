@@ -215,7 +215,7 @@ NS_ASSUME_NONNULL_END
             self.uidString = @"--";
         }
         
-        if( self.processPath.length > 0 )
+        if( self.processPath.length > 0 && [ self.processPath hasPrefix: @"/" ] )
         {
             if( [ self.processPath rangeOfString: @".app/Contents/MacOS" ].location != NSNotFound )
             {
@@ -261,11 +261,11 @@ NS_ASSUME_NONNULL_END
 {
     switch( self.type )
     {
-        case DiagnosticReportTypeUnknown: return @"Unknown";
-        case DiagnosticReportTypeCrash:   return @"Crash";
-        case DiagnosticReportTypeSpin:    return @"Spin";
-        case DiagnosticReportTypeHang:    return @"Hang";
-        case DiagnosticReportTypeDiag:    return @"Diagnostic";
+        case DiagnosticReportTypeUnknown: return NSLocalizedString( @"Unknown",    @"Unknown diagnostic report type" );
+        case DiagnosticReportTypeCrash:   return NSLocalizedString( @"Crash",      @"Crash report type" );
+        case DiagnosticReportTypeSpin:    return NSLocalizedString( @"Spin",       @"Spin report type" );
+        case DiagnosticReportTypeHang:    return NSLocalizedString( @"Hang",       @"Hang report type" );
+        case DiagnosticReportTypeDiag:    return NSLocalizedString( @"Diagnostic", @"Diagnostic report type" );
     }
 }
 

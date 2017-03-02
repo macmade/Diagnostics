@@ -65,6 +65,8 @@ NS_ASSUME_NONNULL_END
 
 - ( void )addReport: ( DiagnosticReport * )report
 {
+    NSString * text;
+    
     if( self.icon == nil )
     {
         self.icon = report.icon;
@@ -73,15 +75,19 @@ NS_ASSUME_NONNULL_END
     [ self.mutableReports addObject: report ];
     
     self.reports = [ NSArray arrayWithArray: self.mutableReports ];
+    text         = ( self.index == nil ) ? @"" : self.index;
+    text         = [ text stringByAppendingString: report.contents ];
     
-    if( self.index == nil )
     {
-        self.index = report.contents;
+        NSArray * words;
+        NSSet   * unique;
+        
+        words  = [ text componentsSeparatedByString: @" " ];
+        unique = [ NSSet setWithArray: words ];
+        text   = [ unique.allObjects componentsJoinedByString: @" " ];
     }
-    else
-    {
-        self.index = [ self.index stringByAppendingString: report.contents ];
-    }
+    
+    self.index = text;
 }
 
 @end

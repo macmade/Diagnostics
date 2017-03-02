@@ -30,7 +30,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ApplicationDelegate()
 
-@property( atomic, readwrite, strong ) MainWindowController * mainWindowController;
+@property( atomic, readwrite, strong ) NSMutableArray< MainWindowController * > * mainWindowControllers;
+
+- ( void )windowWillClose: ( NSNotification * )notification;
 
 @end
 
@@ -42,28 +44,73 @@ NS_ASSUME_NONNULL_END
 {
     ( void )notification;
     
-    self.mainWindowController = [ MainWindowController new ];
+    self.mainWindowControllers = [ NSMutableArray new ];
     
-    if( [ Preferences sharedInstance ].lastStart == nil )
-    {
-        [ self.mainWindowController.window center ];
-    }
-    
+    [ [ NSNotificationCenter defaultCenter ] addObserver: self selector: @selector( windowWillClose: ) name: NSWindowWillCloseNotification object: nil ];
+    [ self newDocument: nil ];
     [ Preferences sharedInstance ].lastStart = [ NSDate date ];
-    
-    [ self.mainWindowController.window makeKeyAndOrderFront: nil ];
 }
 
 - ( void) applicationWillTerminate: ( NSNotification * )notification
 {
     ( void )notification;
+    
+    [ [ NSNotificationCenter defaultCenter ] removeObserver: self ];
 }
 
 - ( BOOL )applicationShouldTerminateAfterLastWindowClosed: ( NSApplication * )sender
 {
     ( void )sender;
     
-    return YES;
+    return NO;
+}
+
+- ( IBAction )newDocument: ( nullable id )sender
+{
+    MainWindowController * controller;
+    
+    ( void )sender;
+    
+    controller = [ MainWindowController new ];
+    
+    if( [ Preferences sharedInstance ].lastStart == nil )
+    {
+        [ controller.window center ];
+    }
+    
+    [ self.mainWindowControllers addObject: controller ];
+    [ controller.window makeKeyAndOrderFront: nil ];
+}
+
+- ( void )windowWillClose: ( NSNotification * )notification
+{
+    NSWindow             * window;
+    MainWindowController * controller;
+    BOOL                   found;
+    
+    window = notification.object;
+    
+    if( window == nil || [ window isKindOfClass: [ NSWindow class ] ] == NO )
+    {
+        return;
+    }
+    
+    found = NO;
+    
+    for( controller in self.mainWindowControllers )
+    {
+        if( controller == window.windowController )
+        {
+            found = YES;
+            
+            break;
+        }
+    }
+    
+    if( found )
+    {
+        [ self.mainWindowControllers removeObject: controller ];
+    }
 }
 
 @end

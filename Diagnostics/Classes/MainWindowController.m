@@ -52,6 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 - ( IBAction )saveDocument: ( nullable id )sender;
 - ( IBAction )saveDocumentAs: ( nullable id )sender;
 - ( IBAction )saveReports: ( NSArray< DiagnosticReport * > * )reports;
+- ( IBAction )saveReports: ( NSArray< DiagnosticReport * > * )reports toURL: ( NSURL * )url;
 
 @end
 
@@ -223,105 +224,51 @@ NS_ASSUME_NONNULL_END
     
     [ panel beginSheetModalForWindow: self.window completionHandler: ^( NSInteger i )
         {
-            BOOL isDir;
-            
             if( i != NSFileHandlingPanelOKButton || panel.URLs.count == 0 )
             {
                 return;
             }
             
-            if( [ [ NSFileManager defaultManager ] fileExistsAtPath: panel.URLs.firstObject.path isDirectory: &isDir ] == NO || isDir == NO )
+            [ self saveReports: reports toURL: panel.URLs.firstObject ];
+        }
+    ];
+}
+
+- ( IBAction )saveReports: ( NSArray< DiagnosticReport * > * )reports toURL: ( NSURL * )url
+{
+    BOOL isDir;
+    
+    
+    if( [ [ NSFileManager defaultManager ] fileExistsAtPath: url.path isDirectory: &isDir ] == NO || isDir == NO )
+    {
+        return;
+    }
+    
+    self.copying = YES;
+    
+    dispatch_async
+    (
+        dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0 ),
+        ^( void )
+        {
+            DiagnosticReport      * report;
+            NSString              * path;
+            NSError               * error;
+            __block NSModalResponse r;
+            __block BOOL            applyToAll;
+            
+            applyToAll = NO;
+            r          = NSAlertSecondButtonReturn;
+            
+            for( report in reports )
             {
-                return;
-            }
-            
-            self.copying = YES;
-            
-            dispatch_async
-            (
-                dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0 ),
-                ^( void )
+                error = nil;
+                path  = [ url.path stringByAppendingPathComponent: report.path.lastPathComponent ];
+                
+                if( [ [ NSFileManager defaultManager ] fileExistsAtPath: path ] )
                 {
-                    DiagnosticReport      * report;
-                    NSString              * path;
-                    NSError               * error;
-                    __block NSModalResponse r;
-                    __block BOOL            applyToAll;
-                    
-                    applyToAll = NO;
-                    r          = NSAlertSecondButtonReturn;
-                    
-                    for( report in reports )
+                    if( applyToAll == NO )
                     {
-                        error = nil;
-                        path  = [ panel.URLs.firstObject.path stringByAppendingPathComponent: report.path.lastPathComponent ];
-                        
-                        if( [ [ NSFileManager defaultManager ] fileExistsAtPath: path ] )
-                        {
-                            if( applyToAll == NO )
-                            {
-                                dispatch_sync
-                                (
-                                    dispatch_get_main_queue(),
-                                    ^( void )
-                                    {
-                                        NSAlert * alert;
-                                        
-                                        alert                        = [ NSAlert new ];
-                                        alert.messageText            = NSLocalizedString( @"File already exists", @"Existing file alert title" );
-                                        alert.informativeText        = [ NSString stringWithFormat: NSLocalizedString( @"A file named %@ already exists in the selected locaktion.", @"Existing file alert message" ), path.lastPathComponent ];
-                                        
-                                        [ alert addButtonWithTitle: NSLocalizedString( @"Replace", @"Replace button in existing file alert" ) ];
-                                        [ alert addButtonWithTitle: NSLocalizedString( @"Skip",    @"Skip button in existing file alert" ) ];
-                                        [ alert addButtonWithTitle: NSLocalizedString( @"Stop",    @"Stop button in existing file alert" ) ];
-                                        
-                                        alert.accessoryView = [ NSButton checkboxWithTitle: NSLocalizedString( @"Apply to All", @"Checkbox in existing file alert" ) target: nil action: NULL ];
-                                        
-                                        r          = [ alert runModal ];
-                                        applyToAll = ( ( ( NSButton *)( alert.accessoryView ) ).integerValue ) ? YES : NO;
-                                    }
-                                );
-                            }
-                            
-                            if( r == NSAlertFirstButtonReturn )
-                            {
-                                [ [ NSFileManager defaultManager ] removeItemAtPath: path error: &error ];
-                                
-                                if( error )
-                                {
-                                    dispatch_sync
-                                    (
-                                        dispatch_get_main_queue(),
-                                        ^( void )
-                                        {
-                                            NSAlert * alert;
-                                            
-                                            alert = [ NSAlert alertWithError: error ];
-                                            
-                                            [ alert runModal ];
-                                        }
-                                    );
-                                    
-                                    goto end;
-                                }
-                            }
-                            else if( r == NSAlertSecondButtonReturn )
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                goto end;
-                            }
-                        }
-                        
-                        [ [ NSFileManager defaultManager ] copyItemAtPath: report.path toPath: path error: &error ];
-                        
-                        if( error == nil )
-                        {
-                            continue;
-                        }
-                        
                         dispatch_sync
                         (
                             dispatch_get_main_queue(),
@@ -329,30 +276,90 @@ NS_ASSUME_NONNULL_END
                             {
                                 NSAlert * alert;
                                 
-                                alert = [ NSAlert alertWithError: error ];
+                                alert                        = [ NSAlert new ];
+                                alert.messageText            = NSLocalizedString( @"File already exists", @"Existing file alert title" );
+                                alert.informativeText        = [ NSString stringWithFormat: NSLocalizedString( @"A file named %@ already exists in the selected locaktion.", @"Existing file alert message" ), path.lastPathComponent ];
                                 
-                                [ alert runModal ];
+                                [ alert addButtonWithTitle: NSLocalizedString( @"Replace", @"Replace button in existing file alert" ) ];
+                                [ alert addButtonWithTitle: NSLocalizedString( @"Skip",    @"Skip button in existing file alert" ) ];
+                                [ alert addButtonWithTitle: NSLocalizedString( @"Stop",    @"Stop button in existing file alert" ) ];
+                                
+                                alert.accessoryView = [ NSButton checkboxWithTitle: NSLocalizedString( @"Apply to All", @"Checkbox in existing file alert" ) target: nil action: NULL ];
+                                
+                                r          = [ alert runModal ];
+                                applyToAll = ( ( ( NSButton *)( alert.accessoryView ) ).integerValue ) ? YES : NO;
                             }
                         );
-                        
-                        goto end;
                     }
                     
-                    end:
+                    if( r == NSAlertFirstButtonReturn )
+                    {
+                        [ [ NSFileManager defaultManager ] removeItemAtPath: path error: &error ];
                         
-                        dispatch_after
-                        (
-                            dispatch_time( DISPATCH_TIME_NOW, ( int64_t )( 1 * NSEC_PER_SEC ) ),
-                            dispatch_get_main_queue(),
-                            ^( void )
-                            {
-                                self.copying = NO;
-                            }
-                        );
+                        if( error )
+                        {
+                            dispatch_sync
+                            (
+                                dispatch_get_main_queue(),
+                                ^( void )
+                                {
+                                    NSAlert * alert;
+                                    
+                                    alert = [ NSAlert alertWithError: error ];
+                                    
+                                    [ alert runModal ];
+                                }
+                            );
+                            
+                            goto end;
+                        }
+                    }
+                    else if( r == NSAlertSecondButtonReturn )
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        goto end;
+                    }
                 }
-            );
+                
+                [ [ NSFileManager defaultManager ] copyItemAtPath: report.path toPath: path error: &error ];
+                
+                if( error == nil )
+                {
+                    continue;
+                }
+                
+                dispatch_sync
+                (
+                    dispatch_get_main_queue(),
+                    ^( void )
+                    {
+                        NSAlert * alert;
+                        
+                        alert = [ NSAlert alertWithError: error ];
+                        
+                        [ alert runModal ];
+                    }
+                );
+                
+                goto end;
+            }
+            
+            end:
+                
+                dispatch_after
+                (
+                    dispatch_time( DISPATCH_TIME_NOW, ( int64_t )( 1 * NSEC_PER_SEC ) ),
+                    dispatch_get_main_queue(),
+                    ^( void )
+                    {
+                        self.copying = NO;
+                    }
+                );
         }
-    ];
+    );
 }
 
 - ( IBAction )reload: ( nullable id )sender
@@ -440,5 +447,64 @@ NS_ASSUME_NONNULL_END
 #pragma mark - NSTableViewDelegate
 
 #pragma mark - NSTableViewDataSource
+
+- ( BOOL )tableView: ( NSTableView * )tableView writeRowsWithIndexes: ( NSIndexSet * )rowIndexes toPasteboard: ( NSPasteboard * )pasteboard
+{
+    NSString                      * ext;
+    DiagnosticReport              * item;
+    NSArray< DiagnosticReport * > * items;
+    NSMutableArray< NSString * >  * extensions;
+    NSMutableArray< NSString * >  * contents;
+    
+    if( tableView != self.reportsTableView )
+    {
+        return NO;
+    }
+    
+    [ tableView setDraggingSourceOperationMask: NSDragOperationCopy forLocal: NO ];
+    
+    items      = [ self.reportsController.arrangedObjects objectsAtIndexes: rowIndexes ];
+    extensions = [ NSMutableArray new ];
+    contents   = [ NSMutableArray new ];
+    
+    for( item in items )
+    {
+        ext = item.path.pathExtension;
+        
+        if( ext == nil )
+        {
+            ext = @"";
+        }
+        
+        [ extensions addObject: ext ];
+        [ contents   addObject: item.contents ];
+    }
+    
+    if( extensions.count )
+    {
+        [ pasteboard setPropertyList: extensions forType: NSFilesPromisePboardType ];
+        [ pasteboard setString: [ contents componentsJoinedByString: @"\n\n--------------------------------------------------------------------------------\n\n" ] forType: NSStringPboardType ];
+        
+        return YES;
+    }
+    
+    return NO;
+}
+
+- ( NSArray< NSString * > * )tableView: ( NSTableView * )tableView namesOfPromisedFilesDroppedAtDestination: ( NSURL * )dropDestination forDraggedRowsWithIndexes: ( NSIndexSet * )indexSet
+{
+    NSArray< DiagnosticReport * > * items;
+    
+    if( tableView != self.reportsTableView )
+    {
+        return @[];
+    }
+    
+    items = [ self.reportsController.arrangedObjects objectsAtIndexes: indexSet ];
+    
+    [ self saveReports: items toURL: ( dropDestination ) ];
+    
+    return @[];
+}
 
 @end

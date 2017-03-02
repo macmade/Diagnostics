@@ -169,6 +169,60 @@
                             </binding>
                         </connections>
                     </customView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="5s5-eZ-yCC">
+                        <rect key="frame" x="-1" y="0.0" width="1001" height="600"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Dm1-3R-JlD">
+                                <rect key="frame" x="273" y="104" width="456" height="392"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DEe-0O-aj0">
+                                        <rect key="frame" x="100" y="116" width="256" height="256"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="256" id="kut-I2-TEO"/>
+                                            <constraint firstAttribute="width" constant="256" id="x2x-H3-MJK"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="gYh-S2-3Zt"/>
+                                    </imageView>
+                                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="BJA-WO-qSR">
+                                        <rect key="frame" x="212" y="64" width="32" height="32"/>
+                                        <connections>
+                                            <binding destination="-2" name="animate" keyPath="copying" id="nFq-Ia-Zj9"/>
+                                        </connections>
+                                    </progressIndicator>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SlM-YP-Y3K">
+                                        <rect key="frame" x="99" y="20" width="259" height="24"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Copying Diagnostic Reports..." id="E58-YW-UPH">
+                                            <font key="font" metaFont="systemThin" size="20"/>
+                                            <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="SlM-YP-Y3K" firstAttribute="top" secondItem="BJA-WO-qSR" secondAttribute="bottom" constant="20" id="8AM-M3-ZKB"/>
+                                    <constraint firstItem="BJA-WO-qSR" firstAttribute="centerX" secondItem="Dm1-3R-JlD" secondAttribute="centerX" id="GNt-4i-iBt"/>
+                                    <constraint firstAttribute="bottom" secondItem="SlM-YP-Y3K" secondAttribute="bottom" constant="20" id="KQc-Fz-VHW"/>
+                                    <constraint firstItem="SlM-YP-Y3K" firstAttribute="centerX" secondItem="Dm1-3R-JlD" secondAttribute="centerX" id="TDq-sl-DYD"/>
+                                    <constraint firstItem="BJA-WO-qSR" firstAttribute="top" secondItem="DEe-0O-aj0" secondAttribute="bottom" constant="20" id="gwq-wR-5Iz"/>
+                                    <constraint firstItem="DEe-0O-aj0" firstAttribute="centerX" secondItem="Dm1-3R-JlD" secondAttribute="centerX" id="hPa-yE-ykL"/>
+                                    <constraint firstItem="DEe-0O-aj0" firstAttribute="leading" secondItem="Dm1-3R-JlD" secondAttribute="leading" constant="100" id="os0-r6-2q4"/>
+                                    <constraint firstItem="DEe-0O-aj0" firstAttribute="top" secondItem="Dm1-3R-JlD" secondAttribute="top" constant="20" id="ppa-yK-U8Q"/>
+                                    <constraint firstAttribute="trailing" secondItem="DEe-0O-aj0" secondAttribute="trailing" constant="100" id="qgK-k2-mhl"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Dm1-3R-JlD" firstAttribute="centerY" secondItem="5s5-eZ-yCC" secondAttribute="centerY" id="Dwt-Dz-uQ1"/>
+                            <constraint firstItem="Dm1-3R-JlD" firstAttribute="centerX" secondItem="5s5-eZ-yCC" secondAttribute="centerX" id="HSg-mH-t5D"/>
+                        </constraints>
+                        <connections>
+                            <binding destination="-2" name="hidden" keyPath="copying" id="cgC-Qc-ejd">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </customView>
                     <splitView arrangesAllSubviews="NO" autosaveName="MainSplitView" dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JaN-IY-X9Q">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
                         <subviews>
@@ -684,6 +738,8 @@
                                                                         <binding destination="oyC-n7-yxo" name="content" keyPath="arrangedObjects" id="j0h-dg-eUo"/>
                                                                         <binding destination="oyC-n7-yxo" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="j0h-dg-eUo" id="fyT-mr-H4T"/>
                                                                         <binding destination="oyC-n7-yxo" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="fyT-mr-H4T" id="w3M-Ej-Brb"/>
+                                                                        <outlet property="dataSource" destination="-2" id="pk6-1V-ypd"/>
+                                                                        <outlet property="delegate" destination="-2" id="FCO-lW-Y3H"/>
                                                                         <outlet property="menu" destination="ssm-Gf-XxE" id="sdc-Ph-tPx"/>
                                                                     </connections>
                                                                 </tableView>
@@ -847,60 +903,6 @@
                             <binding destination="-2" name="hidden" keyPath="loading" id="wQL-VD-2Ls"/>
                         </connections>
                     </splitView>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="5s5-eZ-yCC">
-                        <rect key="frame" x="-1" y="0.0" width="1001" height="600"/>
-                        <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Dm1-3R-JlD">
-                                <rect key="frame" x="273" y="104" width="456" height="392"/>
-                                <subviews>
-                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DEe-0O-aj0">
-                                        <rect key="frame" x="100" y="116" width="256" height="256"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="256" id="kut-I2-TEO"/>
-                                            <constraint firstAttribute="width" constant="256" id="x2x-H3-MJK"/>
-                                        </constraints>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="gYh-S2-3Zt"/>
-                                    </imageView>
-                                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="BJA-WO-qSR">
-                                        <rect key="frame" x="212" y="64" width="32" height="32"/>
-                                        <connections>
-                                            <binding destination="-2" name="animate" keyPath="copying" id="nFq-Ia-Zj9"/>
-                                        </connections>
-                                    </progressIndicator>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SlM-YP-Y3K">
-                                        <rect key="frame" x="99" y="20" width="259" height="24"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Copying Diagnostic Reports..." id="E58-YW-UPH">
-                                            <font key="font" metaFont="systemThin" size="20"/>
-                                            <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="SlM-YP-Y3K" firstAttribute="top" secondItem="BJA-WO-qSR" secondAttribute="bottom" constant="20" id="8AM-M3-ZKB"/>
-                                    <constraint firstItem="BJA-WO-qSR" firstAttribute="centerX" secondItem="Dm1-3R-JlD" secondAttribute="centerX" id="GNt-4i-iBt"/>
-                                    <constraint firstAttribute="bottom" secondItem="SlM-YP-Y3K" secondAttribute="bottom" constant="20" id="KQc-Fz-VHW"/>
-                                    <constraint firstItem="SlM-YP-Y3K" firstAttribute="centerX" secondItem="Dm1-3R-JlD" secondAttribute="centerX" id="TDq-sl-DYD"/>
-                                    <constraint firstItem="BJA-WO-qSR" firstAttribute="top" secondItem="DEe-0O-aj0" secondAttribute="bottom" constant="20" id="gwq-wR-5Iz"/>
-                                    <constraint firstItem="DEe-0O-aj0" firstAttribute="centerX" secondItem="Dm1-3R-JlD" secondAttribute="centerX" id="hPa-yE-ykL"/>
-                                    <constraint firstItem="DEe-0O-aj0" firstAttribute="leading" secondItem="Dm1-3R-JlD" secondAttribute="leading" constant="100" id="os0-r6-2q4"/>
-                                    <constraint firstItem="DEe-0O-aj0" firstAttribute="top" secondItem="Dm1-3R-JlD" secondAttribute="top" constant="20" id="ppa-yK-U8Q"/>
-                                    <constraint firstAttribute="trailing" secondItem="DEe-0O-aj0" secondAttribute="trailing" constant="100" id="qgK-k2-mhl"/>
-                                </constraints>
-                            </customView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="Dm1-3R-JlD" firstAttribute="centerY" secondItem="5s5-eZ-yCC" secondAttribute="centerY" id="Dwt-Dz-uQ1"/>
-                            <constraint firstItem="Dm1-3R-JlD" firstAttribute="centerX" secondItem="5s5-eZ-yCC" secondAttribute="centerX" id="HSg-mH-t5D"/>
-                        </constraints>
-                        <connections>
-                            <binding destination="-2" name="hidden" keyPath="copying" id="cgC-Qc-ejd">
-                                <dictionary key="options">
-                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                </dictionary>
-                            </binding>
-                        </connections>
-                    </customView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="5s5-eZ-yCC" firstAttribute="centerY" secondItem="EiT-Mj-1SZ" secondAttribute="centerY" id="4oM-j2-xM3"/>

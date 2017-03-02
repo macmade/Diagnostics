@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property( atomic, readwrite, strong ) IBOutlet NSTextView                         * textView;
 
 - ( IBAction )performFindPanelAction: ( id )sender;
-- ( void )reload;
+- ( IBAction )reload: ( nullable id )sender;
 
 @end
 
@@ -54,8 +54,7 @@ NS_ASSUME_NONNULL_END
 
 - ( void )windowDidLoad
 {
-    self.loading = YES;
-    self.groups  = @[];
+    self.groups = @[];
     
     [ super windowDidLoad ];
     
@@ -63,6 +62,7 @@ NS_ASSUME_NONNULL_END
     self.window.titleVisibility             = NSWindowTitleHidden;
     self.groupController.sortDescriptors    = @[ [ NSSortDescriptor sortDescriptorWithKey: @"name" ascending: YES selector: @selector( localizedCaseInsensitiveCompare: ) ] ];
     self.reportsController.sortDescriptors  = @[ [ NSSortDescriptor sortDescriptorWithKey: @"date" ascending: NO ] ];
+    self.textView.textContainerInset        = NSMakeSize( 10.0, 15.0 );
     
     {
         NSFont * font;
@@ -85,7 +85,7 @@ NS_ASSUME_NONNULL_END
         }
     }
     
-    [ self reload ];
+    [ self reload: nil ];
 }
 
 - ( IBAction )performFindPanelAction: ( id )sender
@@ -93,8 +93,19 @@ NS_ASSUME_NONNULL_END
     [ self.textView performTextFinderAction: sender ];
 }
 
-- ( void )reload
+- ( IBAction )reload: ( nullable id )sender
 {
+    ( void )sender;
+    
+    if( self.loading )
+    {
+        return;
+    }
+    
+    self.loading = YES;
+    
+    [ self.groupController removeObjects: self.groups ];
+    
     dispatch_async
     (
         dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0 ),
@@ -103,17 +114,6 @@ NS_ASSUME_NONNULL_END
             NSMutableDictionary< NSString *, NSMutableArray< DiagnosticReport * > * > * groups;
             __block DiagnosticReport                                                  * report;
             NSMutableArray< DiagnosticReport * >                                      * reports;
-            
-            dispatch_sync
-            (
-                dispatch_get_main_queue(),
-                ^( void )
-                {
-                    self.loading = YES;
-                    
-                    [ self.groupController removeObjects: self.groups ];
-                }
-            );
             
             groups = [ NSMutableDictionary new ];
             

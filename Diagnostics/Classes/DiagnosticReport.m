@@ -33,8 +33,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property( atomic, readwrite, strong           ) NSData             * data;
 @property( atomic, readwrite, strong           ) NSString           * contents;
 @property( atomic, readwrite, strong, nullable ) NSString           * process;
-@property( atomic, readwrite, strong, nullable ) NSString           * pid;
-@property( atomic, readwrite, strong, nullable ) NSString           * uid;
+@property( atomic, readwrite, assign           ) NSUInteger           pid;
+@property( atomic, readwrite, strong, nullable ) NSNumber           * pidNumber;
+@property( atomic, readwrite, strong, nullable ) NSString           * pidString;
+@property( atomic, readwrite, assign           ) NSUInteger           uid;
+@property( atomic, readwrite, strong, nullable ) NSNumber           * uidNumber;
+@property( atomic, readwrite, strong, nullable ) NSString           * uidString;
 @property( atomic, readwrite, strong, nullable ) NSString           * version;
 @property( atomic, readwrite, strong, nullable ) NSDate             * date;
 @property( atomic, readwrite, strong, nullable ) NSString           * processPath;
@@ -181,16 +185,6 @@ NS_ASSUME_NONNULL_END
             return nil;
         }
         
-        if( self.pid.length == 0 )
-        {
-            self.pid = @"--";
-        }
-        
-        if( self.uid.length == 0 )
-        {
-            self.uid = @"--";
-        }
-        
         if( self.version.length == 0 )
         {
             self.version = @"--";
@@ -209,6 +203,16 @@ NS_ASSUME_NONNULL_END
         if( self.exceptionType.length == 0 )
         {
             self.exceptionType = @"--";
+        }
+        
+        if( self.pidString.length == 0 )
+        {
+            self.pidString = @"--";
+        }
+        
+        if( self.uidString.length == 0 )
+        {
+            self.uidString = @"--";
         }
         
         if( self.processPath.length > 0 )
@@ -279,11 +283,13 @@ NS_ASSUME_NONNULL_END
         {
             if( [ line hasPrefix: @"Process:" ] )
             {
-                matches      = [ self matchesInString: line withExpression: @"Process:\\s+([^\\[]+)\\[([0-9]+)\\]" numberOfCaptures: 2 ];
-                self.process = [ [ matches objectAtIndex: 0 ] stringByTrimmingCharactersInSet: [ NSCharacterSet whitespaceCharacterSet ] ];
-                self.pid     = [ matches objectAtIndex: 1 ];
+                matches        = [ self matchesInString: line withExpression: @"Process:\\s+([^\\[]+)\\[([0-9]+)\\]" numberOfCaptures: 2 ];
+                self.process   = [ [ matches objectAtIndex: 0 ] stringByTrimmingCharactersInSet: [ NSCharacterSet whitespaceCharacterSet ] ];
+                self.pid       = ( NSUInteger )( [ matches objectAtIndex: 1 ].integerValue );
+                self.pidNumber = [ NSNumber numberWithUnsignedInteger: self.pid ];
+                self.pidString = [ NSString stringWithFormat: @"%llu", ( unsigned long long )( self.pid ) ];
                 
-                if( self.process == nil || self.process.length == 0 || self.pid == nil || self.pid.length == 0 )
+                if( self.process == nil || self.process.length == 0 )
                 {
                     return NO;
                 }
@@ -340,13 +346,10 @@ NS_ASSUME_NONNULL_END
             }
             else if( [ line hasPrefix: @"User ID:" ] )
             {
-                matches  = [ self matchesInString: line withExpression: @"User ID:\\s+([0-9]+)" numberOfCaptures: 1 ];
-                self.uid = [ matches objectAtIndex: 0 ];
-                
-                if( self.uid == nil || self.uid.length == 0 )
-                {
-                    return NO;
-                }
+                matches        = [ self matchesInString: line withExpression: @"User ID:\\s+([0-9]+)" numberOfCaptures: 1 ];
+                self.uid       = ( NSUInteger )( [ matches objectAtIndex: 0 ].integerValue );
+                self.uidNumber = [ NSNumber numberWithUnsignedInteger: self.uid ];
+                self.uidString = [ NSString stringWithFormat: @"%llu", ( unsigned long long )( self.uid ) ];
             }
             else if( [ line hasPrefix: @"Date/Time:" ] )
             {

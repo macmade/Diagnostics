@@ -43,8 +43,12 @@ typedef NS_ENUM( NSInteger, DiagnosticReportType )
 @property( atomic, readonly           ) NSData             * data;
 @property( atomic, readonly           ) NSString           * contents;
 @property( atomic, readonly, nullable ) NSString           * process;
-@property( atomic, readonly, nullable ) NSString           * pid;
-@property( atomic, readonly, nullable ) NSString           * uid;
+@property( atomic, readonly           ) NSUInteger           pid;
+@property( atomic, readonly, nullable ) NSNumber           * pidNumber;
+@property( atomic, readonly, nullable ) NSString           * pidString;
+@property( atomic, readonly           ) NSUInteger           uid;
+@property( atomic, readonly, nullable ) NSNumber           * uidNumber;
+@property( atomic, readonly, nullable ) NSString           * uidString;
 @property( atomic, readonly, nullable ) NSString           * version;
 @property( atomic, readonly, nullable ) NSDate             * date;
 @property( atomic, readonly, nullable ) NSString           * processPath;

@@ -449,4 +449,16 @@ NS_ASSUME_NONNULL_END
     return [ NSArray arrayWithArray: matches ];
 }
 
+#pragma mark - QLPreviewItem
+
+- ( NSURL * )previewItemURL
+{
+    return [ NSURL fileURLWithPath: self.path ];
+}
+
+- ( NSString * )previewItemTitle
+{
+    return self.path.lastPathComponent;
+}
+
 @end

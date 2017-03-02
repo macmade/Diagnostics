@@ -23,6 +23,8 @@
  ******************************************************************************/
 
 @import Cocoa;
+@import QuickLook;
+@import Quartz;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -35,7 +37,7 @@ typedef NS_ENUM( NSInteger, DiagnosticReportType )
     DiagnosticReportTypeDiag    = 0x04
 };
 
-@interface DiagnosticReport: NSObject
+@interface DiagnosticReport: NSObject < QLPreviewItem >
 
 @property( atomic, readonly           ) DiagnosticReportType type;
 @property( atomic, readonly           ) NSString           * typeString;

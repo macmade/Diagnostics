@@ -24,14 +24,17 @@
 
 #import "ApplicationDelegate.h"
 #import "MainWindowController.h"
+#import "AboutWindowController.h"
 #import "Preferences.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ApplicationDelegate()
 
+@property( atomic, readwrite, strong ) AboutWindowController                    * aboutWindowController;
 @property( atomic, readwrite, strong ) NSMutableArray< MainWindowController * > * mainWindowControllers;
 
+- ( IBAction )showAboutWindow: ( id )sender;
 - ( void )windowWillClose: ( NSNotification * )notification;
 
 @end
@@ -63,6 +66,18 @@ NS_ASSUME_NONNULL_END
     ( void )sender;
     
     return NO;
+}
+
+- ( IBAction )showAboutWindow: ( id )sender
+{
+    if( self.aboutWindowController == nil )
+    {
+        self.aboutWindowController = [ AboutWindowController new ];
+        
+        [ self.aboutWindowController.window center ];
+    }
+    
+    [ self.aboutWindowController.window makeKeyAndOrderFront: sender ];
 }
 
 - ( IBAction )newDocument: ( nullable id )sender

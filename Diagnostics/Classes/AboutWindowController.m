@@ -1,7 +1,7 @@
 /*******************************************************************************
  * The MIT License (MIT)
  * 
- * Copyright (c) 2015 Jean-David Gadina - www.xs-labs.com
+ * Copyright (c) 2015 Jean-David Gadina - www-xs-labs.com
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,12 +22,31 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-@import Cocoa;
+#import "AboutWindowController.h"
 
-NS_ASSUME_NONNULL_BEGIN
+@interface AboutWindowController()
 
-@interface ApplicationDelegate: NSObject< NSApplicationDelegate >
+@property( atomic, readwrite, strong ) NSString * name;
+@property( atomic, readwrite, strong ) NSString * version;
+@property( atomic, readwrite, strong ) NSString * copyright;
 
 @end
 
-NS_ASSUME_NONNULL_END
+@implementation AboutWindowController
+
+- ( instancetype )init
+{
+    return [ self initWithWindowNibName: NSStringFromClass( self.class ) ];
+}
+
+- ( void )windowDidLoad
+{
+    self.window.titlebarAppearsTransparent = YES;
+    self.window.titleVisibility            = NSWindowTitleHidden;
+    
+    self.name      = [ [ NSBundle mainBundle ] objectForInfoDictionaryKey: @"CFBundleName" ];
+    self.version   = [ [ NSBundle mainBundle ] objectForInfoDictionaryKey: @"CFBundleShortVersionString" ];
+    self.copyright = [ [ NSBundle mainBundle ] objectForInfoDictionaryKey: @"NSHumanReadableCopyright" ];
+}
+
+@end

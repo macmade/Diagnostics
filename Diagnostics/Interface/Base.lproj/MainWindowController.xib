@@ -28,68 +28,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="KKh-Xf-p4S">
-                        <rect key="frame" x="-1" y="0.0" width="1001" height="600"/>
-                        <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="pwD-je-BGF">
-                                <rect key="frame" x="273" y="104" width="456" height="392"/>
-                                <subviews>
-                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zSC-ai-vCp">
-                                        <rect key="frame" x="100" y="116" width="256" height="256"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="256" id="OzE-xc-UEI"/>
-                                            <constraint firstAttribute="width" constant="256" id="kY3-n0-R56"/>
-                                        </constraints>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="zqB-4o-XP0"/>
-                                    </imageView>
-                                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="KYa-KF-pt1">
-                                        <rect key="frame" x="212" y="64" width="32" height="32"/>
-                                        <connections>
-                                            <binding destination="-2" name="animate" keyPath="loading" id="W3i-4B-zJV"/>
-                                        </connections>
-                                    </progressIndicator>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ir7-2k-zA3">
-                                        <rect key="frame" x="87" y="20" width="282" height="24"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Looking for Diagnostic Reports..." id="NmQ-aK-fg1">
-                                            <font key="font" metaFont="systemThin" size="20"/>
-                                            <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="zSC-ai-vCp" secondAttribute="trailing" constant="100" id="1bL-md-hWm"/>
-                                    <constraint firstItem="KYa-KF-pt1" firstAttribute="centerX" secondItem="pwD-je-BGF" secondAttribute="centerX" id="5Sc-nm-ne1"/>
-                                    <constraint firstAttribute="bottom" secondItem="ir7-2k-zA3" secondAttribute="bottom" constant="20" id="7Bc-KE-77K"/>
-                                    <constraint firstItem="zSC-ai-vCp" firstAttribute="top" secondItem="pwD-je-BGF" secondAttribute="top" constant="20" id="JLg-xA-gih"/>
-                                    <constraint firstItem="zSC-ai-vCp" firstAttribute="centerX" secondItem="pwD-je-BGF" secondAttribute="centerX" id="JqQ-WA-odc"/>
-                                    <constraint firstItem="ir7-2k-zA3" firstAttribute="centerX" secondItem="pwD-je-BGF" secondAttribute="centerX" id="KKY-tx-J87"/>
-                                    <constraint firstItem="KYa-KF-pt1" firstAttribute="top" secondItem="zSC-ai-vCp" secondAttribute="bottom" constant="20" id="XGX-ED-tvv"/>
-                                    <constraint firstItem="zSC-ai-vCp" firstAttribute="leading" secondItem="pwD-je-BGF" secondAttribute="leading" constant="100" id="pOC-Ld-myU"/>
-                                    <constraint firstItem="ir7-2k-zA3" firstAttribute="top" secondItem="KYa-KF-pt1" secondAttribute="bottom" constant="20" id="qGy-k7-3RK"/>
-                                </constraints>
-                            </customView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="pwD-je-BGF" firstAttribute="centerX" secondItem="KKh-Xf-p4S" secondAttribute="centerX" id="1FR-fm-cyz"/>
-                            <constraint firstItem="pwD-je-BGF" firstAttribute="centerY" secondItem="KKh-Xf-p4S" secondAttribute="centerY" id="94J-4s-nl5"/>
-                        </constraints>
-                        <connections>
-                            <binding destination="-2" name="hidden2" keyPath="copying" previousBinding="AsI-vB-BUj" id="Yc1-a4-2tz">
-                                <dictionary key="options">
-                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                    <integer key="NSNullPlaceholder" value="-1"/>
-                                </dictionary>
-                            </binding>
-                            <binding destination="-2" name="hidden" keyPath="loading" id="AsI-vB-BUj">
-                                <dictionary key="options">
-                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                </dictionary>
-                            </binding>
-                        </connections>
-                    </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="Oar-Tz-htv">
                         <rect key="frame" x="-1" y="0.0" width="1001" height="600"/>
                         <subviews>
@@ -165,6 +103,68 @@
                                     <integer key="NSNoSelectionPlaceholder" value="-1"/>
                                     <integer key="NSNotApplicablePlaceholder" value="-1"/>
                                     <integer key="NSNullPlaceholder" value="-1"/>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </customView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="KKh-Xf-p4S">
+                        <rect key="frame" x="-1" y="0.0" width="1001" height="600"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="pwD-je-BGF">
+                                <rect key="frame" x="273" y="104" width="456" height="392"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zSC-ai-vCp">
+                                        <rect key="frame" x="100" y="116" width="256" height="256"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="256" id="OzE-xc-UEI"/>
+                                            <constraint firstAttribute="width" constant="256" id="kY3-n0-R56"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="zqB-4o-XP0"/>
+                                    </imageView>
+                                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="KYa-KF-pt1">
+                                        <rect key="frame" x="212" y="64" width="32" height="32"/>
+                                        <connections>
+                                            <binding destination="-2" name="animate" keyPath="loading" id="W3i-4B-zJV"/>
+                                        </connections>
+                                    </progressIndicator>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ir7-2k-zA3">
+                                        <rect key="frame" x="87" y="20" width="282" height="24"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Looking for Diagnostic Reports..." id="NmQ-aK-fg1">
+                                            <font key="font" metaFont="systemThin" size="20"/>
+                                            <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="zSC-ai-vCp" secondAttribute="trailing" constant="100" id="1bL-md-hWm"/>
+                                    <constraint firstItem="KYa-KF-pt1" firstAttribute="centerX" secondItem="pwD-je-BGF" secondAttribute="centerX" id="5Sc-nm-ne1"/>
+                                    <constraint firstAttribute="bottom" secondItem="ir7-2k-zA3" secondAttribute="bottom" constant="20" id="7Bc-KE-77K"/>
+                                    <constraint firstItem="zSC-ai-vCp" firstAttribute="top" secondItem="pwD-je-BGF" secondAttribute="top" constant="20" id="JLg-xA-gih"/>
+                                    <constraint firstItem="zSC-ai-vCp" firstAttribute="centerX" secondItem="pwD-je-BGF" secondAttribute="centerX" id="JqQ-WA-odc"/>
+                                    <constraint firstItem="ir7-2k-zA3" firstAttribute="centerX" secondItem="pwD-je-BGF" secondAttribute="centerX" id="KKY-tx-J87"/>
+                                    <constraint firstItem="KYa-KF-pt1" firstAttribute="top" secondItem="zSC-ai-vCp" secondAttribute="bottom" constant="20" id="XGX-ED-tvv"/>
+                                    <constraint firstItem="zSC-ai-vCp" firstAttribute="leading" secondItem="pwD-je-BGF" secondAttribute="leading" constant="100" id="pOC-Ld-myU"/>
+                                    <constraint firstItem="ir7-2k-zA3" firstAttribute="top" secondItem="KYa-KF-pt1" secondAttribute="bottom" constant="20" id="qGy-k7-3RK"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="pwD-je-BGF" firstAttribute="centerX" secondItem="KKh-Xf-p4S" secondAttribute="centerX" id="1FR-fm-cyz"/>
+                            <constraint firstItem="pwD-je-BGF" firstAttribute="centerY" secondItem="KKh-Xf-p4S" secondAttribute="centerY" id="94J-4s-nl5"/>
+                        </constraints>
+                        <connections>
+                            <binding destination="-2" name="hidden2" keyPath="copying" previousBinding="AsI-vB-BUj" id="Yc1-a4-2tz">
+                                <dictionary key="options">
+                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                </dictionary>
+                            </binding>
+                            <binding destination="-2" name="hidden" keyPath="loading" id="AsI-vB-BUj">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>
                             </binding>
                         </connections>
@@ -331,7 +331,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="L53-1f-V5N">
-                                                    <rect key="frame" x="244" y="17" width="15" height="102"/>
+                                                    <rect key="frame" x="247" y="17" width="15" height="102"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
@@ -583,13 +583,13 @@
                                                                                 </tableCellView>
                                                                             </prototypeCellViews>
                                                                         </tableColumn>
-                                                                        <tableColumn width="50" minWidth="40" maxWidth="1000" id="1cs-YI-VoX">
+                                                                        <tableColumn width="50" minWidth="40" maxWidth="1000" id="mTk-1v-gtL">
                                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="UID">
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                             </tableHeaderCell>
-                                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="UIP-8r-OOp">
+                                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="8Dg-eS-JZp">
                                                                                 <font key="font" metaFont="system"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -597,25 +597,25 @@
                                                                             <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="uidNumber"/>
                                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                             <prototypeCellViews>
-                                                                                <tableCellView id="Kyv-SP-ZIm">
+                                                                                <tableCellView id="8Cg-pp-KfQ">
                                                                                     <rect key="frame" x="338" y="1" width="50" height="17"/>
                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                     <subviews>
-                                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpO-J8-qrZ">
+                                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMn-l5-P5E">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="17"/>
                                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="FD9-W0-GbH">
+                                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="9Mc-GL-0uK">
                                                                                                 <font key="font" metaFont="systemThin" size="11"/>
                                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                             </textFieldCell>
                                                                                             <connections>
-                                                                                                <binding destination="Kyv-SP-ZIm" name="value" keyPath="objectValue.uidString" id="bLJ-fk-8at"/>
+                                                                                                <binding destination="8Cg-pp-KfQ" name="value" keyPath="objectValue.uidString" id="Nw7-1X-f5e"/>
                                                                                             </connections>
                                                                                         </textField>
                                                                                     </subviews>
                                                                                     <connections>
-                                                                                        <outlet property="textField" destination="CpO-J8-qrZ" id="lrv-ND-fLv"/>
+                                                                                        <outlet property="textField" destination="eMn-l5-P5E" id="uSm-HX-xnm"/>
                                                                                     </connections>
                                                                                 </tableCellView>
                                                                             </prototypeCellViews>

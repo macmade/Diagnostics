@@ -27,9 +27,12 @@
 #import "DiagnosticReport.h"
 #import "Preferences.h"
 
+@import QuickLook;
+@import Quartz;
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MainWindowController() < NSTableViewDelegate, NSTableViewDataSource >
+@interface MainWindowController() < NSTableViewDelegate, NSTableViewDataSource, QLPreviewPanelDelegate, QLPreviewPanelDataSource >
 
 @property( atomic, readwrite, strong )          NSArray< DiagnosticReportGroup * > * groups;
 @property( atomic, readwrite, assign )          BOOL                                 editable;
@@ -444,7 +447,76 @@ NS_ASSUME_NONNULL_END
     return NO;
 }
 
+#pragma mark - QuickLook
+
+- ( BOOL )acceptsPreviewPanelControl: ( QLPreviewPanel * )panel
+{
+    ( void )panel;
+    
+    return self.reportsController.selectedObjects.count > 0;
+}
+
+- ( void )beginPreviewPanelControl: ( QLPreviewPanel * )panel
+{
+    panel.delegate   = self;
+    panel.dataSource = self;
+}
+
+- ( void )endPreviewPanelControl: ( QLPreviewPanel * )panel
+{
+    panel.delegate   = nil;
+    panel.dataSource = nil;
+}
+
+#pragma mark - QLPreviewPanelDataSource
+
+- ( NSInteger )numberOfPreviewItemsInPreviewPanel: ( QLPreviewPanel * )panel;
+{
+    ( void )panel;
+    
+    return ( NSInteger )( self.reportsController.selectedObjects.count );
+}
+
+- ( id < QLPreviewItem > )previewPanel: ( QLPreviewPanel * )panel previewItemAtIndex: ( NSInteger )index
+{
+    ( void )panel;
+    
+    @try
+    {
+        return [ self.reportsController.selectedObjects objectAtIndex: ( NSUInteger )index ];
+    }
+    @catch( NSException * e )
+    {
+        ( void )e;
+    }
+    
+    return nil;
+}
+
 #pragma mark - NSTableViewDelegate
+
+- ( BOOL )tableView: ( NSTableView * )tableView shouldTypeSelectForEvent: ( NSEvent * )event withCurrentSearchString: ( NSString * )searchString
+{
+    ( void )tableView;
+    
+    if( searchString.length == 0 && [ [ event charactersIgnoringModifiers ] isEqualToString: @" " ] == YES )
+    {
+        if( [ QLPreviewPanel sharedPreviewPanelExists ] && [ [ QLPreviewPanel sharedPreviewPanel ] isVisible ] )
+        {
+            [ [ QLPreviewPanel sharedPreviewPanel ] orderOut: nil ];
+        }
+        else
+        {
+            [ [ QLPreviewPanel sharedPreviewPanel ] center ];
+            [ [ QLPreviewPanel sharedPreviewPanel ] updateController ];
+            [ [ QLPreviewPanel sharedPreviewPanel ] makeKeyAndOrderFront: nil ];
+        }
+        
+        return NO;
+    }
+    
+    return YES;
+}
 
 #pragma mark - NSTableViewDataSource
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		055632301E68BC7300CE1AD7 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0556322E1E68BC7300CE1AD7 /* AboutWindowController.xib */; };
+		055632331E68BC7A00CE1AD7 /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 055632321E68BC7A00CE1AD7 /* AboutWindowController.m */; };
 		05C34B3E1E660EA8000A7026 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B3D1E660EA8000A7026 /* main.m */; };
 		05C34B501E660EEB000A7026 /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */; };
 		05C34B511E660EF1000A7026 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C34B4E1E660EE4000A7026 /* MainMenu.xib */; };
@@ -25,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0556322F1E68BC7300CE1AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AboutWindowController.xib; sourceTree = "<group>"; };
+		055632311E68BC7A00CE1AD7 /* AboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindowController.h; sourceTree = "<group>"; };
+		055632321E68BC7A00CE1AD7 /* AboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindowController.m; sourceTree = "<group>"; };
 		05C34B361E660EA8000A7026 /* Diagnostics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diagnostics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C34B3D1E660EA8000A7026 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05C34B441E660EA8000A7026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,6 +112,8 @@
 		05C34B4A1E660EE4000A7026 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				055632311E68BC7A00CE1AD7 /* AboutWindowController.h */,
+				055632321E68BC7A00CE1AD7 /* AboutWindowController.m */,
 				05C34B4B1E660EE4000A7026 /* ApplicationDelegate.h */,
 				05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */,
 				05C45EDC1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.h */,
@@ -136,6 +143,7 @@
 		05C34B4D1E660EE4000A7026 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				0556322E1E68BC7300CE1AD7 /* AboutWindowController.xib */,
 				05C34B4E1E660EE4000A7026 /* MainMenu.xib */,
 				05C34B571E6612BA000A7026 /* MainWindowController.xib */,
 			);
@@ -201,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05C34B591E6612BA000A7026 /* MainWindowController.xib in Resources */,
+				055632301E68BC7300CE1AD7 /* AboutWindowController.xib in Resources */,
 				05C34B511E660EF1000A7026 /* MainMenu.xib in Resources */,
 				05C45ED81E6750F9003C83B1 /* Defaults.plist in Resources */,
 			);
@@ -223,6 +232,7 @@
 				05C34B3E1E660EA8000A7026 /* main.m in Sources */,
 				05C34B621E6617FE000A7026 /* DiagnosticReportGroup.m in Sources */,
 				05C34B501E660EEB000A7026 /* ApplicationDelegate.m in Sources */,
+				055632331E68BC7A00CE1AD7 /* AboutWindowController.m in Sources */,
 				05C45DF21E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m in Sources */,
 				05C45ED61E674F7A003C83B1 /* Preferences.m in Sources */,
 			);
@@ -231,6 +241,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		0556322E1E68BC7300CE1AD7 /* AboutWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0556322F1E68BC7300CE1AD7 /* Base */,
+			);
+			name = AboutWindowController.xib;
+			sourceTree = "<group>";
+		};
 		05C34B4E1E660EE4000A7026 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -27,38 +27,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="KKh-Xf-p4S">
-                        <rect key="frame" x="-1" y="0.0" width="1001" height="600"/>
-                        <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zSC-ai-vCp">
-                                <rect key="frame" x="373" y="192" width="256" height="256"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="256" id="dqv-oc-mO7"/>
-                                    <constraint firstAttribute="height" constant="256" id="sHM-5e-kai"/>
-                                </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="zqB-4o-XP0"/>
-                            </imageView>
-                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="KYa-KF-pt1">
-                                <rect key="frame" x="485" y="132" width="32" height="32"/>
-                                <connections>
-                                    <binding destination="-2" name="animate" keyPath="loading" id="W3i-4B-zJV"/>
-                                </connections>
-                            </progressIndicator>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="zSC-ai-vCp" firstAttribute="centerX" secondItem="KKh-Xf-p4S" secondAttribute="centerX" id="9fo-5d-Rw4"/>
-                            <constraint firstItem="zSC-ai-vCp" firstAttribute="centerY" secondItem="KKh-Xf-p4S" secondAttribute="centerY" constant="-20" id="Igd-Ad-bP7"/>
-                            <constraint firstItem="KYa-KF-pt1" firstAttribute="top" secondItem="zSC-ai-vCp" secondAttribute="bottom" constant="28" id="fTv-Jm-Ygr"/>
-                            <constraint firstItem="KYa-KF-pt1" firstAttribute="centerX" secondItem="KKh-Xf-p4S" secondAttribute="centerX" id="hKj-QV-2Wh"/>
-                        </constraints>
-                        <connections>
-                            <binding destination="-2" name="hidden" keyPath="loading" id="AsI-vB-BUj">
-                                <dictionary key="options">
-                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                </dictionary>
-                            </binding>
-                        </connections>
-                    </customView>
                     <splitView arrangesAllSubviews="NO" dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JaN-IY-X9Q">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
                         <subviews>
@@ -167,7 +135,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="L53-1f-V5N">
-                                                    <rect key="frame" x="240" y="17" width="15" height="102"/>
+                                                    <rect key="frame" x="242" y="17" width="15" height="102"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
@@ -717,6 +685,60 @@
                             <binding destination="-2" name="hidden" keyPath="loading" id="wQL-VD-2Ls"/>
                         </connections>
                     </splitView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="KKh-Xf-p4S">
+                        <rect key="frame" x="-1" y="0.0" width="1001" height="600"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="pwD-je-BGF">
+                                <rect key="frame" x="273" y="104" width="456" height="392"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zSC-ai-vCp">
+                                        <rect key="frame" x="100" y="116" width="256" height="256"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="256" id="OzE-xc-UEI"/>
+                                            <constraint firstAttribute="width" constant="256" id="kY3-n0-R56"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="zqB-4o-XP0"/>
+                                    </imageView>
+                                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="KYa-KF-pt1">
+                                        <rect key="frame" x="212" y="64" width="32" height="32"/>
+                                        <connections>
+                                            <binding destination="-2" name="animate" keyPath="loading" id="W3i-4B-zJV"/>
+                                        </connections>
+                                    </progressIndicator>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ir7-2k-zA3">
+                                        <rect key="frame" x="95" y="20" width="266" height="24"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Loading Diagnostics Reports..." id="NmQ-aK-fg1">
+                                            <font key="font" metaFont="systemThin" size="20"/>
+                                            <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="zSC-ai-vCp" secondAttribute="trailing" constant="100" id="1bL-md-hWm"/>
+                                    <constraint firstItem="KYa-KF-pt1" firstAttribute="centerX" secondItem="pwD-je-BGF" secondAttribute="centerX" id="5Sc-nm-ne1"/>
+                                    <constraint firstAttribute="bottom" secondItem="ir7-2k-zA3" secondAttribute="bottom" constant="20" id="7Bc-KE-77K"/>
+                                    <constraint firstItem="zSC-ai-vCp" firstAttribute="top" secondItem="pwD-je-BGF" secondAttribute="top" constant="20" id="JLg-xA-gih"/>
+                                    <constraint firstItem="zSC-ai-vCp" firstAttribute="centerX" secondItem="pwD-je-BGF" secondAttribute="centerX" id="JqQ-WA-odc"/>
+                                    <constraint firstItem="ir7-2k-zA3" firstAttribute="centerX" secondItem="pwD-je-BGF" secondAttribute="centerX" id="KKY-tx-J87"/>
+                                    <constraint firstItem="KYa-KF-pt1" firstAttribute="top" secondItem="zSC-ai-vCp" secondAttribute="bottom" constant="20" id="XGX-ED-tvv"/>
+                                    <constraint firstItem="zSC-ai-vCp" firstAttribute="leading" secondItem="pwD-je-BGF" secondAttribute="leading" constant="100" id="pOC-Ld-myU"/>
+                                    <constraint firstItem="ir7-2k-zA3" firstAttribute="top" secondItem="KYa-KF-pt1" secondAttribute="bottom" constant="20" id="qGy-k7-3RK"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="pwD-je-BGF" firstAttribute="centerX" secondItem="KKh-Xf-p4S" secondAttribute="centerX" id="1FR-fm-cyz"/>
+                            <constraint firstItem="pwD-je-BGF" firstAttribute="centerY" secondItem="KKh-Xf-p4S" secondAttribute="centerY" id="94J-4s-nl5"/>
+                        </constraints>
+                        <connections>
+                            <binding destination="-2" name="hidden" keyPath="loading" id="AsI-vB-BUj">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </customView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="JaN-IY-X9Q" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="AUY-j0-DkY"/>

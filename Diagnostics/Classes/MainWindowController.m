@@ -424,6 +424,11 @@ NS_ASSUME_NONNULL_END
 
 - ( BOOL )validateMenuItem: ( NSMenuItem * )item
 {
+    if( item.action == @selector( reload: ) )
+    {
+        return self.loading == NO;
+    }
+    
     if
     (
            item.action == @selector( open: )

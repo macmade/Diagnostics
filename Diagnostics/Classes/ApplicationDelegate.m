@@ -59,4 +59,11 @@ NS_ASSUME_NONNULL_END
     ( void )notification;
 }
 
+- ( BOOL )applicationShouldTerminateAfterLastWindowClosed: ( NSApplication * )sender
+{
+    ( void )sender;
+    
+    return YES;
+}
+
 @end

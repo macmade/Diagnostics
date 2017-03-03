@@ -504,7 +504,7 @@
 		05C34B481E660EA8000A7026 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 326Y53CJMD;
 				INFOPLIST_FILE = Diagnostics/Info.plist;

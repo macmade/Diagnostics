@@ -189,6 +189,7 @@
 				TargetAttributes = {
 					05C34B351E660EA8000A7026 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 326Y53CJMD;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -503,7 +504,9 @@
 		05C34B481E660EA8000A7026 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 326Y53CJMD;
 				INFOPLIST_FILE = Diagnostics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.Diagnostics";
@@ -514,7 +517,9 @@
 		05C34B491E660EA8000A7026 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 326Y53CJMD;
 				INFOPLIST_FILE = Diagnostics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.Diagnostics";

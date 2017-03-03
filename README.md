@@ -16,6 +16,8 @@ About
 
 Diagnostics is an application displaying the diagnostic reports from applications on macOS.
 
+![Main Window](Resources/Screen.png "Main Window")
+
 License
 -------
 

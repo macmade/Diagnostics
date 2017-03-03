@@ -37,7 +37,7 @@ typedef NS_ENUM( NSInteger, DiagnosticReportType )
     DiagnosticReportTypeDiag    = 0x04
 };
 
-@interface DiagnosticReport: NSObject < QLPreviewItem >
+@interface DiagnosticReport: NSObject < QLPreviewItem, NSPasteboardWriting >
 
 @property( atomic, readonly           ) DiagnosticReportType type;
 @property( atomic, readonly           ) NSString           * typeString;

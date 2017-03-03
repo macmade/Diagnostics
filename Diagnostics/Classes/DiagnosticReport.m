@@ -461,4 +461,23 @@ NS_ASSUME_NONNULL_END
     return self.path.lastPathComponent;
 }
 
+#pragma mark - NSPasteboardWriting
+
+- ( NSArray< NSString * > * )writableTypesForPasteboard: ( NSPasteboard * )pasteboard
+{
+    ( void )pasteboard;
+    
+    return @[ ( NSString * )kUTTypeFileURL ];
+}
+
+- ( nullable id )pasteboardPropertyListForType: ( NSString * )type
+{
+    if( [ type isEqualToString: ( NSString * )kUTTypeFileURL ] )
+    {
+        return [ NSURL fileURLWithPath: self.path ].absoluteString;
+    }
+    
+    return nil;
+}
+
 @end

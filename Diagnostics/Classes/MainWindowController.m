@@ -26,13 +26,14 @@
 #import "DiagnosticReportGroup.h"
 #import "DiagnosticReport.h"
 #import "Preferences.h"
+#import "Application.h"
 
 @import QuickLook;
 @import Quartz;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MainWindowController() < NSTableViewDelegate, NSTableViewDataSource, QLPreviewPanelDelegate, QLPreviewPanelDataSource >
+@interface MainWindowController() < NSTableViewDelegate, NSTableViewDataSource, QLPreviewPanelDelegate, QLPreviewPanelDataSource, NSMenuDelegate >
 
 @property( atomic, readwrite, strong )          NSArray< DiagnosticReportGroup * > * groups;
 @property( atomic, readwrite, assign )          BOOL                                 editable;
@@ -45,10 +46,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - ( NSArray< DiagnosticReport * > * )clickedOrSelectedItems;
 
+- ( IBAction )share: ( nullable id )sender;
 - ( IBAction )performFindPanelAction: ( id )sender;
 - ( IBAction )reload: ( nullable id )sender;
 - ( IBAction )open: ( nullable id )sender;
 - ( IBAction )openDocument: ( nullable id )sender;
+- ( IBAction )openWithApp: ( id )sender;
 - ( IBAction )openReports: ( NSArray< DiagnosticReport * > * )reports;
 - ( IBAction )showInFinder: ( nullable id )sender;
 - ( IBAction )saveAs: ( nullable id )sender;
@@ -132,6 +135,19 @@ NS_ASSUME_NONNULL_END
     return reports;
 }
 
+- ( void )share: ( nullable id )sender
+{
+    NSSharingServicePicker * picker;
+    NSView                 * view;
+    
+    ( void )sender;
+    
+    picker = [ [ NSSharingServicePicker alloc ] initWithItems: [ self clickedOrSelectedItems ] ];
+    view   = [ self.reportsTableView viewAtColumn: self.reportsTableView.clickedColumn row: self.reportsTableView.clickedRow makeIfNecessary: NO ];
+    
+    [ picker showRelativeToRect: view.bounds ofView: view preferredEdge: NSRectEdgeMinY ];
+}
+
 - ( IBAction )performFindPanelAction: ( id )sender
 {
     [ self.textView performTextFinderAction: sender ];
@@ -149,6 +165,32 @@ NS_ASSUME_NONNULL_END
     ( void )sender;
     
     [ self openReports: self.reportsController.selectedObjects ];
+}
+
+- ( IBAction )openWithApp: ( id )sender
+{
+    NSMenuItem       * item;
+    Application      * app;
+    DiagnosticReport * report;
+    
+    if( [ sender isKindOfClass: [ NSMenuItem class ] ] == NO )
+    {
+        return;
+    }
+    
+    item = sender;
+    
+    if( [ item.representedObject isKindOfClass: [ Application class ] ]== NO )
+    {
+        return;
+    }
+    
+    app = item.representedObject;
+    
+    for( report in [ self clickedOrSelectedItems ] )
+    {
+        [ app openFile: report.path ];
+    }
 }
 
 - ( IBAction )openReports: ( NSArray< DiagnosticReport * > * )reports
@@ -432,8 +474,10 @@ NS_ASSUME_NONNULL_END
     if
     (
            item.action == @selector( open: )
+        || item.action == @selector( openWithApp: )
         || item.action == @selector( showInFinder: )
         || item.action == @selector( saveAs: )
+        || item.action == @selector( share: )
     )
     {
         return self.reportsTableView.clickedRow >= 0;
@@ -496,6 +540,35 @@ NS_ASSUME_NONNULL_END
     }
     
     return nil;
+}
+
+#pragma mark - NSMenuController
+
+- ( void )menuWillOpen: ( NSMenu * )menu
+{
+    NSMenuItem  * item;
+    Application * console;
+    NSMenuItem  * consoleItem;
+    
+    for( item in menu.itemArray )
+    {
+        if( item.tag == 1 )
+        {
+            item.submenu = [ Application applicationsMenuForFileExtension: @"txt" target: self action: @selector( openWithApp: ) ];
+            console      = [ Application applicationWithPath: @"/Applications/Utilities/Console.app" ];
+            
+            if( console )
+            {
+                consoleItem                   = [ [ NSMenuItem alloc ] initWithTitle: [ NSString stringWithFormat: @"%@ (%@)", console.name, console.version ] action: @selector( openWithApp: ) keyEquivalent: @"" ];
+                consoleItem.image             = console.icon;
+                consoleItem.target            = self;
+                consoleItem.representedObject = console;
+                
+                [ item.submenu insertItem: consoleItem atIndex: 0 ];
+                [ item.submenu insertItem: [ NSMenuItem separatorItem ] atIndex: 1 ];
+            }
+        }
+    }
 }
 
 #pragma mark - NSTableViewDelegate

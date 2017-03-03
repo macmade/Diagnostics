@@ -944,22 +944,31 @@
                         <action selector="open:" target="-1" id="uWL-GF-VR6"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Open With" id="ICi-uh-7GT">
+                <menuItem title="Open With" tag="1" id="ICi-uh-7GT">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
-                <menuItem title="Show in Finder..." id="MXC-IK-fhx">
+                <menuItem title="Share..." tag="2" id="MXC-IK-fhx">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="showInFinder:" target="-1" id="T1g-Os-BN7"/>
+                        <action selector="share:" target="-1" id="qQz-Hd-xAD"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Save As..." id="2J1-LH-qYT">
+                <menuItem title="Show in Finder..." tag="3" id="PGp-hP-Sgq">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showInFinder:" target="-1" id="1pv-zu-MdP"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Save As..." tag="4" id="2J1-LH-qYT">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="saveAs:" target="-1" id="rLF-8B-57Z"/>
                     </connections>
                 </menuItem>
             </items>
+            <connections>
+                <outlet property="delegate" destination="-2" id="AWP-cd-LzR"/>
+            </connections>
             <point key="canvasLocation" x="-349" y="-730"/>
         </menu>
     </objects>

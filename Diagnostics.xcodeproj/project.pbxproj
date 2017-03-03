@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		055632301E68BC7300CE1AD7 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0556322E1E68BC7300CE1AD7 /* AboutWindowController.xib */; };
 		055632331E68BC7A00CE1AD7 /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 055632321E68BC7A00CE1AD7 /* AboutWindowController.m */; };
+		055632491E68C23900CE1AD7 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 055632481E68C23900CE1AD7 /* Application.m */; };
 		05C34B3E1E660EA8000A7026 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B3D1E660EA8000A7026 /* main.m */; };
 		05C34B501E660EEB000A7026 /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */; };
 		05C34B511E660EF1000A7026 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C34B4E1E660EE4000A7026 /* MainMenu.xib */; };
@@ -30,6 +31,8 @@
 		0556322F1E68BC7300CE1AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AboutWindowController.xib; sourceTree = "<group>"; };
 		055632311E68BC7A00CE1AD7 /* AboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindowController.h; sourceTree = "<group>"; };
 		055632321E68BC7A00CE1AD7 /* AboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindowController.m; sourceTree = "<group>"; };
+		055632471E68C23900CE1AD7 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
+		055632481E68C23900CE1AD7 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Application.m; sourceTree = "<group>"; };
 		05C34B361E660EA8000A7026 /* Diagnostics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diagnostics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C34B3D1E660EA8000A7026 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05C34B441E660EA8000A7026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,6 +117,8 @@
 			children = (
 				055632311E68BC7A00CE1AD7 /* AboutWindowController.h */,
 				055632321E68BC7A00CE1AD7 /* AboutWindowController.m */,
+				055632471E68C23900CE1AD7 /* Application.h */,
+				055632481E68C23900CE1AD7 /* Application.m */,
 				05C34B4B1E660EE4000A7026 /* ApplicationDelegate.h */,
 				05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */,
 				05C45EDC1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.h */,
@@ -224,6 +229,7 @@
 			files = (
 				05C34B561E6612A8000A7026 /* MainWindowController.m in Sources */,
 				05C34B5C1E6613BF000A7026 /* DiagnosticReport.m in Sources */,
+				055632491E68C23900CE1AD7 /* Application.m in Sources */,
 				05C45EDE1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m in Sources */,
 				05C45DFB1E66D801003C83B1 /* ArrayCountStringValueTransformer.m in Sources */,
 				05C45EDB1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m in Sources */,

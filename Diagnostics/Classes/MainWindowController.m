@@ -319,7 +319,8 @@ NS_ASSUME_NONNULL_END
                             dispatch_get_main_queue(),
                             ^( void )
                             {
-                                NSAlert * alert;
+                                NSAlert  * alert;
+                                NSButton * check;
                                 
                                 alert                        = [ NSAlert new ];
                                 alert.messageText            = NSLocalizedString( @"File already exists", @"Existing file alert title" );
@@ -329,7 +330,16 @@ NS_ASSUME_NONNULL_END
                                 [ alert addButtonWithTitle: NSLocalizedString( @"Skip",    @"Skip button in existing file alert" ) ];
                                 [ alert addButtonWithTitle: NSLocalizedString( @"Stop",    @"Stop button in existing file alert" ) ];
                                 
-                                alert.accessoryView = [ NSButton checkboxWithTitle: NSLocalizedString( @"Apply to All", @"Checkbox in existing file alert" ) target: nil action: NULL ];
+                                check       = [ [ NSButton alloc ] initWithFrame: NSZeroRect ];
+                                check.title = NSLocalizedString( @"Apply to All", @"Checkbox in existing file alert" );
+                                
+                                check.bezelStyle = NSBezelStyleRegularSquare;
+                                check.buttonType = NSButtonTypeSwitch;
+                                check.bordered   = NO;
+                                
+                                [ check sizeToFit ];
+                                
+                                alert.accessoryView = check;
                                 
                                 r          = [ alert runModal ];
                                 applyToAll = ( ( ( NSButton *)( alert.accessoryView ) ).integerValue ) ? YES : NO;

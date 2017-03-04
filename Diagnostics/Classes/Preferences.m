@@ -123,7 +123,7 @@ NS_ASSUME_NONNULL_END
     }
 }
 
-- ( void )observeValueForKeyPath: ( NSString * )keyPath ofObject: ( id )object change: ( NSDictionary< NSKeyValueChangeKey, id > * )change context: ( void * )context
+- ( void )observeValueForKeyPath: ( NSString * )keyPath ofObject: ( id )object change: ( NSDictionary * )change context: ( void * )context
 {
     if( object == self && [ self.properties containsObject: keyPath ] )
     {

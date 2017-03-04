@@ -30,7 +30,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 + ( instancetype )sharedInstance;
 
-@property( atomic, readwrite, strong, nullable ) NSDate * lastStart;
+@property( atomic, readwrite, strong, nullable ) NSDate   * lastStart;
+@property( atomic, readwrite, strong, nullable ) NSString * fontName;
+@property( atomic, readwrite, assign           ) CGFloat    fontSize;
+@property( atomic, readwrite, assign           ) CGFloat    backgroundColorR;
+@property( atomic, readwrite, assign           ) CGFloat    backgroundColorG;
+@property( atomic, readwrite, assign           ) CGFloat    backgroundColorB;
+@property( atomic, readwrite, assign           ) CGFloat    foregroundColorR;
+@property( atomic, readwrite, assign           ) CGFloat    foregroundColorG;
+@property( atomic, readwrite, assign           ) CGFloat    foregroundColorB;
 
 @end
 

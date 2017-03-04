@@ -1,3 +1,4 @@
 language: objective-c
 xcode_project: Diagnostics.xcodeproj
 xcode_scheme: Diagnostics
+osx_image: xcode8.2

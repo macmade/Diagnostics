@@ -333,8 +333,7 @@ NS_ASSUME_NONNULL_END
                                 check       = [ [ NSButton alloc ] initWithFrame: NSZeroRect ];
                                 check.title = NSLocalizedString( @"Apply to All", @"Checkbox in existing file alert" );
                                 
-                                check.bezelStyle = NSBezelStyleRegularSquare;
-                                check.buttonType = NSButtonTypeSwitch;
+                                check.buttonType = NSSwitchButton;
                                 check.bordered   = NO;
                                 
                                 [ check sizeToFit ];

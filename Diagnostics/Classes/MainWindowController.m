@@ -27,9 +27,8 @@
 #import "DiagnosticReport.h"
 #import "Preferences.h"
 #import "Application.h"
-
-@import QuickLook;
-@import Quartz;
+#import <QuickLook/QuickLook.h>
+#import <Quartz/Quartz.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

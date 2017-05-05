@@ -23,8 +23,7 @@
  ******************************************************************************/
 
 #import "Application.h"
-
-@import ApplicationServices;
+#import <ApplicationServices/ApplicationServices.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

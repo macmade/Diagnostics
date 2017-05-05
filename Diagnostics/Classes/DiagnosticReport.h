@@ -22,9 +22,9 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-@import Cocoa;
-@import QuickLook;
-@import Quartz;
+#import <Cocoa/Cocoa.h>
+#import <QuickLook/QuickLook.h>
+#import <Quartz/Quartz.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

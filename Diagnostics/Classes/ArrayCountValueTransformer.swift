@@ -1,7 +1,7 @@
 /*******************************************************************************
  * The MIT License (MIT)
  * 
- * Copyright (c) 2015 Jean-David Gadina - www.xs-labs.com
+ * Copyright (c) 2017 Jean-David Gadina - www.xs-labs.com
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,36 +22,27 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-#import "ArrayIsNotEmptyValueTransformer.h"
+import Foundation
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface ArrayIsNotEmptyValueTransformer()
-
-@end
-
-NS_ASSUME_NONNULL_END
-
-@implementation ArrayIsNotEmptyValueTransformer
-
-+ ( BOOL )allowsReverseTransformation
+@objc class ArrayCountValueTransformer: ValueTransformer
 {
-    return NO;
-}
-
-+ ( Class )transformedValueClass
-{
-    return [ NSNumber class ];
-}
-
-- ( nullable id )transformedValue: ( id )value
-{
-    if( value == nil || [ value isKindOfClass: [ NSArray class ] ] == NO )
+    @objc public override static func allowsReverseTransformation() -> Bool
     {
-        return @0;
+        return false
     }
     
-    return ( ( ( NSArray * )value ).count > 0 ) ? @1 : @0;
+    @objc public override static func transformedValueClass() -> Swift.AnyClass
+    {
+        return NSNumber.self
+    }
+    
+    @objc public override func transformedValue( _ value: Any? ) -> Any?
+    {
+        guard let array = value as? NSArray else
+        {
+            return NSNumber( integerLiteral: 0 )
+        }
+        
+        return NSNumber( integerLiteral: array.count )
+    }
 }
-
-@end

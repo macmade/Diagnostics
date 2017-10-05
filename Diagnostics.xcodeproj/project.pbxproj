@@ -12,20 +12,20 @@
 		057DA9951E6B1A8500CD8732 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057DA9941E6B1A8500CD8732 /* PreferencesWindowController.m */; };
 		057DA9981E6B1AE500CD8732 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057DA9961E6B1AE500CD8732 /* PreferencesWindowController.xib */; };
 		057F157A1F86926000BD4BF8 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F15791F86926000BD4BF8 /* Application.swift */; };
+		057F157F1F86B6E300BD4BF8 /* ArrayCountIsGreaterThanOneValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F157E1F86B6E300BD4BF8 /* ArrayCountIsGreaterThanOneValueTransformer.swift */; };
+		057F15811F86B99500BD4BF8 /* ArrayCountIsOneValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F15801F86B99500BD4BF8 /* ArrayCountIsOneValueTransformer.swift */; };
+		057F15831F86B9C900BD4BF8 /* ArrayCountStringValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F15821F86B9C900BD4BF8 /* ArrayCountStringValueTransformer.swift */; };
+		057F15851F86BACC00BD4BF8 /* ArrayCountValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F15841F86BACC00BD4BF8 /* ArrayCountValueTransformer.swift */; };
+		057F15871F86BB4500BD4BF8 /* ArrayIsEmptyValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F15861F86BB4500BD4BF8 /* ArrayIsEmptyValueTransformer.swift */; };
+		057F15891F86BB8700BD4BF8 /* ArrayIsNotEmptyValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F15881F86BB8700BD4BF8 /* ArrayIsNotEmptyValueTransformer.swift */; };
 		05C34B3E1E660EA8000A7026 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B3D1E660EA8000A7026 /* main.m */; };
 		05C34B511E660EF1000A7026 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C34B4E1E660EE4000A7026 /* MainMenu.xib */; };
 		05C34B561E6612A8000A7026 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B551E6612A8000A7026 /* MainWindowController.m */; };
 		05C34B591E6612BA000A7026 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C34B571E6612BA000A7026 /* MainWindowController.xib */; };
 		05C34B5C1E6613BF000A7026 /* DiagnosticReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B5B1E6613BF000A7026 /* DiagnosticReport.m */; };
 		05C34B621E6617FE000A7026 /* DiagnosticReportGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B611E6617FE000A7026 /* DiagnosticReportGroup.m */; };
-		05C45DF21E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45DF11E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m */; };
-		05C45DF51E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45DF41E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m */; };
-		05C45DF81E66D600003C83B1 /* ArrayCountValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45DF71E66D600003C83B1 /* ArrayCountValueTransformer.m */; };
-		05C45DFB1E66D801003C83B1 /* ArrayCountStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45DFA1E66D801003C83B1 /* ArrayCountStringValueTransformer.m */; };
 		05C45ED61E674F7A003C83B1 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45ED51E674F7A003C83B1 /* Preferences.m */; };
 		05C45ED81E6750F9003C83B1 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05C45ED71E6750F9003C83B1 /* Defaults.plist */; };
-		05C45EDB1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45EDA1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m */; };
-		05C45EDE1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45EDD1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m */; };
 		05DFC7E51F869087002E9F6A /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */; };
 		05DFC7E71F8690E0002E9F6A /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFC7E61F8690E0002E9F6A /* AboutWindowController.swift */; };
 		05EE15D41EBCE2F4004AED58 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EE15D31EBCE2F4004AED58 /* Cocoa.framework */; };
@@ -40,6 +40,12 @@
 		057DA9941E6B1A8500CD8732 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
 		057DA9971E6B1AE500CD8732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesWindowController.xib; sourceTree = "<group>"; };
 		057F15791F86926000BD4BF8 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		057F157E1F86B6E300BD4BF8 /* ArrayCountIsGreaterThanOneValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayCountIsGreaterThanOneValueTransformer.swift; sourceTree = "<group>"; };
+		057F15801F86B99500BD4BF8 /* ArrayCountIsOneValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayCountIsOneValueTransformer.swift; sourceTree = "<group>"; };
+		057F15821F86B9C900BD4BF8 /* ArrayCountStringValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayCountStringValueTransformer.swift; sourceTree = "<group>"; };
+		057F15841F86BACC00BD4BF8 /* ArrayCountValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayCountValueTransformer.swift; sourceTree = "<group>"; };
+		057F15861F86BB4500BD4BF8 /* ArrayIsEmptyValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayIsEmptyValueTransformer.swift; sourceTree = "<group>"; };
+		057F15881F86BB8700BD4BF8 /* ArrayIsNotEmptyValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayIsNotEmptyValueTransformer.swift; sourceTree = "<group>"; };
 		05C34B361E660EA8000A7026 /* Diagnostics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diagnostics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C34B3D1E660EA8000A7026 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05C34B441E660EA8000A7026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,21 +60,9 @@
 		05C34B5B1E6613BF000A7026 /* DiagnosticReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiagnosticReport.m; sourceTree = "<group>"; };
 		05C34B601E6617FE000A7026 /* DiagnosticReportGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiagnosticReportGroup.h; sourceTree = "<group>"; };
 		05C34B611E6617FE000A7026 /* DiagnosticReportGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiagnosticReportGroup.m; sourceTree = "<group>"; };
-		05C45DF01E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayIsEmptyValueTransformer.h; sourceTree = "<group>"; };
-		05C45DF11E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayIsEmptyValueTransformer.m; sourceTree = "<group>"; };
-		05C45DF31E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayIsNotEmptyValueTransformer.h; sourceTree = "<group>"; };
-		05C45DF41E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayIsNotEmptyValueTransformer.m; sourceTree = "<group>"; };
-		05C45DF61E66D600003C83B1 /* ArrayCountValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayCountValueTransformer.h; sourceTree = "<group>"; };
-		05C45DF71E66D600003C83B1 /* ArrayCountValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayCountValueTransformer.m; sourceTree = "<group>"; };
-		05C45DF91E66D801003C83B1 /* ArrayCountStringValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayCountStringValueTransformer.h; sourceTree = "<group>"; };
-		05C45DFA1E66D801003C83B1 /* ArrayCountStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayCountStringValueTransformer.m; sourceTree = "<group>"; };
 		05C45ED41E674F7A003C83B1 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
 		05C45ED51E674F7A003C83B1 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
 		05C45ED71E6750F9003C83B1 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
-		05C45ED91E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayCountIsOneValueTransformer.h; sourceTree = "<group>"; };
-		05C45EDA1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayCountIsOneValueTransformer.m; sourceTree = "<group>"; };
-		05C45EDC1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayCountIsGreaterThanOneValueTransformer.h; sourceTree = "<group>"; };
-		05C45EDD1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayCountIsGreaterThanOneValueTransformer.m; sourceTree = "<group>"; };
 		05DFC7DD1F868E69002E9F6A /* Diagnostics-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Diagnostics-Bridging-Header.h"; sourceTree = "<group>"; };
 		05DFC7E61F8690E0002E9F6A /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		05EE15D31EBCE2F4004AED58 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -135,18 +129,12 @@
 				057F15791F86926000BD4BF8 /* Application.swift */,
 				05C34B4B1E660EE4000A7026 /* ApplicationDelegate.h */,
 				05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */,
-				05C45EDC1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.h */,
-				05C45EDD1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m */,
-				05C45ED91E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.h */,
-				05C45EDA1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m */,
-				05C45DF91E66D801003C83B1 /* ArrayCountStringValueTransformer.h */,
-				05C45DFA1E66D801003C83B1 /* ArrayCountStringValueTransformer.m */,
-				05C45DF61E66D600003C83B1 /* ArrayCountValueTransformer.h */,
-				05C45DF71E66D600003C83B1 /* ArrayCountValueTransformer.m */,
-				05C45DF01E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.h */,
-				05C45DF11E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m */,
-				05C45DF31E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.h */,
-				05C45DF41E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m */,
+				057F157E1F86B6E300BD4BF8 /* ArrayCountIsGreaterThanOneValueTransformer.swift */,
+				057F15801F86B99500BD4BF8 /* ArrayCountIsOneValueTransformer.swift */,
+				057F15821F86B9C900BD4BF8 /* ArrayCountStringValueTransformer.swift */,
+				057F15841F86BACC00BD4BF8 /* ArrayCountValueTransformer.swift */,
+				057F15861F86BB4500BD4BF8 /* ArrayIsEmptyValueTransformer.swift */,
+				057F15881F86BB8700BD4BF8 /* ArrayIsNotEmptyValueTransformer.swift */,
 				05C34B5A1E6613BF000A7026 /* DiagnosticReport.h */,
 				05C34B5B1E6613BF000A7026 /* DiagnosticReport.m */,
 				05C34B601E6617FE000A7026 /* DiagnosticReportGroup.h */,
@@ -277,20 +265,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				057F15831F86B9C900BD4BF8 /* ArrayCountStringValueTransformer.swift in Sources */,
 				057F157A1F86926000BD4BF8 /* Application.swift in Sources */,
 				05C34B561E6612A8000A7026 /* MainWindowController.m in Sources */,
+				057F15871F86BB4500BD4BF8 /* ArrayIsEmptyValueTransformer.swift in Sources */,
 				05C34B5C1E6613BF000A7026 /* DiagnosticReport.m in Sources */,
-				05C45EDE1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m in Sources */,
-				05C45DFB1E66D801003C83B1 /* ArrayCountStringValueTransformer.m in Sources */,
 				05DFC7E51F869087002E9F6A /* ApplicationDelegate.m in Sources */,
+				057F157F1F86B6E300BD4BF8 /* ArrayCountIsGreaterThanOneValueTransformer.swift in Sources */,
+				057F15851F86BACC00BD4BF8 /* ArrayCountValueTransformer.swift in Sources */,
+				057F15891F86BB8700BD4BF8 /* ArrayIsNotEmptyValueTransformer.swift in Sources */,
 				05DFC7E71F8690E0002E9F6A /* AboutWindowController.swift in Sources */,
-				05C45EDB1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m in Sources */,
-				05C45DF81E66D600003C83B1 /* ArrayCountValueTransformer.m in Sources */,
 				057DA9951E6B1A8500CD8732 /* PreferencesWindowController.m in Sources */,
-				05C45DF51E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m in Sources */,
 				05C34B3E1E660EA8000A7026 /* main.m in Sources */,
 				05C34B621E6617FE000A7026 /* DiagnosticReportGroup.m in Sources */,
-				05C45DF21E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m in Sources */,
+				057F15811F86B99500BD4BF8 /* ArrayCountIsOneValueTransformer.swift in Sources */,
 				05C45ED61E674F7A003C83B1 /* Preferences.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

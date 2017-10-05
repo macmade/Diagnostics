@@ -14,7 +14,6 @@
 		057DA9951E6B1A8500CD8732 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057DA9941E6B1A8500CD8732 /* PreferencesWindowController.m */; };
 		057DA9981E6B1AE500CD8732 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057DA9961E6B1AE500CD8732 /* PreferencesWindowController.xib */; };
 		05C34B3E1E660EA8000A7026 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B3D1E660EA8000A7026 /* main.m */; };
-		05C34B501E660EEB000A7026 /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */; };
 		05C34B511E660EF1000A7026 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C34B4E1E660EE4000A7026 /* MainMenu.xib */; };
 		05C34B561E6612A8000A7026 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B551E6612A8000A7026 /* MainWindowController.m */; };
 		05C34B591E6612BA000A7026 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C34B571E6612BA000A7026 /* MainWindowController.xib */; };
@@ -28,6 +27,7 @@
 		05C45ED81E6750F9003C83B1 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05C45ED71E6750F9003C83B1 /* Defaults.plist */; };
 		05C45EDB1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45EDA1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m */; };
 		05C45EDE1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45EDD1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m */; };
+		05DFC7E01F868F57002E9F6A /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */; };
 		05EE15D41EBCE2F4004AED58 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EE15D31EBCE2F4004AED58 /* Cocoa.framework */; };
 		05EE15D61EBCE308004AED58 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EE15D51EBCE308004AED58 /* QuickLook.framework */; };
 		05EE15D81EBCE312004AED58 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EE15D71EBCE312004AED58 /* Quartz.framework */; };
@@ -72,6 +72,7 @@
 		05C45EDA1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayCountIsOneValueTransformer.m; sourceTree = "<group>"; };
 		05C45EDC1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayCountIsGreaterThanOneValueTransformer.h; sourceTree = "<group>"; };
 		05C45EDD1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayCountIsGreaterThanOneValueTransformer.m; sourceTree = "<group>"; };
+		05DFC7DD1F868E69002E9F6A /* Diagnostics-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Diagnostics-Bridging-Header.h"; sourceTree = "<group>"; };
 		05EE15D31EBCE2F4004AED58 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		05EE15D51EBCE308004AED58 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		05EE15D71EBCE312004AED58 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
@@ -160,6 +161,7 @@
 				05C45ED51E674F7A003C83B1 /* Preferences.m */,
 				057DA9931E6B1A8500CD8732 /* PreferencesWindowController.h */,
 				057DA9941E6B1A8500CD8732 /* PreferencesWindowController.m */,
+				05DFC7DD1F868E69002E9F6A /* Diagnostics-Bridging-Header.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -218,6 +220,7 @@
 					05C34B351E660EA8000A7026 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 326Y53CJMD;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -266,13 +269,13 @@
 				055632491E68C23900CE1AD7 /* Application.m in Sources */,
 				05C45EDE1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m in Sources */,
 				05C45DFB1E66D801003C83B1 /* ArrayCountStringValueTransformer.m in Sources */,
+				05DFC7E01F868F57002E9F6A /* ApplicationDelegate.m in Sources */,
 				05C45EDB1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m in Sources */,
 				05C45DF81E66D600003C83B1 /* ArrayCountValueTransformer.m in Sources */,
 				057DA9951E6B1A8500CD8732 /* PreferencesWindowController.m in Sources */,
 				05C45DF51E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m in Sources */,
 				05C34B3E1E660EA8000A7026 /* main.m in Sources */,
 				05C34B621E6617FE000A7026 /* DiagnosticReportGroup.m in Sources */,
-				05C34B501E660EEB000A7026 /* ApplicationDelegate.m in Sources */,
 				055632331E68BC7A00CE1AD7 /* AboutWindowController.m in Sources */,
 				05C45DF21E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m in Sources */,
 				05C45ED61E674F7A003C83B1 /* Preferences.m in Sources */,
@@ -327,12 +330,14 @@
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_MEMORY_MANAGEMENT = YES;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ANALYZER_OBJC_ATSYNC = YES;
 				CLANG_ANALYZER_OBJC_COLLECTIONS = YES;
 				CLANG_ANALYZER_OBJC_DEALLOC = YES;
 				CLANG_ANALYZER_OBJC_GENERICS = YES;
 				CLANG_ANALYZER_OBJC_INCOMP_METHOD_TYPES = YES;
 				CLANG_ANALYZER_OBJC_NSCFERROR = YES;
+				CLANG_ANALYZER_OBJC_RETAIN_COUNT = YES;
 				CLANG_ANALYZER_OBJC_SELF_INIT = YES;
 				CLANG_ANALYZER_OBJC_UNUSED_IVARS = YES;
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
@@ -349,8 +354,12 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_STATIC_ANALYZER_MODE = deep;
 				CLANG_STATIC_ANALYZER_MODE_ON_ANALYZE_ACTION = deep;
+				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_INTEGER = YES;
+				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_NULLABILITY = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES_ERROR;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES_ERROR;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
@@ -358,17 +367,23 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_FLOAT_CONVERSION = YES_ERROR;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES_ERROR;
 				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES_ERROR;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES_ERROR;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -424,10 +439,16 @@
 				IBC_NOTICES = YES;
 				IBC_WARNINGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
+				SWIFT_DISABLE_SAFETY_CHECKS = NO;
+				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = full;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SUPPRESS_WARNINGS = NO;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -441,12 +462,14 @@
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_MEMORY_MANAGEMENT = YES;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ANALYZER_OBJC_ATSYNC = YES;
 				CLANG_ANALYZER_OBJC_COLLECTIONS = YES;
 				CLANG_ANALYZER_OBJC_DEALLOC = YES;
 				CLANG_ANALYZER_OBJC_GENERICS = YES;
 				CLANG_ANALYZER_OBJC_INCOMP_METHOD_TYPES = YES;
 				CLANG_ANALYZER_OBJC_NSCFERROR = YES;
+				CLANG_ANALYZER_OBJC_RETAIN_COUNT = YES;
 				CLANG_ANALYZER_OBJC_SELF_INIT = YES;
 				CLANG_ANALYZER_OBJC_UNUSED_IVARS = YES;
 				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
@@ -463,8 +486,12 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_STATIC_ANALYZER_MODE = deep;
 				CLANG_STATIC_ANALYZER_MODE_ON_ANALYZE_ACTION = deep;
+				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_INTEGER = YES;
+				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_NULLABILITY = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES_ERROR;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES_ERROR;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
@@ -472,17 +499,23 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_FLOAT_CONVERSION = YES_ERROR;
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES_ERROR;
 				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES_ERROR;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES_ERROR;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -533,9 +566,15 @@
 				IBC_NOTICES = YES;
 				IBC_WARNINGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_ENABLE_DEBUG_INFO = NO;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
+				SWIFT_DISABLE_SAFETY_CHECKS = NO;
+				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = full;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SUPPRESS_WARNINGS = NO;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -543,6 +582,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CC = "$(SRCROOT)/Scripts/ccache.sh";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 326Y53CJMD;
@@ -550,12 +590,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.Diagnostics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Diagnostics/Classes/Diagnostics-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		05C34B491E660EA8000A7026 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 326Y53CJMD;
@@ -563,6 +605,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.Diagnostics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Diagnostics/Classes/Diagnostics-Bridging-Header.h";
 			};
 			name = Release;
 		};

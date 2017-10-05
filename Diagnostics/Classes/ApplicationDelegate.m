@@ -24,7 +24,7 @@
 
 #import "ApplicationDelegate.h"
 #import "MainWindowController.h"
-#import "AboutWindowController.h"
+#import "Diagnostics-Swift.h"
 #import "PreferencesWindowController.h"
 #import "Preferences.h"
 

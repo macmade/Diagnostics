@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		055632301E68BC7300CE1AD7 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0556322E1E68BC7300CE1AD7 /* AboutWindowController.xib */; };
-		055632331E68BC7A00CE1AD7 /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 055632321E68BC7A00CE1AD7 /* AboutWindowController.m */; };
+		055632301E68BC7300CE1AD7 /* Diagnostics.AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0556322E1E68BC7300CE1AD7 /* Diagnostics.AboutWindowController.xib */; };
 		055632491E68C23900CE1AD7 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 055632481E68C23900CE1AD7 /* Application.m */; };
 		0556324B1E69C0C500CE1AD7 /* Diagnostics.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0556324A1E69C0C500CE1AD7 /* Diagnostics.icns */; };
 		057DA9951E6B1A8500CD8732 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057DA9941E6B1A8500CD8732 /* PreferencesWindowController.m */; };
@@ -27,16 +26,15 @@
 		05C45ED81E6750F9003C83B1 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05C45ED71E6750F9003C83B1 /* Defaults.plist */; };
 		05C45EDB1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45EDA1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m */; };
 		05C45EDE1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45EDD1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m */; };
-		05DFC7E01F868F57002E9F6A /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */; };
+		05DFC7E51F869087002E9F6A /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */; };
+		05DFC7E71F8690E0002E9F6A /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFC7E61F8690E0002E9F6A /* AboutWindowController.swift */; };
 		05EE15D41EBCE2F4004AED58 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EE15D31EBCE2F4004AED58 /* Cocoa.framework */; };
 		05EE15D61EBCE308004AED58 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EE15D51EBCE308004AED58 /* QuickLook.framework */; };
 		05EE15D81EBCE312004AED58 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EE15D71EBCE312004AED58 /* Quartz.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0556322F1E68BC7300CE1AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AboutWindowController.xib; sourceTree = "<group>"; };
-		055632311E68BC7A00CE1AD7 /* AboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindowController.h; sourceTree = "<group>"; };
-		055632321E68BC7A00CE1AD7 /* AboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindowController.m; sourceTree = "<group>"; };
+		0556322F1E68BC7300CE1AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Diagnostics.AboutWindowController.xib; sourceTree = "<group>"; };
 		055632471E68C23900CE1AD7 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
 		055632481E68C23900CE1AD7 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Application.m; sourceTree = "<group>"; };
 		0556324A1E69C0C500CE1AD7 /* Diagnostics.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Diagnostics.icns; sourceTree = "<group>"; };
@@ -73,6 +71,7 @@
 		05C45EDC1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayCountIsGreaterThanOneValueTransformer.h; sourceTree = "<group>"; };
 		05C45EDD1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayCountIsGreaterThanOneValueTransformer.m; sourceTree = "<group>"; };
 		05DFC7DD1F868E69002E9F6A /* Diagnostics-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Diagnostics-Bridging-Header.h"; sourceTree = "<group>"; };
+		05DFC7E61F8690E0002E9F6A /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		05EE15D31EBCE2F4004AED58 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		05EE15D51EBCE308004AED58 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		05EE15D71EBCE312004AED58 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
@@ -133,8 +132,7 @@
 		05C34B4A1E660EE4000A7026 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				055632311E68BC7A00CE1AD7 /* AboutWindowController.h */,
-				055632321E68BC7A00CE1AD7 /* AboutWindowController.m */,
+				05DFC7E61F8690E0002E9F6A /* AboutWindowController.swift */,
 				055632471E68C23900CE1AD7 /* Application.h */,
 				055632481E68C23900CE1AD7 /* Application.m */,
 				05C34B4B1E660EE4000A7026 /* ApplicationDelegate.h */,
@@ -170,7 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				0556324A1E69C0C500CE1AD7 /* Diagnostics.icns */,
-				0556322E1E68BC7300CE1AD7 /* AboutWindowController.xib */,
+				0556322E1E68BC7300CE1AD7 /* Diagnostics.AboutWindowController.xib */,
 				05C34B4E1E660EE4000A7026 /* MainMenu.xib */,
 				05C34B571E6612BA000A7026 /* MainWindowController.xib */,
 				057DA9961E6B1AE500CD8732 /* PreferencesWindowController.xib */,
@@ -197,6 +195,7 @@
 			buildPhases = (
 				05C34B321E660EA8000A7026 /* Sources */,
 				05C34B331E660EA8000A7026 /* Frameworks */,
+				057F15761F86915800BD4BF8 /* ShellScript */,
 				05C34B341E660EA8000A7026 /* Resources */,
 			);
 			buildRules = (
@@ -250,7 +249,7 @@
 			files = (
 				057DA9981E6B1AE500CD8732 /* PreferencesWindowController.xib in Resources */,
 				05C34B591E6612BA000A7026 /* MainWindowController.xib in Resources */,
-				055632301E68BC7300CE1AD7 /* AboutWindowController.xib in Resources */,
+				055632301E68BC7300CE1AD7 /* Diagnostics.AboutWindowController.xib in Resources */,
 				05C34B511E660EF1000A7026 /* MainMenu.xib in Resources */,
 				05C45ED81E6750F9003C83B1 /* Defaults.plist in Resources */,
 				0556324B1E69C0C500CE1AD7 /* Diagnostics.icns in Resources */,
@@ -258,6 +257,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		057F15761F86915800BD4BF8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n    plist=\"Diagnostics/Info.plist\"\n    rev=$(git rev-list `git branch | grep -e \"^*\" | cut -d' ' -f 2` | wc -l)\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $rev\" \"$plist\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		05C34B321E660EA8000A7026 /* Sources */ = {
@@ -269,14 +284,14 @@
 				055632491E68C23900CE1AD7 /* Application.m in Sources */,
 				05C45EDE1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m in Sources */,
 				05C45DFB1E66D801003C83B1 /* ArrayCountStringValueTransformer.m in Sources */,
-				05DFC7E01F868F57002E9F6A /* ApplicationDelegate.m in Sources */,
+				05DFC7E51F869087002E9F6A /* ApplicationDelegate.m in Sources */,
+				05DFC7E71F8690E0002E9F6A /* AboutWindowController.swift in Sources */,
 				05C45EDB1E676C8E003C83B1 /* ArrayCountIsOneValueTransformer.m in Sources */,
 				05C45DF81E66D600003C83B1 /* ArrayCountValueTransformer.m in Sources */,
 				057DA9951E6B1A8500CD8732 /* PreferencesWindowController.m in Sources */,
 				05C45DF51E66CF6D003C83B1 /* ArrayIsNotEmptyValueTransformer.m in Sources */,
 				05C34B3E1E660EA8000A7026 /* main.m in Sources */,
 				05C34B621E6617FE000A7026 /* DiagnosticReportGroup.m in Sources */,
-				055632331E68BC7A00CE1AD7 /* AboutWindowController.m in Sources */,
 				05C45DF21E66CF57003C83B1 /* ArrayIsEmptyValueTransformer.m in Sources */,
 				05C45ED61E674F7A003C83B1 /* Preferences.m in Sources */,
 			);
@@ -285,12 +300,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0556322E1E68BC7300CE1AD7 /* AboutWindowController.xib */ = {
+		0556322E1E68BC7300CE1AD7 /* Diagnostics.AboutWindowController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0556322F1E68BC7300CE1AD7 /* Base */,
 			);
-			name = AboutWindowController.xib;
+			name = Diagnostics.AboutWindowController.xib;
 			sourceTree = "<group>";
 		};
 		057DA9961E6B1AE500CD8732 /* PreferencesWindowController.xib */ = {

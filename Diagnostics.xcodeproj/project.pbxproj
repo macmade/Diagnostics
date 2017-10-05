@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		055632301E68BC7300CE1AD7 /* Diagnostics.AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0556322E1E68BC7300CE1AD7 /* Diagnostics.AboutWindowController.xib */; };
-		055632491E68C23900CE1AD7 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 055632481E68C23900CE1AD7 /* Application.m */; };
 		0556324B1E69C0C500CE1AD7 /* Diagnostics.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0556324A1E69C0C500CE1AD7 /* Diagnostics.icns */; };
 		057DA9951E6B1A8500CD8732 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057DA9941E6B1A8500CD8732 /* PreferencesWindowController.m */; };
 		057DA9981E6B1AE500CD8732 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057DA9961E6B1AE500CD8732 /* PreferencesWindowController.xib */; };
+		057F157A1F86926000BD4BF8 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F15791F86926000BD4BF8 /* Application.swift */; };
 		05C34B3E1E660EA8000A7026 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B3D1E660EA8000A7026 /* main.m */; };
 		05C34B511E660EF1000A7026 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C34B4E1E660EE4000A7026 /* MainMenu.xib */; };
 		05C34B561E6612A8000A7026 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B551E6612A8000A7026 /* MainWindowController.m */; };
@@ -35,12 +35,11 @@
 
 /* Begin PBXFileReference section */
 		0556322F1E68BC7300CE1AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Diagnostics.AboutWindowController.xib; sourceTree = "<group>"; };
-		055632471E68C23900CE1AD7 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
-		055632481E68C23900CE1AD7 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Application.m; sourceTree = "<group>"; };
 		0556324A1E69C0C500CE1AD7 /* Diagnostics.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Diagnostics.icns; sourceTree = "<group>"; };
 		057DA9931E6B1A8500CD8732 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
 		057DA9941E6B1A8500CD8732 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
 		057DA9971E6B1AE500CD8732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesWindowController.xib; sourceTree = "<group>"; };
+		057F15791F86926000BD4BF8 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		05C34B361E660EA8000A7026 /* Diagnostics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diagnostics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C34B3D1E660EA8000A7026 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05C34B441E660EA8000A7026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,8 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				05DFC7E61F8690E0002E9F6A /* AboutWindowController.swift */,
-				055632471E68C23900CE1AD7 /* Application.h */,
-				055632481E68C23900CE1AD7 /* Application.m */,
+				057F15791F86926000BD4BF8 /* Application.swift */,
 				05C34B4B1E660EE4000A7026 /* ApplicationDelegate.h */,
 				05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */,
 				05C45EDC1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.h */,
@@ -279,9 +277,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				057F157A1F86926000BD4BF8 /* Application.swift in Sources */,
 				05C34B561E6612A8000A7026 /* MainWindowController.m in Sources */,
 				05C34B5C1E6613BF000A7026 /* DiagnosticReport.m in Sources */,
-				055632491E68C23900CE1AD7 /* Application.m in Sources */,
 				05C45EDE1E676D73003C83B1 /* ArrayCountIsGreaterThanOneValueTransformer.m in Sources */,
 				05C45DFB1E66D801003C83B1 /* ArrayCountStringValueTransformer.m in Sources */,
 				05DFC7E51F869087002E9F6A /* ApplicationDelegate.m in Sources */,

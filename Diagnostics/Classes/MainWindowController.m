@@ -26,7 +26,7 @@
 #import "DiagnosticReportGroup.h"
 #import "DiagnosticReport.h"
 #import "Preferences.h"
-#import "Application.h"
+#import "Diagnostics-Swift.h"
 #import <QuickLook/QuickLook.h>
 #import <Quartz/Quartz.h>
 

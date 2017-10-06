@@ -37,8 +37,6 @@
 		0556324A1E69C0C500CE1AD7 /* Diagnostics.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Diagnostics.icns; sourceTree = "<group>"; };
 		055651291F87D0430068EA35 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		0556512B1F87D6560068EA35 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
-		057DA9931E6B1A8500CD8732 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
-		057DA9941E6B1A8500CD8732 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
 		057DA9971E6B1AE500CD8732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Diagnostics.PreferencesWindowController.xib; sourceTree = "<group>"; };
 		057F15791F86926000BD4BF8 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		057F157E1F86B6E300BD4BF8 /* ArrayCountIsGreaterThanOneValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayCountIsGreaterThanOneValueTransformer.swift; sourceTree = "<group>"; };
@@ -136,8 +134,6 @@
 				05C45ED41E674F7A003C83B1 /* Preferences.h */,
 				05C45ED51E674F7A003C83B1 /* Preferences.m */,
 				0556512B1F87D6560068EA35 /* PreferencesWindowController.swift */,
-				057DA9931E6B1A8500CD8732 /* PreferencesWindowController.h */,
-				057DA9941E6B1A8500CD8732 /* PreferencesWindowController.m */,
 				05DFC7DD1F868E69002E9F6A /* Diagnostics-Bridging-Header.h */,
 			);
 			path = Classes;

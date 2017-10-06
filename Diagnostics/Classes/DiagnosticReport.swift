@@ -444,7 +444,7 @@ import Quartz
         }
     }
     
-    // MARK: QLPreviewItem
+    // MARK: - QLPreviewItem
     
     public var previewItemURL: URL!
     {
@@ -456,7 +456,7 @@ import Quartz
         return ( self.path as NSString ).lastPathComponent
     }
     
-    // MARK: NSPasteboardWriting
+    // MARK: - NSPasteboardWriting
     
     @objc public func writableTypes( for pasteboard: NSPasteboard ) -> [ NSPasteboard.PasteboardType ]
     {

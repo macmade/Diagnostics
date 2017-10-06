@@ -87,11 +87,11 @@ import Cocoa
     
     @objc public func windowWillClose( _ notification: Notification )
     {
-        guard let window = ( notification.object as AnyObject? ) as? NSWindow? else
+        guard let window = ( notification.object as AnyObject? ) as? NSWindow else
         {
             return
         }
         
-        self.mainWindowControllers = self.mainWindowControllers.filter{ $0 != window?.windowController }
+        self.mainWindowControllers = self.mainWindowControllers.filter{ $0 != window.windowController }
     }
 }

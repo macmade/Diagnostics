@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		055632301E68BC7300CE1AD7 /* Diagnostics.AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0556322E1E68BC7300CE1AD7 /* Diagnostics.AboutWindowController.xib */; };
 		0556324B1E69C0C500CE1AD7 /* Diagnostics.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0556324A1E69C0C500CE1AD7 /* Diagnostics.icns */; };
+		0556512A1F87D0430068EA35 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055651291F87D0430068EA35 /* ApplicationDelegate.swift */; };
 		057DA9951E6B1A8500CD8732 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057DA9941E6B1A8500CD8732 /* PreferencesWindowController.m */; };
 		057DA9981E6B1AE500CD8732 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057DA9961E6B1AE500CD8732 /* PreferencesWindowController.xib */; };
 		057F157A1F86926000BD4BF8 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F15791F86926000BD4BF8 /* Application.swift */; };
@@ -19,14 +20,12 @@
 		057F15871F86BB4500BD4BF8 /* ArrayIsEmptyValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F15861F86BB4500BD4BF8 /* ArrayIsEmptyValueTransformer.swift */; };
 		057F15891F86BB8700BD4BF8 /* ArrayIsNotEmptyValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F15881F86BB8700BD4BF8 /* ArrayIsNotEmptyValueTransformer.swift */; };
 		057F158B1F86BD1A00BD4BF8 /* DiagnosticReportGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F158A1F86BD1A00BD4BF8 /* DiagnosticReportGroup.swift */; };
-		05C34B3E1E660EA8000A7026 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B3D1E660EA8000A7026 /* main.m */; };
 		05C34B511E660EF1000A7026 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C34B4E1E660EE4000A7026 /* MainMenu.xib */; };
 		05C34B561E6612A8000A7026 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B551E6612A8000A7026 /* MainWindowController.m */; };
 		05C34B591E6612BA000A7026 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C34B571E6612BA000A7026 /* MainWindowController.xib */; };
 		05C45ED61E674F7A003C83B1 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45ED51E674F7A003C83B1 /* Preferences.m */; };
 		05C45ED81E6750F9003C83B1 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05C45ED71E6750F9003C83B1 /* Defaults.plist */; };
 		05D727641F86D5C200D58AF7 /* DiagnosticReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D727631F86D5C200D58AF7 /* DiagnosticReport.swift */; };
-		05DFC7E51F869087002E9F6A /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */; };
 		05DFC7E71F8690E0002E9F6A /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFC7E61F8690E0002E9F6A /* AboutWindowController.swift */; };
 		05EE15D41EBCE2F4004AED58 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EE15D31EBCE2F4004AED58 /* Cocoa.framework */; };
 		05EE15D61EBCE308004AED58 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EE15D51EBCE308004AED58 /* QuickLook.framework */; };
@@ -36,6 +35,7 @@
 /* Begin PBXFileReference section */
 		0556322F1E68BC7300CE1AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Diagnostics.AboutWindowController.xib; sourceTree = "<group>"; };
 		0556324A1E69C0C500CE1AD7 /* Diagnostics.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Diagnostics.icns; sourceTree = "<group>"; };
+		055651291F87D0430068EA35 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		057DA9931E6B1A8500CD8732 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
 		057DA9941E6B1A8500CD8732 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
 		057DA9971E6B1AE500CD8732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesWindowController.xib; sourceTree = "<group>"; };
@@ -48,10 +48,7 @@
 		057F15881F86BB8700BD4BF8 /* ArrayIsNotEmptyValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayIsNotEmptyValueTransformer.swift; sourceTree = "<group>"; };
 		057F158A1F86BD1A00BD4BF8 /* DiagnosticReportGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticReportGroup.swift; sourceTree = "<group>"; };
 		05C34B361E660EA8000A7026 /* Diagnostics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diagnostics.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		05C34B3D1E660EA8000A7026 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05C34B441E660EA8000A7026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05C34B4B1E660EE4000A7026 /* ApplicationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationDelegate.h; sourceTree = "<group>"; };
-		05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationDelegate.m; sourceTree = "<group>"; };
 		05C34B4F1E660EE4000A7026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		05C34B531E661166000A7026 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05C34B541E6612A8000A7026 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
@@ -114,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				05C34B441E660EA8000A7026 /* Info.plist */,
-				05C34B3D1E660EA8000A7026 /* main.m */,
 				05C45ED71E6750F9003C83B1 /* Defaults.plist */,
 			);
 			name = "Supporting Files";
@@ -125,8 +121,7 @@
 			children = (
 				05DFC7E61F8690E0002E9F6A /* AboutWindowController.swift */,
 				057F15791F86926000BD4BF8 /* Application.swift */,
-				05C34B4B1E660EE4000A7026 /* ApplicationDelegate.h */,
-				05C34B4C1E660EE4000A7026 /* ApplicationDelegate.m */,
+				055651291F87D0430068EA35 /* ApplicationDelegate.swift */,
 				057F157E1F86B6E300BD4BF8 /* ArrayCountIsGreaterThanOneValueTransformer.swift */,
 				057F15801F86B99500BD4BF8 /* ArrayCountIsOneValueTransformer.swift */,
 				057F15821F86B9C900BD4BF8 /* ArrayCountStringValueTransformer.swift */,
@@ -264,16 +259,15 @@
 				057F15831F86B9C900BD4BF8 /* ArrayCountStringValueTransformer.swift in Sources */,
 				057F157A1F86926000BD4BF8 /* Application.swift in Sources */,
 				05D727641F86D5C200D58AF7 /* DiagnosticReport.swift in Sources */,
+				0556512A1F87D0430068EA35 /* ApplicationDelegate.swift in Sources */,
 				05C34B561E6612A8000A7026 /* MainWindowController.m in Sources */,
 				057F15871F86BB4500BD4BF8 /* ArrayIsEmptyValueTransformer.swift in Sources */,
 				057F158B1F86BD1A00BD4BF8 /* DiagnosticReportGroup.swift in Sources */,
-				05DFC7E51F869087002E9F6A /* ApplicationDelegate.m in Sources */,
 				057F157F1F86B6E300BD4BF8 /* ArrayCountIsGreaterThanOneValueTransformer.swift in Sources */,
 				057F15851F86BACC00BD4BF8 /* ArrayCountValueTransformer.swift in Sources */,
 				057F15891F86BB8700BD4BF8 /* ArrayIsNotEmptyValueTransformer.swift in Sources */,
 				05DFC7E71F8690E0002E9F6A /* AboutWindowController.swift in Sources */,
 				057DA9951E6B1A8500CD8732 /* PreferencesWindowController.m in Sources */,
-				05C34B3E1E660EA8000A7026 /* main.m in Sources */,
 				057F15811F86B99500BD4BF8 /* ArrayCountIsOneValueTransformer.swift in Sources */,
 				05C45ED61E674F7A003C83B1 /* Preferences.m in Sources */,
 			);

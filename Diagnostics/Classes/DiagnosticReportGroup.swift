@@ -1,7 +1,7 @@
 /*******************************************************************************
  * The MIT License (MIT)
  * 
- * Copyright (c) 2015 Jean-David Gadina - www.xs-labs.com
+ * Copyright (c) 2017 Jean-David Gadina - www.xs-labs.com
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,22 +22,37 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-#import <Cocoa/Cocoa.h>
+import Cocoa
 
-@class DiagnosticReport;
-
-NS_ASSUME_NONNULL_BEGIN
-
-@interface DiagnosticReportGroup: NSObject
-
-@property( atomic, readonly           ) NSString                      * name;
-@property( atomic, readonly           ) NSArray< DiagnosticReport * > * reports;
-@property( atomic, readonly, nullable ) NSImage                       * icon;
-@property( atomic, readonly, nullable ) NSString                      * index;
-
-- ( instancetype )initWithName: ( NSString * )name NS_DESIGNATED_INITIALIZER;
-- ( void )addReport: ( DiagnosticReport * )report;
-
-@end
-
-NS_ASSUME_NONNULL_END
+@objc class DiagnosticReportGroup: NSObject
+{
+    @objc public private( set ) dynamic var name:    String
+    @objc public private( set ) dynamic var reports: [ DiagnosticReport ] = []
+    @objc public private( set ) dynamic var icon:    NSImage?
+    @objc public private( set ) dynamic var index:   String?
+    
+    @objc init( name: String )
+    {
+        self.name = name
+    }
+    
+    @objc public override var description: String
+    {
+        return String( format: "%@ %@ (%@ reports)", super.description, self.name, String( self.reports.count ) )
+    }
+    
+    @objc public func addReport( _ report: DiagnosticReport ) -> Void
+    {
+        if( self.icon == nil )
+        {
+            self.icon = report.icon
+        }
+        
+        self.reports.append( report )
+        
+        let text   = ( self.index ?? "" ) + report.contents
+        let words  = text.split( separator: " " )
+        let unique = Set( words )
+        self.index = unique.joined( separator: " " )
+    }
+}

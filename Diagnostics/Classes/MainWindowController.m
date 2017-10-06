@@ -23,8 +23,6 @@
  ******************************************************************************/
 
 #import "MainWindowController.h"
-#import "DiagnosticReportGroup.h"
-#import "DiagnosticReport.h"
 #import "Preferences.h"
 #import "Diagnostics-Swift.h"
 #import <QuickLook/QuickLook.h>

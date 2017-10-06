@@ -125,12 +125,12 @@ import Cocoa
         return Application( url: url )
     }
     
-    convenience init?( path: String )
+    @objc convenience init?( path: String )
     {
         self.init( url: URL.init( fileURLWithPath: path ) )
     }
     
-    init?( url: URL )
+    @objc init?( url: URL )
     {
         var isDir: ObjCBool = false;
         

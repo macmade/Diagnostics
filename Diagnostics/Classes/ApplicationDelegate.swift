@@ -35,7 +35,7 @@ import Cocoa
         NotificationCenter.default.addObserver( self, selector: #selector( windowWillClose ), name: NSWindow.willCloseNotification, object: nil )
         self.newDocument( nil )
         
-        Preferences.sharedInstance().lastStart = Date()
+        Preferences.shared.lastStart = Date()
     }
     
     @objc public func applicationWillTerminate( _ notification: Notification )
@@ -76,7 +76,7 @@ import Cocoa
     {
         let controller = MainWindowController()
         
-        if( Preferences.sharedInstance().lastStart == nil )
+        if( Preferences.shared.lastStart == nil )
         {
             controller.window?.center()
         }

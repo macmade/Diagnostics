@@ -935,7 +935,7 @@
                 <binding destination="zmL-8U-v1s" name="contentArray" keyPath="selectedObjects.@unionOfArrays.reports" id="kWd-7D-Fcb"/>
             </connections>
         </arrayController>
-        <customObject id="d8I-wc-NyP" customClass="Preferences"/>
+        <customObject id="d8I-wc-NyP" customClass="Preferences" customModule="Diagnostics" customModuleProvider="target"/>
         <menu id="ssm-Gf-XxE">
             <items>
                 <menuItem title="Open..." id="511-gm-646">

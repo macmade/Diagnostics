@@ -37,11 +37,6 @@ import Cocoa
     private var observation4: NSKeyValueObservation?
     private var observation5: NSKeyValueObservation?
     
-    @objc private dynamic var preferences: Preferences
-    {
-        return Preferences.sharedInstance()
-    }
-    
     override var windowNibName: NSNib.Name?
     {
         return NSNib.Name( NSStringFromClass( type( of: self ) ) )
@@ -51,23 +46,23 @@ import Cocoa
     {
         super.windowDidLoad()
         
-        self.fontDescription = String( format: "%@ %.0f", Preferences.sharedInstance().fontName ?? "-", Preferences.sharedInstance().fontSize )
-        self.backgroundColor = NSColor( deviceRed: Preferences.sharedInstance().backgroundColorR, green: Preferences.sharedInstance().backgroundColorG, blue: Preferences.sharedInstance().backgroundColorB, alpha: 1.0 )
-        self.foregroundColor = NSColor( deviceRed: Preferences.sharedInstance().foregroundColorR, green: Preferences.sharedInstance().foregroundColorG, blue: Preferences.sharedInstance().foregroundColorB, alpha: 1.0 )
+        self.fontDescription = String( format: "%@ %.0f", Preferences.shared.fontName ?? "-", Preferences.shared.fontSize )
+        self.backgroundColor = NSColor( deviceRed: Preferences.shared.backgroundColorR, green: Preferences.shared.backgroundColorG, blue: Preferences.shared.backgroundColorB, alpha: 1.0 )
+        self.foregroundColor = NSColor( deviceRed: Preferences.shared.foregroundColorR, green: Preferences.shared.foregroundColorG, blue: Preferences.shared.foregroundColorB, alpha: 1.0 )
         
-        self.observation1 = self.observe( \.preferences.fontName )
+        self.observation1 = Preferences.shared.observe( \.fontName )
         {
-            object, change in self.fontDescription = String( format: "%@ %.0f", Preferences.sharedInstance().fontName ?? "-", Preferences.sharedInstance().fontSize )
+            ( o, c ) in self.fontDescription = String( format: "%@ %.0f", o.fontName ?? "-", o.fontSize )
         }
         
-        self.observation2 = self.observe( \.preferences.fontSize )
+        self.observation1 = Preferences.shared.observe( \.fontSize )
         {
-            object, change in self.fontDescription = String( format: "%@ %.0f", Preferences.sharedInstance().fontName ?? "-", Preferences.sharedInstance().fontSize )
+            ( o, c ) in self.fontDescription = String( format: "%@ %.0f", o.fontName ?? "-", o.fontSize )
         }
         
         self.observation3 = self.observe( \.backgroundColor )
         {
-            object, change in
+            ( o, c ) in
             
             var r: CGFloat = 0.0
             var g: CGFloat = 0.0
@@ -75,14 +70,14 @@ import Cocoa
             
             self.backgroundColor.usingColorSpace( .deviceRGB )?.getRed( &r, green: &g, blue: &b, alpha: nil )
             
-            Preferences.sharedInstance().backgroundColorR = r
-            Preferences.sharedInstance().backgroundColorG = g
-            Preferences.sharedInstance().backgroundColorB = b
+            Preferences.shared.backgroundColorR = r
+            Preferences.shared.backgroundColorG = g
+            Preferences.shared.backgroundColorB = b
         }
         
         self.observation4 = self.observe( \.foregroundColor )
         {
-            object, change in
+            ( o, c ) in
             
             var r: CGFloat = 0.0
             var g: CGFloat = 0.0
@@ -90,14 +85,14 @@ import Cocoa
             
             self.foregroundColor.usingColorSpace( .deviceRGB )?.getRed( &r, green: &g, blue: &b, alpha: nil )
             
-            Preferences.sharedInstance().foregroundColorR = r
-            Preferences.sharedInstance().foregroundColorG = g
-            Preferences.sharedInstance().foregroundColorB = b
+            Preferences.shared.foregroundColorR = r
+            Preferences.shared.foregroundColorG = g
+            Preferences.shared.foregroundColorB = b
         }
         
         self.observation5 = self.observe( \.selectedTheme )
         {
-            object, change in
+            ( o, c ) in
             
             switch( self.selectedTheme )
             {
@@ -147,7 +142,7 @@ import Cocoa
     
     @IBAction func chooseFont( _ sender: Any? )
     {
-        let font    = NSFont( name: Preferences.sharedInstance().fontName ?? "", size: Preferences.sharedInstance().fontSize )
+        let font    = NSFont( name: Preferences.shared.fontName as String? ?? "", size: Preferences.shared.fontSize )
         let manager = NSFontManager.shared
         let panel   = manager.fontPanel( true )
         
@@ -173,8 +168,8 @@ import Cocoa
         
         let font = manager.convert( selected )
         
-        Preferences.sharedInstance().fontName = font.fontName
-        Preferences.sharedInstance().fontSize = font.pointSize
+        Preferences.shared.fontName = font.fontName
+        Preferences.shared.fontSize = font.pointSize
     }
 }
 

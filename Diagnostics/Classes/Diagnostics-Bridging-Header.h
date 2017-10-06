@@ -22,5 +22,4 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-#import "Preferences.h"
 #import "MainWindowController.h"

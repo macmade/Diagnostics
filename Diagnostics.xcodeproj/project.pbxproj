@@ -11,6 +11,7 @@
 		0556324B1E69C0C500CE1AD7 /* Diagnostics.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0556324A1E69C0C500CE1AD7 /* Diagnostics.icns */; };
 		0556512A1F87D0430068EA35 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055651291F87D0430068EA35 /* ApplicationDelegate.swift */; };
 		0556512C1F87D6560068EA35 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556512B1F87D6560068EA35 /* PreferencesWindowController.swift */; };
+		0556512E1F87E4EF0068EA35 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556512D1F87E4EE0068EA35 /* Preferences.swift */; };
 		057DA9981E6B1AE500CD8732 /* Diagnostics.PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057DA9961E6B1AE500CD8732 /* Diagnostics.PreferencesWindowController.xib */; };
 		057F157A1F86926000BD4BF8 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F15791F86926000BD4BF8 /* Application.swift */; };
 		057F157F1F86B6E300BD4BF8 /* ArrayCountIsGreaterThanOneValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F157E1F86B6E300BD4BF8 /* ArrayCountIsGreaterThanOneValueTransformer.swift */; };
@@ -23,7 +24,6 @@
 		05C34B511E660EF1000A7026 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C34B4E1E660EE4000A7026 /* MainMenu.xib */; };
 		05C34B561E6612A8000A7026 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C34B551E6612A8000A7026 /* MainWindowController.m */; };
 		05C34B591E6612BA000A7026 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C34B571E6612BA000A7026 /* MainWindowController.xib */; };
-		05C45ED61E674F7A003C83B1 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C45ED51E674F7A003C83B1 /* Preferences.m */; };
 		05C45ED81E6750F9003C83B1 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05C45ED71E6750F9003C83B1 /* Defaults.plist */; };
 		05D727641F86D5C200D58AF7 /* DiagnosticReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D727631F86D5C200D58AF7 /* DiagnosticReport.swift */; };
 		05DFC7E71F8690E0002E9F6A /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFC7E61F8690E0002E9F6A /* AboutWindowController.swift */; };
@@ -37,6 +37,7 @@
 		0556324A1E69C0C500CE1AD7 /* Diagnostics.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Diagnostics.icns; sourceTree = "<group>"; };
 		055651291F87D0430068EA35 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		0556512B1F87D6560068EA35 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
+		0556512D1F87E4EE0068EA35 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		057DA9971E6B1AE500CD8732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Diagnostics.PreferencesWindowController.xib; sourceTree = "<group>"; };
 		057F15791F86926000BD4BF8 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		057F157E1F86B6E300BD4BF8 /* ArrayCountIsGreaterThanOneValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayCountIsGreaterThanOneValueTransformer.swift; sourceTree = "<group>"; };
@@ -53,8 +54,6 @@
 		05C34B541E6612A8000A7026 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		05C34B551E6612A8000A7026 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		05C34B581E6612BA000A7026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainWindowController.xib; sourceTree = "<group>"; };
-		05C45ED41E674F7A003C83B1 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
-		05C45ED51E674F7A003C83B1 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
 		05C45ED71E6750F9003C83B1 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		05D727631F86D5C200D58AF7 /* DiagnosticReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticReport.swift; sourceTree = "<group>"; };
 		05DFC7DD1F868E69002E9F6A /* Diagnostics-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Diagnostics-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -131,8 +130,7 @@
 				057F158A1F86BD1A00BD4BF8 /* DiagnosticReportGroup.swift */,
 				05C34B541E6612A8000A7026 /* MainWindowController.h */,
 				05C34B551E6612A8000A7026 /* MainWindowController.m */,
-				05C45ED41E674F7A003C83B1 /* Preferences.h */,
-				05C45ED51E674F7A003C83B1 /* Preferences.m */,
+				0556512D1F87E4EE0068EA35 /* Preferences.swift */,
 				0556512B1F87D6560068EA35 /* PreferencesWindowController.swift */,
 				05DFC7DD1F868E69002E9F6A /* Diagnostics-Bridging-Header.h */,
 			);
@@ -262,12 +260,12 @@
 				05C34B561E6612A8000A7026 /* MainWindowController.m in Sources */,
 				057F15871F86BB4500BD4BF8 /* ArrayIsEmptyValueTransformer.swift in Sources */,
 				057F158B1F86BD1A00BD4BF8 /* DiagnosticReportGroup.swift in Sources */,
+				0556512E1F87E4EF0068EA35 /* Preferences.swift in Sources */,
 				057F157F1F86B6E300BD4BF8 /* ArrayCountIsGreaterThanOneValueTransformer.swift in Sources */,
 				057F15851F86BACC00BD4BF8 /* ArrayCountValueTransformer.swift in Sources */,
 				057F15891F86BB8700BD4BF8 /* ArrayIsNotEmptyValueTransformer.swift in Sources */,
 				05DFC7E71F8690E0002E9F6A /* AboutWindowController.swift in Sources */,
 				057F15811F86B99500BD4BF8 /* ArrayCountIsOneValueTransformer.swift in Sources */,
-				05C45ED61E674F7A003C83B1 /* Preferences.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

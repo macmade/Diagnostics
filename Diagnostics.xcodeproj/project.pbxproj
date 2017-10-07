@@ -14,6 +14,8 @@
 		0556512E1F87E4EF0068EA35 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556512D1F87E4EE0068EA35 /* Preferences.swift */; };
 		055651301F87F8310068EA35 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556512F1F87F8310068EA35 /* MainWindowController.swift */; };
 		055F18761F88F3D600EBDEE1 /* NSArrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055F18751F88F3D600EBDEE1 /* NSArrayController.swift */; };
+		055F18801F89066300EBDEE1 /* GitHubUpdates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055F187D1F89065900EBDEE1 /* GitHubUpdates.framework */; };
+		055F18841F89067200EBDEE1 /* GitHubUpdates.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 055F187D1F89065900EBDEE1 /* GitHubUpdates.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		057DA9981E6B1AE500CD8732 /* Diagnostics.PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057DA9961E6B1AE500CD8732 /* Diagnostics.PreferencesWindowController.xib */; };
 		057F157A1F86926000BD4BF8 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F15791F86926000BD4BF8 /* Application.swift */; };
 		057F157F1F86B6E300BD4BF8 /* ArrayCountIsGreaterThanOneValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F157E1F86B6E300BD4BF8 /* ArrayCountIsGreaterThanOneValueTransformer.swift */; };
@@ -33,6 +35,43 @@
 		05EE15D81EBCE312004AED58 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EE15D71EBCE312004AED58 /* Quartz.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		055F187C1F89065900EBDEE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 055F18771F89065800EBDEE1 /* GitHubUpdates.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05F82B251EF32EA700EC8A93;
+			remoteInfo = GitHubUpdates;
+		};
+		055F187E1F89065900EBDEE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 055F18771F89065800EBDEE1 /* GitHubUpdates.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0555EBA01EF3DDA10016167F;
+			remoteInfo = Relauncher;
+		};
+		055F18811F89066600EBDEE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 055F18771F89065800EBDEE1 /* GitHubUpdates.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 05F82B241EF32EA700EC8A93;
+			remoteInfo = GitHubUpdates;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		055F18831F89066D00EBDEE1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				055F18841F89067200EBDEE1 /* GitHubUpdates.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0556322F1E68BC7300CE1AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Diagnostics.AboutWindowController.xib; sourceTree = "<group>"; };
 		0556324A1E69C0C500CE1AD7 /* Diagnostics.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Diagnostics.icns; sourceTree = "<group>"; };
@@ -41,6 +80,7 @@
 		0556512D1F87E4EE0068EA35 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		0556512F1F87F8310068EA35 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		055F18751F88F3D600EBDEE1 /* NSArrayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSArrayController.swift; sourceTree = "<group>"; };
+		055F18771F89065800EBDEE1 /* GitHubUpdates.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GitHubUpdates.xcodeproj; path = Submodules/GitHubUpdates/GitHubUpdates.xcodeproj; sourceTree = "<group>"; };
 		057DA9971E6B1AE500CD8732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Diagnostics.PreferencesWindowController.xib; sourceTree = "<group>"; };
 		057F15791F86926000BD4BF8 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		057F157E1F86B6E300BD4BF8 /* ArrayCountIsGreaterThanOneValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayCountIsGreaterThanOneValueTransformer.swift; sourceTree = "<group>"; };
@@ -68,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				055F18801F89066300EBDEE1 /* GitHubUpdates.framework in Frameworks */,
 				05EE15D81EBCE312004AED58 /* Quartz.framework in Frameworks */,
 				05EE15D61EBCE308004AED58 /* QuickLook.framework in Frameworks */,
 				05EE15D41EBCE2F4004AED58 /* Cocoa.framework in Frameworks */,
@@ -77,9 +118,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		055F18781F89065800EBDEE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				055F187D1F89065900EBDEE1 /* GitHubUpdates.framework */,
+				055F187F1F89065900EBDEE1 /* Relauncher */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		05C34B2D1E660EA8000A7026 = {
 			isa = PBXGroup;
 			children = (
+				055F18771F89065800EBDEE1 /* GitHubUpdates.xcodeproj */,
 				05C34B531E661166000A7026 /* README.md */,
 				05C34B381E660EA8000A7026 /* Diagnostics */,
 				05C34B371E660EA8000A7026 /* Products */,
@@ -169,10 +220,12 @@
 				05C34B331E660EA8000A7026 /* Frameworks */,
 				057F15761F86915800BD4BF8 /* ShellScript */,
 				05C34B341E660EA8000A7026 /* Resources */,
+				055F18831F89066D00EBDEE1 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				055F18821F89066600EBDEE1 /* PBXTargetDependency */,
 			);
 			name = Diagnostics;
 			productName = CrashReports;
@@ -207,12 +260,35 @@
 			mainGroup = 05C34B2D1E660EA8000A7026;
 			productRefGroup = 05C34B371E660EA8000A7026 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 055F18781F89065800EBDEE1 /* Products */;
+					ProjectRef = 055F18771F89065800EBDEE1 /* GitHubUpdates.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				05C34B351E660EA8000A7026 /* Diagnostics */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		055F187D1F89065900EBDEE1 /* GitHubUpdates.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GitHubUpdates.framework;
+			remoteRef = 055F187C1F89065900EBDEE1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		055F187F1F89065900EBDEE1 /* Relauncher */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = Relauncher;
+			remoteRef = 055F187E1F89065900EBDEE1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		05C34B341E660EA8000A7026 /* Resources */ = {
@@ -270,6 +346,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		055F18821F89066600EBDEE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GitHubUpdates;
+			targetProxy = 055F18811F89066600EBDEE1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0556322E1E68BC7300CE1AD7 /* Diagnostics.AboutWindowController.xib */ = {

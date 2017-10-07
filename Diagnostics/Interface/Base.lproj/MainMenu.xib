@@ -32,6 +32,13 @@
                                     <action selector="showPreferencesWindow:" target="Voe-Tx-rLC" id="l2N-Tz-43C"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="VmE-ie-W6n"/>
+                            <menuItem title="Check for Updates..." id="Gdn-Dg-iZn">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="checkForUpdates:" target="MiV-vy-iY3" id="IBW-uM-R5n"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                             <menuItem title="Services" id="NMo-om-nkz">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -673,5 +680,11 @@
                 </menuItem>
             </items>
         </menu>
+        <customObject id="MiV-vy-iY3" customClass="GitHubUpdater">
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="user" value="macmade"/>
+                <userDefinedRuntimeAttribute type="string" keyPath="repository" value="Diagnostics"/>
+            </userDefinedRuntimeAttributes>
+        </customObject>
     </objects>
 </document>

@@ -186,32 +186,32 @@ import Quartz
             return nil
         }
         
-        if( self.version?.count == 0 )
+        if( ( self.version ?? "" ).count == 0 )
         {
             self.version = "--"
         }
         
-        if( self.osVersion?.count == 0 )
+        if( ( self.osVersion ?? "" ).count == 0 )
         {
             self.osVersion = "--"
         }
         
-        if( self.codeType?.count == 0 )
+        if( ( self.codeType ?? "" ).count == 0 )
         {
             self.codeType = "--"
         }
         
-        if( self.exceptionType?.count == 0 )
+        if( ( self.exceptionType ?? "" ).count == 0 )
         {
             self.exceptionType = "--"
         }
         
-        if( self.pidString?.count == 0 )
+        if( ( self.pidString ?? "" ).count == 0 )
         {
             self.pidString = "--"
         }
         
-        if( self.uidString?.count == 0 )
+        if( ( self.uidString ?? "" ).count == 0 )
         {
             self.uidString = "--"
         }

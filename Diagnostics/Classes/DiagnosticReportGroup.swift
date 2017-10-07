@@ -29,7 +29,7 @@ import Cocoa
     @objc public private( set ) dynamic var name:    String
     @objc public private( set ) dynamic var reports: [ DiagnosticReport ] = []
     @objc public private( set ) dynamic var icon:    NSImage?
-    @objc public private( set ) dynamic var index:   String?
+    @objc public private( set ) dynamic var index:   NSString?
     
     @objc init( name: String )
     {
@@ -50,9 +50,13 @@ import Cocoa
         
         self.reports.append( report )
         
-        let text   = ( self.index ?? "" ) + report.contents
+        let text   = ( self.index as String? ?? "" ) + report.contents
         let words  = text.split( separator: " " )
         let unique = Set( words )
-        self.index = unique.joined( separator: " " )
+        
+        DispatchQueue.main.async
+        {
+            self.index = unique.joined( separator: " " ) as NSString
+        }
     }
 }

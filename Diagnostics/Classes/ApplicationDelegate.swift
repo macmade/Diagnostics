@@ -92,6 +92,11 @@ import Cocoa
             return
         }
         
+        if( window == self.preferencesWindowController?.window )
+        {
+            self.preferencesWindowController = nil
+        }
+        
         self.mainWindowControllers = self.mainWindowControllers.filter{ $0 != window.windowController }
     }
 }

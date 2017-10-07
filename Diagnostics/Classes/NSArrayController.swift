@@ -1,7 +1,7 @@
 /*******************************************************************************
  * The MIT License (MIT)
  * 
- * Copyright (c) 2015 Jean-David Gadina - www.xs-labs.com
+ * Copyright (c) 2017 Jean-David Gadina - www.xs-labs.com
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,12 +22,42 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-#import <Cocoa/Cocoa.h>
+import Cocoa
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface MainWindowController: NSWindowController
-
-@end
-
-NS_ASSUME_NONNULL_END
+extension NSArrayController
+{
+    public func arrangedObjectsArray< Type >() -> [ Type ]
+    {
+        guard let array = self.arrangedObjects as? NSArray else
+        {
+            return []
+        }
+        
+        var objects = [ Type ]()
+        
+        for object in array
+        {
+            if( object is Type )
+            {
+                objects.append( object as! Type )
+            }
+        }
+        
+        return objects
+    }
+    
+    public func selectedObjectsArray< Type >() -> [ Type ]
+    {
+        var objects = [ Type ]()
+        
+        for object in self.selectedObjects
+        {
+            if( object is Type )
+            {
+                objects.append( object as! Type )
+            }
+        }
+        
+        return objects
+    }
+}

@@ -26,16 +26,11 @@ import Cocoa
 
 @objc class PreferencesWindowController: NSWindowController
 {
-    @objc private dynamic var fontDescription: String  = ""
-    @objc private dynamic var backgroundColor: NSColor = NSColor.white
-    @objc private dynamic var foregroundColor: NSColor = NSColor.black
-    @objc private dynamic var selectedTheme:   Int     = 0
-    
-    private var observation1: NSKeyValueObservation?
-    private var observation2: NSKeyValueObservation?
-    private var observation3: NSKeyValueObservation?
-    private var observation4: NSKeyValueObservation?
-    private var observation5: NSKeyValueObservation?
+    @objc private dynamic var fontDescription: String                    = ""
+    @objc private dynamic var backgroundColor: NSColor                   = NSColor.white
+    @objc private dynamic var foregroundColor: NSColor                   = NSColor.black
+    @objc private dynamic var selectedTheme:   Int                       = 0
+    @objc private dynamic var observations:    [ NSKeyValueObservation ] = []
     
     override var windowNibName: NSNib.Name?
     {
@@ -50,17 +45,17 @@ import Cocoa
         self.backgroundColor = NSColor( deviceRed: Preferences.shared.backgroundColorR, green: Preferences.shared.backgroundColorG, blue: Preferences.shared.backgroundColorB, alpha: 1.0 )
         self.foregroundColor = NSColor( deviceRed: Preferences.shared.foregroundColorR, green: Preferences.shared.foregroundColorG, blue: Preferences.shared.foregroundColorB, alpha: 1.0 )
         
-        self.observation1 = Preferences.shared.observe( \.fontName )
+        let o1 = Preferences.shared.observe( \.fontName )
         {
             ( o, c ) in self.fontDescription = String( format: "%@ %.0f", o.fontName ?? "-", o.fontSize )
         }
         
-        self.observation1 = Preferences.shared.observe( \.fontSize )
+        let o2 = Preferences.shared.observe( \.fontSize )
         {
             ( o, c ) in self.fontDescription = String( format: "%@ %.0f", o.fontName ?? "-", o.fontSize )
         }
         
-        self.observation3 = self.observe( \.backgroundColor )
+        let o3 = self.observe( \.backgroundColor )
         {
             ( o, c ) in
             
@@ -75,7 +70,7 @@ import Cocoa
             Preferences.shared.backgroundColorB = b
         }
         
-        self.observation4 = self.observe( \.foregroundColor )
+        let o4 = self.observe( \.foregroundColor )
         {
             ( o, c ) in
             
@@ -90,7 +85,7 @@ import Cocoa
             Preferences.shared.foregroundColorB = b
         }
         
-        self.observation5 = self.observe( \.selectedTheme )
+        let o5 = self.observe( \.selectedTheme )
         {
             ( o, c ) in
             
@@ -129,6 +124,8 @@ import Cocoa
                     break;
             }
         }
+        
+        self.observations.append( contentsOf: [ o1, o2, o3, o4, o5 ] )
     }
     
     private func hexColor( _ hex: UInt, alpha: CGFloat ) -> NSColor

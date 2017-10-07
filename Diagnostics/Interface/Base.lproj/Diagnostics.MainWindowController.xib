@@ -7,7 +7,7 @@
         <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController">
+        <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="Diagnostics" customModuleProvider="target">
             <connections>
                 <outlet property="groupController" destination="zmL-8U-v1s" id="BfY-Og-HDu"/>
                 <outlet property="reportsController" destination="oyC-n7-yxo" id="wU5-os-AR8"/>
@@ -734,7 +734,7 @@
                                                                         </tableColumn>
                                                                     </tableColumns>
                                                                     <connections>
-                                                                        <action trigger="doubleAction" selector="open:" target="-2" id="vO3-tQ-ihv"/>
+                                                                        <action trigger="doubleAction" selector="open:" target="-2" id="0Ru-Kt-EpI"/>
                                                                         <binding destination="oyC-n7-yxo" name="content" keyPath="arrangedObjects" id="j0h-dg-eUo"/>
                                                                         <binding destination="oyC-n7-yxo" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="j0h-dg-eUo" id="fyT-mr-H4T"/>
                                                                         <binding destination="oyC-n7-yxo" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="fyT-mr-H4T" id="w3M-Ej-Brb"/>

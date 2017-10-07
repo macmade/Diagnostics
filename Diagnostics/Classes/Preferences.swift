@@ -26,8 +26,6 @@ import Cocoa
 
 @objc public class Preferences: NSObject
 {
-    @objc public static let shared = Preferences()
-    
     @objc public dynamic var lastStart:        Date?
     @objc public dynamic var fontName:         String?
     @objc public dynamic var fontSize:         CGFloat = 0
@@ -37,6 +35,8 @@ import Cocoa
     @objc public dynamic var foregroundColorR: CGFloat = 0
     @objc public dynamic var foregroundColorG: CGFloat = 0
     @objc public dynamic var foregroundColorB: CGFloat = 0
+    
+    @objc public static let shared = Preferences()
     
     override init()
     {

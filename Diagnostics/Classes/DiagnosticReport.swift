@@ -305,7 +305,7 @@ import Quartz
                     return false
                 }
                 
-                self.process = version
+                self.version = version
             }
             else if( line.hasPrefix( "OS Version:" ) )
             {

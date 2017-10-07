@@ -77,6 +77,11 @@ import Quartz
     
     @objc public static func availableReports() -> [ DiagnosticReport ]
     {
+        return availableReports( nil )
+    }
+    
+    @objc @discardableResult public static func availableReports( _ newReport: ( ( DiagnosticReport ) -> Void )? ) -> [ DiagnosticReport ]
+    {
         var reports = [ DiagnosticReport ]()
         var user    = NSSearchPathForDirectoriesInDomains( .libraryDirectory, .userDomainMask,  true ).first
         var local   = NSSearchPathForDirectoriesInDomains( .libraryDirectory, .localDomainMask, true ).first
@@ -86,7 +91,7 @@ import Quartz
             user = ( user! as NSString ).appendingPathComponent( "Logs" )
             user = ( user! as NSString ).appendingPathComponent( "DiagnosticReports" )
         
-            reports.append( contentsOf: DiagnosticReport.availableReportsInDirectory( user! ) )
+            reports.append( contentsOf: DiagnosticReport.availableReports( in: user!, newReport: newReport ) )
         }
         
         if( user != nil )
@@ -94,13 +99,13 @@ import Quartz
             local = ( local! as NSString ).appendingPathComponent( "Logs" )
             local = ( local! as NSString ).appendingPathComponent( "DiagnosticReports" )
         
-            reports.append( contentsOf: DiagnosticReport.availableReportsInDirectory( local! ) )
+            reports.append( contentsOf: DiagnosticReport.availableReports( in: local!, newReport: newReport ) )
         }
         
         return reports;
     }
     
-    @objc public static func availableReportsInDirectory( _ directory: String ) -> [ DiagnosticReport ]
+    @objc public static func availableReports( in directory: String, newReport: ( ( DiagnosticReport ) -> Void )? ) -> [ DiagnosticReport ]
     {
         var isDir: ObjCBool = false
         
@@ -128,6 +133,7 @@ import Quartz
             }
             
             reports.append( report )
+            newReport?( report )
         }
         
         return reports

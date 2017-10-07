@@ -29,6 +29,7 @@ import Quartz
 {
     @objc private dynamic var groups:       [ DiagnosticReportGroup ] = []
     @objc private dynamic var editable:     Bool                      = false
+    @objc private dynamic var initializing: Bool                      = false
     @objc private dynamic var loading:      Bool                      = false
     @objc private dynamic var copying:      Bool                      = false
     @objc private dynamic var observations: [ NSKeyValueObservation ] = []
@@ -362,36 +363,40 @@ import Quartz
             return
         }
         
-        self.loading = true
+        self.initializing = true
+        self.loading      = true
         
         self.groupController?.remove( contentsOf: self.groups )
         
-        DispatchQueue.global( qos: .userInitiated ).async
+        DispatchQueue.global( qos: .userInitiated ).asyncAfter( deadline: DispatchTime.now() + .seconds( 1 ) )
         {
-            var groups: [ String : DiagnosticReportGroup ] = [ : ]
-            
-            for report in DiagnosticReport.availableReports()
+            DiagnosticReport.availableReports
             {
-                var group = groups[ report.process ]
+                ( report ) in
+                
+                var group = self.groups.first{ $0.reports.first?.process == report.process }
+                var add   = false
                 
                 if( group == nil )
                 {
-                    group                    = DiagnosticReportGroup( name: report.process )
-                    groups[ report.process ] = group
+                    group = DiagnosticReportGroup( name: report.process )
+                    add   = true
                 }
                 
-                group?.addReport( report )
+                DispatchQueue.main.sync
+                {
+                    group?.addReport( report )
+                    
+                    if( add )
+                    {
+                        self.groupController?.addObject( group! )
+                    }
+                    
+                    self.initializing = false
+                }
             }
             
-            DispatchQueue.main.sync
-            {
-                for pair in groups
-                {
-                    self.groupController?.addObject( pair.value )
-                }
-                
-                self.loading = false
-            }
+            DispatchQueue.main.sync{ self.loading = false }
         }
     }
     

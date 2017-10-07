@@ -89,7 +89,7 @@
                                     <string key="NSValueTransformerName">Diagnostics.ArrayIsNotEmptyValueTransformer</string>
                                 </dictionary>
                             </binding>
-                            <binding destination="-2" name="hidden3" keyPath="copying" previousBinding="SLL-DB-aQH" id="NL0-2y-mxP">
+                            <binding destination="-2" name="hidden2" keyPath="initializing" previousBinding="oY4-vG-j20" id="b1d-AF-Cqq">
                                 <dictionary key="options">
                                     <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                     <integer key="NSNoSelectionPlaceholder" value="-1"/>
@@ -97,7 +97,7 @@
                                     <integer key="NSNullPlaceholder" value="-1"/>
                                 </dictionary>
                             </binding>
-                            <binding destination="-2" name="hidden2" keyPath="loading" previousBinding="oY4-vG-j20" id="SLL-DB-aQH">
+                            <binding destination="-2" name="hidden3" keyPath="copying" previousBinding="b1d-AF-Cqq" id="2ac-Qm-r8e">
                                 <dictionary key="options">
                                     <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                     <integer key="NSNoSelectionPlaceholder" value="-1"/>
@@ -154,7 +154,7 @@
                             <constraint firstItem="pwD-je-BGF" firstAttribute="centerY" secondItem="KKh-Xf-p4S" secondAttribute="centerY" id="94J-4s-nl5"/>
                         </constraints>
                         <connections>
-                            <binding destination="-2" name="hidden2" keyPath="copying" previousBinding="AsI-vB-BUj" id="Yc1-a4-2tz">
+                            <binding destination="-2" name="hidden2" keyPath="copying" previousBinding="Ic9-MZ-ODi" id="Cfn-lT-ZXo">
                                 <dictionary key="options">
                                     <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                     <integer key="NSNoSelectionPlaceholder" value="-1"/>
@@ -162,7 +162,7 @@
                                     <integer key="NSNullPlaceholder" value="-1"/>
                                 </dictionary>
                             </binding>
-                            <binding destination="-2" name="hidden" keyPath="loading" id="AsI-vB-BUj">
+                            <binding destination="-2" name="hidden" keyPath="initializing" id="Ic9-MZ-ODi">
                                 <dictionary key="options">
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>
@@ -401,9 +401,34 @@
                                                 </constraints>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="Ulb-J0-m7S"/>
                                             </imageView>
+                                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="nMD-p4-HW0">
+                                                <rect key="frame" x="348" y="120" width="32" height="32"/>
+                                                <connections>
+                                                    <binding destination="-2" name="animate" keyPath="loading" id="jGc-ta-LpM"/>
+                                                </connections>
+                                            </progressIndicator>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xTc-Ot-rVD">
+                                                <rect key="frame" x="226" y="76" width="275" height="24"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Looking for Diagnostic Reports..." id="sgU-Le-JBC">
+                                                    <font key="font" metaFont="systemThin" size="20"/>
+                                                    <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <connections>
+                                                    <binding destination="-2" name="hidden" keyPath="loading" id="e8T-fv-iyl">
+                                                        <dictionary key="options">
+                                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                        </dictionary>
+                                                    </binding>
+                                                </connections>
+                                            </textField>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="xTc-Ot-rVD" firstAttribute="centerX" secondItem="nMD-p4-HW0" secondAttribute="centerX" id="8Gy-eq-NIh"/>
+                                            <constraint firstItem="nMD-p4-HW0" firstAttribute="top" secondItem="rMB-2V-v3l" secondAttribute="bottom" constant="20" id="NXy-FS-rPA"/>
                                             <constraint firstItem="rMB-2V-v3l" firstAttribute="centerX" secondItem="2e0-ik-yia" secondAttribute="centerX" id="SQ5-1w-pru"/>
+                                            <constraint firstItem="nMD-p4-HW0" firstAttribute="centerX" secondItem="rMB-2V-v3l" secondAttribute="centerX" id="kPE-ru-6bf"/>
+                                            <constraint firstItem="xTc-Ot-rVD" firstAttribute="top" secondItem="nMD-p4-HW0" secondAttribute="bottom" constant="20" id="r5m-s2-YSG"/>
                                             <constraint firstItem="rMB-2V-v3l" firstAttribute="centerY" secondItem="2e0-ik-yia" secondAttribute="centerY" id="s6Y-Hw-rOk"/>
                                         </constraints>
                                         <connections>
@@ -883,7 +908,7 @@
                             <real value="250"/>
                         </holdingPriorities>
                         <connections>
-                            <binding destination="zmL-8U-v1s" name="hidden2" keyPath="arrangedObjects" previousBinding="wQL-VD-2Ls" id="Agh-gQ-q11">
+                            <binding destination="zmL-8U-v1s" name="hidden2" keyPath="arrangedObjects" previousBinding="tSu-df-3My" id="9HD-4i-GBC">
                                 <dictionary key="options">
                                     <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                     <integer key="NSNoSelectionPlaceholder" value="-1"/>
@@ -892,7 +917,7 @@
                                     <string key="NSValueTransformerName">Diagnostics.ArrayIsEmptyValueTransformer</string>
                                 </dictionary>
                             </binding>
-                            <binding destination="-2" name="hidden3" keyPath="copying" previousBinding="Agh-gQ-q11" id="Kry-OL-v9C">
+                            <binding destination="-2" name="hidden3" keyPath="copying" previousBinding="9HD-4i-GBC" id="QSs-2e-w0R">
                                 <dictionary key="options">
                                     <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                     <integer key="NSNoSelectionPlaceholder" value="-1"/>
@@ -900,7 +925,7 @@
                                     <integer key="NSNullPlaceholder" value="-1"/>
                                 </dictionary>
                             </binding>
-                            <binding destination="-2" name="hidden" keyPath="loading" id="wQL-VD-2Ls"/>
+                            <binding destination="-2" name="hidden" keyPath="initializing" id="tSu-df-3My"/>
                         </connections>
                     </splitView>
                 </subviews>

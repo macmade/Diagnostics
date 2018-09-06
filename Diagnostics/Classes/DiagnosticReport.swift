@@ -222,6 +222,11 @@ import Quartz
             self.uidString = "--"
         }
         
+        if( self.process.count == 0 )
+        {
+            self.process = "<Unknown>"
+        }
+        
         if( self.processPath?.count != 0 && self.processPath?.hasPrefix( "/" ) == true )
         {
             if( self.processPath?.contains( ".app/Contents/MacOS" ) == true )

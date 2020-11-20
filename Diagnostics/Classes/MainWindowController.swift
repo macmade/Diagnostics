@@ -48,8 +48,6 @@ import Quartz
     {
         super.windowDidLoad()
         
-        self.window?.titlebarAppearsTransparent = true
-        self.window?.titleVisibility            = .hidden
         self.groupController?.sortDescriptors   = [ NSSortDescriptor( key: "name", ascending: true ) ]
         self.reportsController?.sortDescriptors = [ NSSortDescriptor( key: "date", ascending: false ) ]
         self.textView?.textContainerInset       = NSMakeSize( 10.0, 15.0 )

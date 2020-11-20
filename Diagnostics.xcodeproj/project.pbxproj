@@ -393,7 +393,7 @@
 		05C34B2E1E660EA8000A7026 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "XS-Labs";
 				TargetAttributes = {
 					05C34B351E660EA8000A7026 = {
@@ -406,7 +406,7 @@
 			};
 			buildConfigurationList = 05C34B311E660EA8000A7026 /* Build configuration list for PBXProject "Diagnostics" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
